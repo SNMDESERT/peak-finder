@@ -167,18 +167,16 @@ export function Footer() {
               &copy; {new Date().getFullYear()} AzMountain. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <span
-                className="hover:text-primary cursor-pointer transition-colors"
-                data-testid="link-privacy-policy"
-              >
-                Privacy Policy
-              </span>
-              <span
-                className="hover:text-primary cursor-pointer transition-colors"
-                data-testid="link-terms-of-service"
-              >
-                Terms of Service
-              </span>
+              <Link href="/privacy" data-testid="link-privacy-policy">
+                <span className="hover:text-primary cursor-pointer transition-colors">
+                  Privacy Policy
+                </span>
+              </Link>
+              <Link href="/terms" data-testid="link-terms-of-service">
+                <span className="hover:text-primary cursor-pointer transition-colors">
+                  Terms of Service
+                </span>
+              </Link>
             </div>
           </div>
         </div>

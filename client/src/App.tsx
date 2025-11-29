@@ -17,6 +17,8 @@ import Reviews from "@/pages/Reviews";
 import About from "@/pages/About";
 import Dashboard from "@/pages/Dashboard";
 import InvitePage from "@/pages/InvitePage";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -36,6 +38,8 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/invite/:code" component={InvitePage} />
+      <Route path="/privacy" component={PrivacyPolicy} />
+      <Route path="/terms" component={TermsOfService} />
       <Route component={NotFound} />
     </Switch>
   );

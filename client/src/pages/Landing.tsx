@@ -66,10 +66,10 @@ const activities = [
 ];
 
 const stats = [
-  { value: "500+", label: "Adventures Completed" },
-  { value: "2,500+", label: "Active Climbers" },
-  { value: "6", label: "Unique Regions" },
-  { value: "50+", label: "Achievement Badges" },
+  { value: "Early Access", label: "Live Now" },
+  { value: "6", label: "Regions Available" },
+  { value: "50+", label: "Badges Ready" },
+  { value: "Be the First", label: "Explorers Joining" },
 ];
 
 export default function Landing() {
@@ -169,7 +169,11 @@ export default function Landing() {
       <section className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <Badge className="mb-4" variant="secondary" data-testid="badge-activities">
+            <Badge
+              className="mb-4"
+              variant="secondary"
+              data-testid="badge-activities"
+            >
               Mountain Activities
             </Badge>
             <h2
@@ -220,7 +224,11 @@ export default function Landing() {
       <section className="py-20 lg:py-28 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <Badge className="mb-4" variant="secondary" data-testid="badge-achievements-section">
+            <Badge
+              className="mb-4"
+              variant="secondary"
+              data-testid="badge-achievements-section"
+            >
               Achievement System
             </Badge>
             <h2
@@ -303,7 +311,11 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge className="mb-4" variant="secondary" data-testid="badge-levels">
+              <Badge
+                className="mb-4"
+                variant="secondary"
+                data-testid="badge-levels"
+              >
                 Climbing Levels
               </Badge>
               <h2
@@ -325,7 +337,11 @@ export default function Landing() {
               <div className="space-y-4">
                 {[
                   { level: 1, name: "Novice Explorer", points: "0 - 500 pts" },
-                  { level: 5, name: "Trail Master", points: "2,000 - 5,000 pts" },
+                  {
+                    level: 5,
+                    name: "Trail Master",
+                    points: "2,000 - 5,000 pts",
+                  },
                   { level: 10, name: "Summit Champion", points: "10,000+ pts" },
                 ].map((tier, index) => (
                   <div
@@ -334,7 +350,9 @@ export default function Landing() {
                     data-testid={`tier-card-${tier.level}`}
                   >
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="font-bold text-primary">Lvl {tier.level}</span>
+                      <span className="font-bold text-primary">
+                        Lvl {tier.level}
+                      </span>
                     </div>
                     <div>
                       <div
@@ -384,8 +402,12 @@ export default function Landing() {
                     <Award className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">This month</div>
-                    <div className="font-bold text-lg">+2,450 points earned</div>
+                    <div className="text-sm text-muted-foreground">
+                      This month
+                    </div>
+                    <div className="font-bold text-lg">
+                      +2,450 points earned
+                    </div>
                   </div>
                 </div>
               </div>
