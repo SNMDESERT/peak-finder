@@ -131,6 +131,17 @@ export const tripInvitations = pgTable("trip_invitations", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// Trip photos uploaded by users
+export const tripPhotos = pgTable("trip_photos", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  tripId: varchar("trip_id").references(() => trips.id).notNull(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  reviewId: varchar("review_id").references(() => reviews.id),
+  imageUrl: varchar("image_url").notNull(),
+  caption: text("caption"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 // Relations
 export const usersRelations = relations(users, ({ many }) => ({
   userAchievements: many(userAchievements),
@@ -204,6 +215,21 @@ export const tripInvitationsRelations = relations(tripInvitations, ({ one }) => 
   }),
 }));
 
+export const tripPhotosRelations = relations(tripPhotos, ({ one }) => ({
+  trip: one(trips, {
+    fields: [tripPhotos.tripId],
+    references: [trips.id],
+  }),
+  user: one(users, {
+    fields: [tripPhotos.userId],
+    references: [users.id],
+  }),
+  review: one(reviews, {
+    fields: [tripPhotos.reviewId],
+    references: [reviews.id],
+  }),
+}));
+
 // Zod schemas for validation
 export const insertUserSchema = createInsertSchema(users).omit({ id: true, createdAt: true, updatedAt: true });
 export const insertRegionSchema = createInsertSchema(regions).omit({ id: true });
@@ -213,6 +239,7 @@ export const insertUserAchievementSchema = createInsertSchema(userAchievements).
 export const insertUserTripSchema = createInsertSchema(userTrips).omit({ id: true, createdAt: true });
 export const insertReviewSchema = createInsertSchema(reviews).omit({ id: true, createdAt: true, helpful: true });
 export const insertTripInvitationSchema = createInsertSchema(tripInvitations).omit({ id: true, createdAt: true });
+export const insertTripPhotoSchema = createInsertSchema(tripPhotos).omit({ id: true, createdAt: true });
 
 // Types
 export type UpsertUser = typeof users.$inferInsert;
@@ -239,3 +266,6 @@ export type InsertReview = z.infer<typeof insertReviewSchema>;
 
 export type TripInvitation = typeof tripInvitations.$inferSelect;
 export type InsertTripInvitation = z.infer<typeof insertTripInvitationSchema>;
+
+export type TripPhoto = typeof tripPhotos.$inferSelect;
+export type InsertTripPhoto = z.infer<typeof insertTripPhotoSchema>;

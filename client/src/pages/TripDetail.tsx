@@ -9,6 +9,7 @@ import { BookingModal } from "@/components/BookingModal";
 import { ShareButton } from "@/components/ShareButton";
 import { InviteModal } from "@/components/InviteModal";
 import { WeatherCard } from "@/components/WeatherCard";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import { useAuth } from "@/hooks/useAuth";
 import type { Trip, Region } from "@shared/schema";
 import {
@@ -289,6 +290,8 @@ export default function TripDetail() {
               location={trip.location}
               elevation={trip.elevation}
             />
+
+            {params?.id && <PhotoGallery tripId={params.id} />}
           </div>
 
           <div className="space-y-6">

@@ -7,6 +7,7 @@ import {
   userTrips,
   reviews,
   tripInvitations,
+  tripPhotos,
   type User,
   type UpsertUser,
   type Region,
@@ -23,6 +24,8 @@ import {
   type InsertReview,
   type TripInvitation,
   type InsertTripInvitation,
+  type TripPhoto,
+  type InsertTripPhoto,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and } from "drizzle-orm";
@@ -68,6 +71,11 @@ export interface IStorage {
   getTripInvitation(inviteCode: string): Promise<(TripInvitation & { trip?: Trip; inviter?: Partial<User> }) | undefined>;
   acceptInvitation(inviteCode: string): Promise<TripInvitation | undefined>;
   getUserInvitations(userId: string): Promise<TripInvitation[]>;
+
+  // Trip photos
+  getTripPhotos(tripId: string): Promise<(TripPhoto & { user?: Partial<User> })[]>;
+  createTripPhoto(photo: InsertTripPhoto): Promise<TripPhoto>;
+  deleteTripPhoto(id: string, userId: string): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -301,6 +309,41 @@ export class DatabaseStorage implements IStorage {
       .from(tripInvitations)
       .where(eq(tripInvitations.inviterId, userId))
       .orderBy(desc(tripInvitations.createdAt));
+  }
+
+  // Trip photos
+  async getTripPhotos(tripId: string): Promise<(TripPhoto & { user?: Partial<User> })[]> {
+    const result = await db
+      .select()
+      .from(tripPhotos)
+      .leftJoin(users, eq(tripPhotos.userId, users.id))
+      .where(eq(tripPhotos.tripId, tripId))
+      .orderBy(desc(tripPhotos.createdAt));
+
+    return result.map((row) => ({
+      ...row.trip_photos,
+      user: row.users
+        ? {
+            id: row.users.id,
+            firstName: row.users.firstName,
+            lastName: row.users.lastName,
+            profileImageUrl: row.users.profileImageUrl,
+          }
+        : undefined,
+    }));
+  }
+
+  async createTripPhoto(photo: InsertTripPhoto): Promise<TripPhoto> {
+    const [created] = await db.insert(tripPhotos).values(photo).returning();
+    return created;
+  }
+
+  async deleteTripPhoto(id: string, userId: string): Promise<boolean> {
+    const result = await db
+      .delete(tripPhotos)
+      .where(and(eq(tripPhotos.id, id), eq(tripPhotos.userId, userId)))
+      .returning();
+    return result.length > 0;
   }
 }
 

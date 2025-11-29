@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
-import { insertReviewSchema, insertUserTripSchema, insertTripInvitationSchema } from "@shared/schema";
+import { insertReviewSchema, insertUserTripSchema, insertTripInvitationSchema, insertTripPhotoSchema } from "@shared/schema";
 import { z } from "zod";
 import crypto from "crypto";
 
@@ -270,6 +270,59 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error fetching user invitations:", error);
       res.status(500).json({ message: "Failed to fetch invitations" });
+    }
+  });
+
+  // Trip photo routes
+  app.get("/api/trips/:id/photos", async (req, res) => {
+    try {
+      const photos = await storage.getTripPhotos(req.params.id);
+      res.json(photos);
+    } catch (error) {
+      console.error("Error fetching trip photos:", error);
+      res.status(500).json({ message: "Failed to fetch photos" });
+    }
+  });
+
+  app.post("/api/trips/:id/photos", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const tripId = req.params.id;
+
+      const trip = await storage.getTrip(tripId);
+      if (!trip) {
+        return res.status(404).json({ message: "Trip not found" });
+      }
+
+      const photoData = {
+        ...req.body,
+        tripId,
+        userId,
+      };
+
+      const data = insertTripPhotoSchema.parse(photoData);
+      const photo = await storage.createTripPhoto(data);
+      res.status(201).json(photo);
+    } catch (error) {
+      console.error("Error creating photo:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid data", errors: error.errors });
+      }
+      res.status(500).json({ message: "Failed to upload photo" });
+    }
+  });
+
+  app.delete("/api/photos/:id", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const deleted = await storage.deleteTripPhoto(req.params.id, userId);
+      if (!deleted) {
+        return res.status(404).json({ message: "Photo not found or not authorized" });
+      }
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Error deleting photo:", error);
+      res.status(500).json({ message: "Failed to delete photo" });
     }
   });
 
