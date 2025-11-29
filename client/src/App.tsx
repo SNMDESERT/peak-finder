@@ -16,6 +16,7 @@ import Achievements from "@/pages/Achievements";
 import Reviews from "@/pages/Reviews";
 import About from "@/pages/About";
 import Dashboard from "@/pages/Dashboard";
+import InvitePage from "@/pages/InvitePage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -34,6 +35,7 @@ function Router() {
       <Route path="/reviews" component={Reviews} />
       <Route path="/about" component={About} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/invite/:code" component={InvitePage} />
       <Route component={NotFound} />
     </Switch>
   );

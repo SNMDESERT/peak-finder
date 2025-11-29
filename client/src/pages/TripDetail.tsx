@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { BookingModal } from "@/components/BookingModal";
+import { ShareButton } from "@/components/ShareButton";
+import { InviteModal } from "@/components/InviteModal";
 import { useAuth } from "@/hooks/useAuth";
 import type { Trip, Region } from "@shared/schema";
 import {
@@ -346,6 +348,18 @@ export default function TripDetail() {
                       </a>
                     </Button>
                   )}
+
+                  <div className="flex items-center gap-2">
+                    <ShareButton
+                      title={trip.title}
+                      description={trip.description || undefined}
+                      url={`${window.location.origin}/trips/${trip.id}`}
+                      type="trip"
+                    />
+                    {isAuthenticated && (
+                      <InviteModal trip={trip} />
+                    )}
+                  </div>
 
                   <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                     <Award className="h-4 w-4" />

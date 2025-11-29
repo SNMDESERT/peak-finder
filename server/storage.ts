@@ -6,6 +6,7 @@ import {
   userAchievements,
   userTrips,
   reviews,
+  tripInvitations,
   type User,
   type UpsertUser,
   type Region,
@@ -20,6 +21,8 @@ import {
   type InsertUserTrip,
   type Review,
   type InsertReview,
+  type TripInvitation,
+  type InsertTripInvitation,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and } from "drizzle-orm";
@@ -59,6 +62,12 @@ export interface IStorage {
   getReviews(): Promise<(Review & { user?: Partial<User>; trip?: Partial<Trip> })[]>;
   createReview(review: InsertReview): Promise<Review>;
   incrementHelpful(id: string): Promise<void>;
+
+  // Trip invitations
+  createTripInvitation(invitation: InsertTripInvitation): Promise<TripInvitation>;
+  getTripInvitation(inviteCode: string): Promise<(TripInvitation & { trip?: Trip; inviter?: Partial<User> }) | undefined>;
+  acceptInvitation(inviteCode: string): Promise<TripInvitation | undefined>;
+  getUserInvitations(userId: string): Promise<TripInvitation[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -244,6 +253,54 @@ export class DatabaseStorage implements IStorage {
         .set({ helpful: (review.helpful || 0) + 1 })
         .where(eq(reviews.id, id));
     }
+  }
+
+  // Trip invitations
+  async createTripInvitation(invitation: InsertTripInvitation): Promise<TripInvitation> {
+    const [created] = await db.insert(tripInvitations).values(invitation).returning();
+    return created;
+  }
+
+  async getTripInvitation(inviteCode: string): Promise<(TripInvitation & { trip?: Trip; inviter?: Partial<User> }) | undefined> {
+    const result = await db
+      .select()
+      .from(tripInvitations)
+      .leftJoin(trips, eq(tripInvitations.tripId, trips.id))
+      .leftJoin(users, eq(tripInvitations.inviterId, users.id))
+      .where(eq(tripInvitations.inviteCode, inviteCode));
+
+    if (result.length === 0) return undefined;
+
+    const row = result[0];
+    return {
+      ...row.trip_invitations,
+      trip: row.trips || undefined,
+      inviter: row.users
+        ? {
+            id: row.users.id,
+            firstName: row.users.firstName,
+            lastName: row.users.lastName,
+            profileImageUrl: row.users.profileImageUrl,
+          }
+        : undefined,
+    };
+  }
+
+  async acceptInvitation(inviteCode: string): Promise<TripInvitation | undefined> {
+    const [updated] = await db
+      .update(tripInvitations)
+      .set({ status: "accepted" })
+      .where(eq(tripInvitations.inviteCode, inviteCode))
+      .returning();
+    return updated;
+  }
+
+  async getUserInvitations(userId: string): Promise<TripInvitation[]> {
+    return db
+      .select()
+      .from(tripInvitations)
+      .where(eq(tripInvitations.inviterId, userId))
+      .orderBy(desc(tripInvitations.createdAt));
   }
 }
 

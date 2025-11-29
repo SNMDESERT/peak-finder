@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { getRegionSymbol } from "@/lib/regionSymbols";
+import { ShareButton } from "@/components/ShareButton";
 import type { Achievement } from "@shared/schema";
 import { Lock, Check } from "lucide-react";
 
@@ -131,6 +132,18 @@ export function AchievementBadge({
             Lvl {achievement.requiredLevel}+
           </span>
         </div>
+
+        {earned && (
+          <div className="mt-2">
+            <ShareButton
+              title={`I earned the "${achievement.name}" badge!`}
+              description={`${achievement.description} - ${tier} tier achievement on AzMountain`}
+              type="achievement"
+              size="sm"
+              variant="ghost"
+            />
+          </div>
+        )}
       </div>
     </Card>
   );

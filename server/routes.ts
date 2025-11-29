@@ -2,8 +2,9 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
-import { insertReviewSchema, insertUserTripSchema } from "@shared/schema";
+import { insertReviewSchema, insertUserTripSchema, insertTripInvitationSchema } from "@shared/schema";
 import { z } from "zod";
+import crypto from "crypto";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -177,6 +178,98 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error incrementing helpful:", error);
       res.status(500).json({ message: "Failed to update review" });
+    }
+  });
+
+  // Trip invitation routes
+  app.post("/api/invitations", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const { tripId, inviteeEmail } = req.body;
+
+      if (!tripId) {
+        return res.status(400).json({ message: "Trip ID is required" });
+      }
+
+      const trip = await storage.getTrip(tripId);
+      if (!trip) {
+        return res.status(404).json({ message: "Trip not found" });
+      }
+
+      const inviteCode = crypto.randomBytes(8).toString("hex");
+      const expiresAt = new Date();
+      expiresAt.setDate(expiresAt.getDate() + 7); // Expires in 7 days
+
+      const invitationData = {
+        tripId,
+        inviterId: userId,
+        inviteCode,
+        inviteeEmail: inviteeEmail || null,
+        expiresAt,
+      };
+
+      const data = insertTripInvitationSchema.parse(invitationData);
+      const invitation = await storage.createTripInvitation(data);
+      res.status(201).json(invitation);
+    } catch (error) {
+      console.error("Error creating invitation:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid data", errors: error.errors });
+      }
+      res.status(500).json({ message: "Failed to create invitation" });
+    }
+  });
+
+  app.get("/api/invitations/:code", async (req, res) => {
+    try {
+      const invitation = await storage.getTripInvitation(req.params.code);
+      if (!invitation) {
+        return res.status(404).json({ message: "Invitation not found" });
+      }
+      
+      // Check if expired
+      if (invitation.expiresAt && new Date() > invitation.expiresAt) {
+        return res.status(410).json({ message: "Invitation has expired" });
+      }
+
+      res.json(invitation);
+    } catch (error) {
+      console.error("Error fetching invitation:", error);
+      res.status(500).json({ message: "Failed to fetch invitation" });
+    }
+  });
+
+  app.post("/api/invitations/:code/accept", isAuthenticated, async (req: any, res) => {
+    try {
+      const invitation = await storage.getTripInvitation(req.params.code);
+      if (!invitation) {
+        return res.status(404).json({ message: "Invitation not found" });
+      }
+
+      if (invitation.status === "accepted") {
+        return res.status(400).json({ message: "Invitation already accepted" });
+      }
+
+      if (invitation.expiresAt && new Date() > invitation.expiresAt) {
+        return res.status(410).json({ message: "Invitation has expired" });
+      }
+
+      const updated = await storage.acceptInvitation(req.params.code);
+      res.json(updated);
+    } catch (error) {
+      console.error("Error accepting invitation:", error);
+      res.status(500).json({ message: "Failed to accept invitation" });
+    }
+  });
+
+  app.get("/api/user/invitations", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const invitations = await storage.getUserInvitations(userId);
+      res.json(invitations);
+    } catch (error) {
+      console.error("Error fetching user invitations:", error);
+      res.status(500).json({ message: "Failed to fetch invitations" });
     }
   });
 
