@@ -83,10 +83,10 @@ const regions = [
 ];
 
 const stats = [
-  { value: "6", label: "Unique Regions" },
-  { value: "50+", label: "Achievement Badges" },
-  { value: "2,500+", label: "Active Explorers" },
-  { value: "98%", label: "Satisfaction Rate" },
+  { value: "Early Access", label: "Live Now" },
+  { value: "Be the First", label: "Explorers Joining" },
+  { value: "6", label: "Regions Available" },
+  { value: "50+", label: "Badges Ready" },
 ];
 
 export default function About() {
@@ -191,20 +191,6 @@ export default function About() {
                   className="w-full h-full object-cover"
                   data-testid="img-about-mountain"
                 />
-              </div>
-              <div
-                className="absolute -bottom-6 -right-6 bg-card border border-border rounded-xl p-4 shadow-xl"
-                data-testid="card-about-trusted"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
-                    <Star className="h-6 w-6 text-white fill-current" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">Since 2020</div>
-                    <div className="font-bold">Trusted by thousands</div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
