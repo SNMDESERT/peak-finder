@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 import { TripCard } from "@/components/TripCard";
 import type { Trip, Region } from "@shared/schema";
 import {
@@ -24,6 +25,12 @@ import {
   Compass,
   Binoculars,
   MapPin,
+  Sun,
+  Snowflake,
+  Leaf,
+  Flower2,
+  Clock,
+  X,
 } from "lucide-react";
 
 const activityTypes = [
@@ -44,11 +51,59 @@ const difficultyLevels = [
   { value: "expert", label: "Expert" },
 ];
 
+const seasons = [
+  { value: "all", label: "All Seasons", icon: Compass },
+  { value: "spring", label: "Spring (Mar-May)", icon: Flower2 },
+  { value: "summer", label: "Summer (Jun-Aug)", icon: Sun },
+  { value: "fall", label: "Fall (Sep-Nov)", icon: Leaf },
+  { value: "winter", label: "Winter (Dec-Feb)", icon: Snowflake },
+];
+
+const durationRanges = [
+  { value: "all", label: "Any Duration" },
+  { value: "short", label: "Half Day (< 4h)" },
+  { value: "medium", label: "Full Day (4-8h)" },
+  { value: "long", label: "Multi-Day (1-3 days)" },
+  { value: "extended", label: "Extended (4+ days)" },
+];
+
+const parseDurationToHours = (duration: string | null): number | null => {
+  if (!duration) return null;
+  const lower = duration.toLowerCase();
+  
+  if (lower.includes("day")) {
+    const match = lower.match(/(\d+)/);
+    if (match) {
+      return parseInt(match[1]) * 24;
+    }
+    return 24;
+  }
+  
+  if (lower.includes("hour") || lower.includes("hr")) {
+    const match = lower.match(/(\d+)/);
+    if (match) return parseInt(match[1]);
+  }
+  
+  return 8;
+};
+
+const getCurrentSeason = (): string => {
+  const month = new Date().getMonth();
+  if (month >= 2 && month <= 4) return "spring";
+  if (month >= 5 && month <= 7) return "summer";
+  if (month >= 8 && month <= 10) return "fall";
+  return "winter";
+};
+
 export default function Trips() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedActivity, setSelectedActivity] = useState("all");
   const [selectedDifficulty, setSelectedDifficulty] = useState("all");
   const [selectedRegion, setSelectedRegion] = useState("all");
+  const [selectedSeason, setSelectedSeason] = useState("all");
+  const [selectedDuration, setSelectedDuration] = useState("all");
+  const [priceRange, setPriceRange] = useState([0, 1000]);
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   const { data: trips, isLoading: tripsLoading } = useQuery<Trip[]>({
     queryKey: ["/api/trips"],
@@ -57,6 +112,43 @@ export default function Trips() {
   const { data: regions } = useQuery<Region[]>({
     queryKey: ["/api/regions"],
   });
+
+  const maxPrice = trips?.reduce((max, trip) => {
+    const price = trip.price ? Number(trip.price) : 0;
+    return price > max ? price : max;
+  }, 0) || 1000;
+
+  useEffect(() => {
+    if (trips && trips.length > 0) {
+      const calculatedMax = trips.reduce((max, trip) => {
+        const price = trip.price ? Number(trip.price) : 0;
+        return price > max ? price : max;
+      }, 0);
+      if (calculatedMax > 0 && priceRange[1] === 1000) {
+        setPriceRange([0, calculatedMax]);
+      }
+    }
+  }, [trips]);
+
+  const hasActiveFilters = 
+    searchQuery !== "" ||
+    selectedActivity !== "all" ||
+    selectedDifficulty !== "all" ||
+    selectedRegion !== "all" ||
+    selectedSeason !== "all" ||
+    selectedDuration !== "all" ||
+    priceRange[0] > 0 ||
+    priceRange[1] < maxPrice;
+
+  const clearAllFilters = () => {
+    setSearchQuery("");
+    setSelectedActivity("all");
+    setSelectedDifficulty("all");
+    setSelectedRegion("all");
+    setSelectedSeason("all");
+    setSelectedDuration("all");
+    setPriceRange([0, maxPrice]);
+  };
 
   const filteredTrips = trips?.filter((trip) => {
     const matchesSearch =
@@ -73,7 +165,30 @@ export default function Trips() {
     const matchesRegion =
       selectedRegion === "all" || trip.regionId === selectedRegion;
 
-    return matchesSearch && matchesActivity && matchesDifficulty && matchesRegion;
+    const matchesSeason = (() => {
+      if (selectedSeason === "all") return true;
+      return true;
+    })();
+
+    const matchesDuration = (() => {
+      if (selectedDuration === "all") return true;
+      const hours = parseDurationToHours(trip.duration);
+      
+      if (hours === null) return true;
+      
+      switch (selectedDuration) {
+        case "short": return hours < 4;
+        case "medium": return hours >= 4 && hours <= 8;
+        case "long": return hours > 8 && hours <= 72;
+        case "extended": return hours > 72;
+        default: return true;
+      }
+    })();
+
+    const tripPrice = trip.price ? Number(trip.price) : 0;
+    const matchesPrice = tripPrice >= priceRange[0] && tripPrice <= priceRange[1];
+
+    return matchesSearch && matchesActivity && matchesDifficulty && matchesRegion && matchesSeason && matchesDuration && matchesPrice;
   });
 
   const getRegionName = (regionId: string | null) => {
@@ -166,6 +281,15 @@ export default function Trips() {
                     ))}
                   </SelectContent>
                 </Select>
+
+                <Button
+                  variant={showAdvancedFilters ? "secondary" : "outline"}
+                  size="icon"
+                  onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+                  data-testid="button-toggle-advanced-filters"
+                >
+                  <Filter className="h-4 w-4" />
+                </Button>
               </div>
             </div>
 
@@ -188,7 +312,88 @@ export default function Trips() {
                   {type.label}
                 </Button>
               ))}
+              
+              {hasActiveFilters && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="gap-1.5 text-destructive hover:text-destructive"
+                  onClick={clearAllFilters}
+                  data-testid="button-clear-all-filters"
+                >
+                  <X className="h-3.5 w-3.5" />
+                  Clear All
+                </Button>
+              )}
             </div>
+
+            {showAdvancedFilters && (
+              <div className="mt-4 pt-4 border-t border-border space-y-4">
+                <div className="text-sm font-medium text-muted-foreground">Advanced Filters</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium flex items-center gap-2">
+                      <Sun className="h-4 w-4 text-primary" />
+                      Best Season
+                    </label>
+                    <Select value={selectedSeason} onValueChange={setSelectedSeason}>
+                      <SelectTrigger data-testid="select-season">
+                        <SelectValue placeholder="Select season" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {seasons.map((season) => (
+                          <SelectItem key={season.value} value={season.value}>
+                            <div className="flex items-center gap-2">
+                              <season.icon className="h-4 w-4" />
+                              {season.label}
+                            </div>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-primary" />
+                      Duration
+                    </label>
+                    <Select value={selectedDuration} onValueChange={setSelectedDuration}>
+                      <SelectTrigger data-testid="select-duration">
+                        <SelectValue placeholder="Select duration" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {durationRanges.map((range) => (
+                          <SelectItem key={range.value} value={range.value}>
+                            {range.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2 sm:col-span-2">
+                    <label className="text-sm font-medium flex items-center justify-between">
+                      <span>Price Range</span>
+                      <span className="text-muted-foreground">
+                        ${priceRange[0]} - ${priceRange[1]}
+                      </span>
+                    </label>
+                    <div className="px-2">
+                      <Slider
+                        value={priceRange}
+                        onValueChange={setPriceRange}
+                        min={0}
+                        max={maxPrice}
+                        step={10}
+                        className="w-full"
+                        data-testid="slider-price-range"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
@@ -240,12 +445,7 @@ export default function Trips() {
             </p>
             <Button
               variant="outline"
-              onClick={() => {
-                setSearchQuery("");
-                setSelectedActivity("all");
-                setSelectedDifficulty("all");
-                setSelectedRegion("all");
-              }}
+              onClick={clearAllFilters}
               data-testid="button-clear-filters"
             >
               Clear All Filters
