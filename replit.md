@@ -37,6 +37,13 @@ This structure enables type sharing between frontend and backend, reducing dupli
 
 **Form Handling**: React Hook Form with Zod validation via @hookform/resolvers
 
+**Internationalization (i18n)**: Multi-language support using react-i18next
+- Languages: English (en), Azerbaijani (az), Turkish (tr), Russian (ru)
+- Translation files: `client/src/locales/{en,az,tr,ru}.json`
+- Configuration: `client/src/lib/i18n.ts`
+- LanguageSwitcher component with text-based country codes (EN/AZ/TR/RU) and Lucide icons (no emojis per design guidelines)
+- Browser language detection with localStorage persistence
+
 **Key Pages**:
 - Landing page for unauthenticated users
 - Home dashboard for authenticated users showing progress and featured content
