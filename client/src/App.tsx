@@ -11,6 +11,7 @@ import { useAuth } from "@/hooks/useAuth";
 import Landing from "@/pages/Landing";
 import Home from "@/pages/Home";
 import Trips from "@/pages/Trips";
+import TripDetail from "@/pages/TripDetail";
 import Achievements from "@/pages/Achievements";
 import Reviews from "@/pages/Reviews";
 import About from "@/pages/About";
@@ -28,6 +29,7 @@ function Router() {
         <Route path="/" component={Home} />
       )}
       <Route path="/trips" component={Trips} />
+      <Route path="/trips/:id" component={TripDetail} />
       <Route path="/achievements" component={Achievements} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/about" component={About} />

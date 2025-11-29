@@ -100,7 +100,12 @@ export async function registerRoutes(
   app.post("/api/user/trips", isAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
-      const data = insertUserTripSchema.parse({ ...req.body, userId });
+      const bookingData = {
+        ...req.body,
+        userId,
+        bookingDate: req.body.bookingDate ? new Date(req.body.bookingDate) : undefined,
+      };
+      const data = insertUserTripSchema.parse(bookingData);
       const userTrip = await storage.bookTrip(data);
       res.status(201).json(userTrip);
     } catch (error) {

@@ -97,6 +97,11 @@ export const userTrips = pgTable("user_trips", {
   userId: varchar("user_id").references(() => users.id).notNull(),
   tripId: varchar("trip_id").references(() => trips.id).notNull(),
   status: varchar("status").default("booked"), // booked, completed, cancelled
+  bookingDate: timestamp("booking_date"),
+  groupSize: integer("group_size").default(1),
+  participantNames: text("participant_names"),
+  specialRequests: text("special_requests"),
+  contactPhone: varchar("contact_phone"),
   completedAt: timestamp("completed_at"),
   createdAt: timestamp("created_at").defaultNow(),
 });
