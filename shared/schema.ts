@@ -66,6 +66,7 @@ export const trips = pgTable("trips", {
   imageUrl: varchar("image_url"),
   featured: boolean("featured").default(false),
   pointsReward: integer("points_reward").default(100),
+  bestSeasons: text("best_seasons").array(), // spring, summer, fall, winter
   createdAt: timestamp("created_at").defaultNow(),
 });
 

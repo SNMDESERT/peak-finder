@@ -68,6 +68,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070",
     featured: true,
     pointsReward: 500,
+    bestSeasons: ["summer", "fall"],
   },
   {
     title: "Karabakh Heritage Trail",
@@ -84,6 +85,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070",
     featured: true,
     pointsReward: 400,
+    bestSeasons: ["spring", "summer", "fall"],
   },
   {
     title: "Gobustan Rock Art Discovery",
@@ -100,6 +102,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?q=80&w=2070",
     featured: true,
     pointsReward: 150,
+    bestSeasons: ["spring", "summer", "fall", "winter"],
   },
   {
     title: "Shaki Silk Road Adventure",
@@ -116,6 +119,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070",
     featured: false,
     pointsReward: 250,
+    bestSeasons: ["spring", "summer", "fall"],
   },
   {
     title: "Tufandag Ski & Summit",
@@ -132,6 +136,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076",
     featured: false,
     pointsReward: 600,
+    bestSeasons: ["winter"],
   },
   {
     title: "Nakhchivan Ancient Wonders",
@@ -148,6 +153,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2084",
     featured: false,
     pointsReward: 200,
+    bestSeasons: ["spring", "fall"],
   },
   {
     title: "Ganja Mountain Photography Tour",
@@ -164,6 +170,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2070",
     featured: false,
     pointsReward: 175,
+    bestSeasons: ["spring", "summer", "fall"],
   },
   {
     title: "Caucasus Wildlife Safari",
@@ -180,6 +187,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2052",
     featured: false,
     pointsReward: 350,
+    bestSeasons: ["spring", "summer"],
   },
   {
     title: "Alpine Camping Experience",
@@ -196,6 +204,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2070",
     featured: false,
     pointsReward: 300,
+    bestSeasons: ["summer", "fall"],
   },
   {
     title: "Khinalig Village Trek",
@@ -212,6 +221,7 @@ const seedTrips = [
     imageUrl: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076",
     featured: true,
     pointsReward: 400,
+    bestSeasons: ["summer", "fall"],
   },
 ];
 

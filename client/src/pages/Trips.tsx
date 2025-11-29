@@ -167,7 +167,8 @@ export default function Trips() {
 
     const matchesSeason = (() => {
       if (selectedSeason === "all") return true;
-      return true;
+      if (!trip.bestSeasons || trip.bestSeasons.length === 0) return true;
+      return trip.bestSeasons.includes(selectedSeason);
     })();
 
     const matchesDuration = (() => {
