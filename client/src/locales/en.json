@@ -1,0 +1,239 @@
+{
+  "common": {
+    "appName": "AzMountain",
+    "login": "Login",
+    "logout": "Logout",
+    "explore": "Explore",
+    "viewAll": "View All",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started Free",
+    "search": "Search",
+    "filter": "Filter",
+    "clearAll": "Clear All",
+    "loading": "Loading...",
+    "back": "Back",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close"
+  },
+  "nav": {
+    "home": "Home",
+    "trips": "Trips",
+    "achievements": "Achievements",
+    "reviews": "Reviews",
+    "about": "About",
+    "dashboard": "Dashboard"
+  },
+  "landing": {
+    "badge": "Azerbaijan's First Mountain Tourism App",
+    "title": "Conquer the Peaks of",
+    "titleHighlight": "Azerbaijan",
+    "description": "Embark on unforgettable mountain adventures across Azerbaijan's stunning landscapes. Earn unique regional achievement badges as you explore the majestic Caucasus peaks.",
+    "exploreTrips": "Explore Trips",
+    "viewAchievements": "View Achievements",
+    "stats": {
+      "adventures": "Adventures Completed",
+      "climbers": "Active Climbers",
+      "regions": "Unique Regions",
+      "badges": "Achievement Badges"
+    },
+    "activities": {
+      "title": "Choose Your Adventure",
+      "description": "From challenging summit climbs to serene cultural explorations, find the perfect mountain experience for your skill level.",
+      "climbing": "Climbing",
+      "hiking": "Hiking",
+      "camping": "Camping",
+      "photography": "Photography",
+      "cultural": "Cultural Tours",
+      "wildlife": "Wildlife"
+    },
+    "achievements": {
+      "title": "Collect Regional Badges",
+      "description": "Each region of Azerbaijan has its own unique cultural symbol. Complete trips and challenges to earn exclusive achievement badges representing the heritage of each area.",
+      "viewAll": "View All Achievements"
+    },
+    "levels": {
+      "badge": "Climbing Levels",
+      "title": "Level Up Your Journey",
+      "description": "Every trip you complete, every summit you conquer, and every challenge you overcome earns you points. As you progress, unlock new levels and exclusive rewards tied to Azerbaijan's rich cultural heritage.",
+      "novice": "Novice Explorer",
+      "trailMaster": "Trail Master",
+      "champion": "Summit Champion",
+      "startJourney": "Start Your Journey"
+    },
+    "cta": {
+      "title": "Ready to Explore Azerbaijan's Mountains?",
+      "description": "Join thousands of adventurers discovering the beauty of the Caucasus. Sign up today and start earning your first achievement badge."
+    }
+  },
+  "trips": {
+    "title": "Mountain Trips",
+    "allTrips": "All Trips",
+    "tripsFound": "{{count}} trips found",
+    "searchPlaceholder": "Search trips...",
+    "advancedFilters": "Advanced Filters",
+    "hideFilters": "Hide Filters",
+    "filters": {
+      "activity": "Activity Type",
+      "difficulty": "Difficulty",
+      "region": "Region",
+      "season": "Best Season",
+      "duration": "Duration",
+      "priceRange": "Price Range",
+      "allActivities": "All Activities",
+      "allLevels": "All Levels",
+      "allRegions": "All Regions",
+      "allSeasons": "All Seasons",
+      "anyDuration": "Any Duration"
+    },
+    "seasons": {
+      "spring": "Spring (Mar-May)",
+      "summer": "Summer (Jun-Aug)",
+      "fall": "Fall (Sep-Nov)",
+      "winter": "Winter (Dec-Feb)"
+    },
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    },
+    "duration": {
+      "halfDay": "Half Day (< 4h)",
+      "fullDay": "Full Day (4-8h)",
+      "multiDay": "Multi-Day (1-3 days)",
+      "extended": "Extended (4+ days)"
+    },
+    "noTrips": "No trips found",
+    "noTripsDescription": "Try adjusting your filters or search terms.",
+    "bookNow": "Book Now",
+    "viewDetails": "View Details",
+    "featured": "Featured",
+    "perPerson": "per person"
+  },
+  "tripDetail": {
+    "backToTrips": "Back to Trips",
+    "overview": "Overview",
+    "highlights": "Trip Highlights",
+    "included": "What's Included",
+    "requirements": "Requirements",
+    "bookTrip": "Book This Trip",
+    "share": "Share",
+    "invite": "Invite Friends",
+    "weather": "Weather Conditions",
+    "photoGallery": "Photo Gallery",
+    "reviews": "Reviews"
+  },
+  "achievements": {
+    "title": "Achievement Badges",
+    "description": "Earn unique badges representing Azerbaijan's six regions. Each badge celebrates the cultural heritage and natural beauty of its region.",
+    "earned": "Earned",
+    "locked": "Locked",
+    "progress": "Progress",
+    "tiers": {
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold",
+      "platinum": "Platinum"
+    },
+    "requirements": {
+      "level": "Level {{level}} required",
+      "trips": "{{count}} trips required",
+      "points": "{{count}} points required"
+    }
+  },
+  "reviews": {
+    "title": "Traveler Reviews",
+    "description": "Read authentic experiences from fellow adventurers who have explored Azerbaijan's mountains.",
+    "writeReview": "Write a Review",
+    "rating": "Rating",
+    "helpful": "Helpful",
+    "noReviews": "No reviews yet"
+  },
+  "about": {
+    "badge": "Our Story",
+    "title": "Discover AzMountain",
+    "description": "We are passionate mountaineers and cultural enthusiasts dedicated to sharing the beauty of Azerbaijan's peaks with the world.",
+    "mission": "Our mission is to make mountain tourism accessible while preserving the rich cultural heritage of each region.",
+    "values": {
+      "badge": "Our Values",
+      "title": "What Drives Us Forward",
+      "description": "Our core values shape every trip we curate and every experience we create for our community.",
+      "safety": "Safety First",
+      "safetyDesc": "Your safety is our top priority on every adventure",
+      "culture": "Cultural Respect",
+      "cultureDesc": "We honor and preserve local traditions",
+      "sustainability": "Sustainability",
+      "sustainabilityDesc": "Protecting mountains for future generations",
+      "community": "Community",
+      "communityDesc": "Building connections through shared adventures"
+    },
+    "symbols": {
+      "badge": "Regional Symbols",
+      "title": "The Heart of Our Achievement System",
+      "description": "Each region of Azerbaijan has its own unique cultural symbol that represents centuries of heritage, tradition, and natural beauty."
+    },
+    "cta": {
+      "title": "Ready to Start Your Journey?",
+      "description": "Join our community of adventurers and discover the magic of Azerbaijan's mountains. Your first achievement badge awaits."
+    }
+  },
+  "dashboard": {
+    "title": "Your Dashboard",
+    "welcome": "Welcome back",
+    "stats": {
+      "level": "Level",
+      "points": "Points",
+      "trips": "Trips",
+      "elevation": "Elevation"
+    },
+    "recentTrips": "Recent Trips",
+    "earnedAchievements": "Earned Achievements",
+    "noTrips": "No trips completed yet",
+    "noAchievements": "No achievements earned yet"
+  },
+  "booking": {
+    "title": "Book Trip",
+    "selectDate": "Select Date",
+    "groupSize": "Group Size",
+    "participants": "Participant Names",
+    "contact": "Contact Phone",
+    "specialRequests": "Special Requests",
+    "confirm": "Confirm Booking",
+    "success": "Booking Confirmed!",
+    "total": "Total"
+  },
+  "footer": {
+    "description": "Discover the breathtaking mountain landscapes of Azerbaijan. From the majestic Caucasus peaks to the ancient trails of Karabakh, embark on adventures that reward your spirit.",
+    "explore": "Explore",
+    "contact": "Contact",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Subscribe to get the latest mountain adventures and exclusive offers.",
+    "subscribe": "Subscribe",
+    "verified": "Verified Trips",
+    "guides": "Local Expert Guides",
+    "safePractices": "Safe Climbing Practices",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "regions": {
+    "karabakh": "Karabakh",
+    "nakhchivan": "Nakhchivan",
+    "shaki": "Shaki",
+    "gabala": "Gabala",
+    "ganja": "Ganja",
+    "gobustan": "Gobustan"
+  },
+  "symbols": {
+    "goldenHorse": "Golden Horse",
+    "ancientFortress": "Ancient Fortress",
+    "silkRoad": "Silk Road Caravan",
+    "mountainPeak": "Mountain Peak",
+    "carpetPattern": "Carpet Pattern",
+    "petroglyphs": "Petroglyphs"
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "common": {
+    "appName": "AzMountain",
+    "login": "Giriş yap",
+    "logout": "Çıkış",
+    "explore": "Keşfet",
+    "viewAll": "Tümünü gör",
+    "learnMore": "Daha fazla bilgi",
+    "getStarted": "Ücretsiz başla",
+    "search": "Ara",
+    "filter": "Filtre",
+    "clearAll": "Tümünü temizle",
+    "loading": "Yükleniyor...",
+    "back": "Geri",
+    "submit": "Gönder",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "close": "Kapat"
+  },
+  "nav": {
+    "home": "Ana sayfa",
+    "trips": "Geziler",
+    "achievements": "Başarılar",
+    "reviews": "Yorumlar",
+    "about": "Hakkımızda",
+    "dashboard": "Kontrol paneli"
+  },
+  "landing": {
+    "badge": "Azerbaycan'ın İlk Dağ Turizmi Uygulaması",
+    "title": "Zirveleri Fethedin",
+    "titleHighlight": "Azerbaycan",
+    "description": "Azerbaycan'ın muhteşem manzaralarında unutulmaz dağ maceralarına çıkın. Büyük Kafkas zirvelerini keşfederken benzersiz bölgesel başarı rozetleri kazanın.",
+    "exploreTrips": "Gezileri Keşfet",
+    "viewAchievements": "Başarıları Gör",
+    "stats": {
+      "adventures": "Tamamlanan Maceralar",
+      "climbers": "Aktif Dağcılar",
+      "regions": "Benzersiz Bölgeler",
+      "badges": "Başarı Rozetleri"
+    },
+    "activities": {
+      "title": "Maceranızı Seçin",
+      "description": "Zorlu zirve tırmanışlarından huzurlu kültür gezilerine - seviyenize uygun mükemmel dağ deneyimini bulun.",
+      "climbing": "Tırmanış",
+      "hiking": "Yürüyüş",
+      "camping": "Kamp",
+      "photography": "Fotoğrafçılık",
+      "cultural": "Kültür Turları",
+      "wildlife": "Vahşi Yaşam"
+    },
+    "achievements": {
+      "title": "Bölgesel Rozetler Toplayın",
+      "description": "Azerbaycan'ın her bölgesinin kendine özgü kültürel sembolü var. Gezileri tamamlayın ve her bölgenin mirasını temsil eden özel başarı rozetleri kazanın.",
+      "viewAll": "Tüm Başarıları Gör"
+    },
+    "levels": {
+      "badge": "Dağcılık Seviyeleri",
+      "title": "Yolculuğunuzu Yükseltin",
+      "description": "Tamamladığınız her gezi, fethettiğiniz her zirve ve aştığınız her zorluk size puan kazandırır. İlerledikçe yeni seviyeler ve Azerbaycan'ın zengin kültürel mirasına bağlı özel ödüller açın.",
+      "novice": "Acemi Kaşif",
+      "trailMaster": "Patika Ustası",
+      "champion": "Zirve Şampiyonu",
+      "startJourney": "Yolculuğa Başla"
+    },
+    "cta": {
+      "title": "Azerbaycan Dağlarını Keşfetmeye Hazır mısınız?",
+      "description": "Kafkasların güzelliğini keşfeden binlerce maceracıya katılın. Bugün kaydolun ve ilk başarı rozetinizi kazanmaya başlayın."
+    }
+  },
+  "trips": {
+    "title": "Dağ Gezileri",
+    "allTrips": "Tüm Geziler",
+    "tripsFound": "{{count}} gezi bulundu",
+    "searchPlaceholder": "Gezi ara...",
+    "advancedFilters": "Gelişmiş Filtreler",
+    "hideFilters": "Filtreleri Gizle",
+    "filters": {
+      "activity": "Aktivite Türü",
+      "difficulty": "Zorluk",
+      "region": "Bölge",
+      "season": "En İyi Mevsim",
+      "duration": "Süre",
+      "priceRange": "Fiyat Aralığı",
+      "allActivities": "Tüm Aktiviteler",
+      "allLevels": "Tüm Seviyeler",
+      "allRegions": "Tüm Bölgeler",
+      "allSeasons": "Tüm Mevsimler",
+      "anyDuration": "Herhangi Süre"
+    },
+    "seasons": {
+      "spring": "İlkbahar (Mart-Mayıs)",
+      "summer": "Yaz (Haziran-Ağustos)",
+      "fall": "Sonbahar (Eylül-Kasım)",
+      "winter": "Kış (Aralık-Şubat)"
+    },
+    "difficulty": {
+      "beginner": "Başlangıç",
+      "intermediate": "Orta",
+      "advanced": "İleri",
+      "expert": "Uzman"
+    },
+    "duration": {
+      "halfDay": "Yarım Gün (< 4 saat)",
+      "fullDay": "Tam Gün (4-8 saat)",
+      "multiDay": "Çok Günlü (1-3 gün)",
+      "extended": "Uzun Süreli (4+ gün)"
+    },
+    "noTrips": "Gezi bulunamadı",
+    "noTripsDescription": "Filtrelerinizi veya arama terimlerinizi değiştirmeyi deneyin.",
+    "bookNow": "Şimdi Rezerve Et",
+    "viewDetails": "Detayları Gör",
+    "featured": "Öne Çıkan",
+    "perPerson": "kişi başı"
+  },
+  "tripDetail": {
+    "backToTrips": "Gezilere Dön",
+    "overview": "Genel Bakış",
+    "highlights": "Gezi Öne Çıkanları",
+    "included": "Dahil Olanlar",
+    "requirements": "Gereksinimler",
+    "bookTrip": "Bu Geziyi Rezerve Et",
+    "share": "Paylaş",
+    "invite": "Arkadaşları Davet Et",
+    "weather": "Hava Koşulları",
+    "photoGallery": "Fotoğraf Galerisi",
+    "reviews": "Yorumlar"
+  },
+  "achievements": {
+    "title": "Başarı Rozetleri",
+    "description": "Azerbaycan'ın altı bölgesini temsil eden benzersiz rozetler kazanın. Her rozet kendi bölgesinin kültürel mirasını ve doğal güzelliğini kutlar.",
+    "earned": "Kazanıldı",
+    "locked": "Kilitli",
+    "progress": "İlerleme",
+    "tiers": {
+      "bronze": "Bronz",
+      "silver": "Gümüş",
+      "gold": "Altın",
+      "platinum": "Platin"
+    },
+    "requirements": {
+      "level": "Seviye {{level}} gerekli",
+      "trips": "{{count}} gezi gerekli",
+      "points": "{{count}} puan gerekli"
+    }
+  },
+  "reviews": {
+    "title": "Gezgin Yorumları",
+    "description": "Azerbaycan dağlarını keşfetmiş diğer maceracıların gerçek deneyimlerini okuyun.",
+    "writeReview": "Yorum Yaz",
+    "rating": "Puan",
+    "helpful": "Faydalı",
+    "noReviews": "Henüz yorum yok"
+  },
+  "about": {
+    "badge": "Hikayemiz",
+    "title": "AzMountain'i Keşfedin",
+    "description": "Azerbaycan zirvelerinin güzelliğini dünyayla paylaşmaya adanmış tutkulu dağcılar ve kültür meraklılarıyız.",
+    "mission": "Misyonumuz, her bölgenin zengin kültürel mirasını korurken dağ turizmini erişilebilir kılmaktır.",
+    "values": {
+      "badge": "Değerlerimiz",
+      "title": "Bizi İleri Taşıyan Nedir",
+      "description": "Temel değerlerimiz, hazırladığımız her geziyi ve topluluğumuz için yarattığımız her deneyimi şekillendirir.",
+      "safety": "Önce Güvenlik",
+      "safetyDesc": "Her macerada güvenliğiniz birinci önceliğimizdir",
+      "culture": "Kültürel Saygı",
+      "cultureDesc": "Yerel gelenekleri onurlandırıyor ve koruyoruz",
+      "sustainability": "Sürdürülebilirlik",
+      "sustainabilityDesc": "Gelecek nesiller için dağları koruyoruz",
+      "community": "Topluluk",
+      "communityDesc": "Paylaşılan maceralar aracılığıyla bağlantılar kuruyoruz"
+    },
+    "symbols": {
+      "badge": "Bölgesel Semboller",
+      "title": "Başarı Sistemimizin Kalbi",
+      "description": "Azerbaycan'ın her bölgesinin yüzyıllarca süren mirası, geleneği ve doğal güzelliği temsil eden kendine özgü kültürel sembolü var."
+    },
+    "cta": {
+      "title": "Yolculuğunuza Başlamaya Hazır mısınız?",
+      "description": "Maceracılar topluluğumuza katılın ve Azerbaycan dağlarının büyüsünü keşfedin. İlk başarı rozetiniz sizi bekliyor."
+    }
+  },
+  "dashboard": {
+    "title": "Kontrol Paneliniz",
+    "welcome": "Tekrar hoş geldiniz",
+    "stats": {
+      "level": "Seviye",
+      "points": "Puanlar",
+      "trips": "Geziler",
+      "elevation": "Yükseklik"
+    },
+    "recentTrips": "Son Geziler",
+    "earnedAchievements": "Kazanılan Başarılar",
+    "noTrips": "Henüz tamamlanan gezi yok",
+    "noAchievements": "Henüz kazanılan başarı yok"
+  },
+  "booking": {
+    "title": "Gezi Rezervasyonu",
+    "selectDate": "Tarih Seçin",
+    "groupSize": "Grup Büyüklüğü",
+    "participants": "Katılımcı Adları",
+    "contact": "İletişim Telefonu",
+    "specialRequests": "Özel İstekler",
+    "confirm": "Rezervasyonu Onayla",
+    "success": "Rezervasyon Onaylandı!",
+    "total": "Toplam"
+  },
+  "footer": {
+    "description": "Azerbaycan'ın nefes kesici dağ manzaralarını keşfedin. Muhteşem Kafkas zirvelerinden Karabağ'ın antik patikalarına - ruhunuzu ödüllendiren maceralara çıkın.",
+    "explore": "Keşfet",
+    "contact": "İletişim",
+    "newsletter": "Bülten",
+    "newsletterDesc": "En son dağ maceraları ve özel teklifler için abone olun.",
+    "subscribe": "Abone Ol",
+    "verified": "Doğrulanmış Geziler",
+    "guides": "Yerel Uzman Rehberler",
+    "safePractices": "Güvenli Tırmanış Uygulamaları",
+    "rights": "Tüm hakları saklıdır.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Hizmet Şartları"
+  },
+  "regions": {
+    "karabakh": "Karabağ",
+    "nakhchivan": "Nahçıvan",
+    "shaki": "Şeki",
+    "gabala": "Gabala",
+    "ganja": "Gence",
+    "gobustan": "Gobustan"
+  },
+  "symbols": {
+    "goldenHorse": "Altın At",
+    "ancientFortress": "Antik Kale",
+    "silkRoad": "İpek Yolu Kervanı",
+    "mountainPeak": "Dağ Zirvesi",
+    "carpetPattern": "Halı Deseni",
+    "petroglyphs": "Kaya Resimleri"
+  }
+}
