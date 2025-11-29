@@ -6,13 +6,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Globe } from "lucide-react";
+import { Globe, Check } from "lucide-react";
 
 const languages = [
-  { code: "en", name: "English", flag: "🇬🇧" },
-  { code: "az", name: "Azərbaycan", flag: "🇦🇿" },
-  { code: "tr", name: "Türkçe", flag: "🇹🇷" },
-  { code: "ru", name: "Русский", flag: "🇷🇺" },
+  { code: "en", name: "English", shortCode: "EN" },
+  { code: "az", name: "Azərbaycan", shortCode: "AZ" },
+  { code: "tr", name: "Türkçe", shortCode: "TR" },
+  { code: "ru", name: "Русский", shortCode: "RU" },
 ];
 
 interface LanguageSwitcherProps {
@@ -61,10 +61,12 @@ export function LanguageSwitcher({
             }`}
             data-testid={`button-lang-${lang.code}`}
           >
-            <span className="text-base">{lang.flag}</span>
+            <span className="w-6 h-6 rounded-full bg-muted flex items-center justify-center text-xs font-medium">
+              {lang.shortCode}
+            </span>
             <span>{lang.name}</span>
             {currentLanguage.code === lang.code && (
-              <span className="ml-auto text-primary">✓</span>
+              <Check className="ml-auto h-4 w-4 text-primary" />
             )}
           </DropdownMenuItem>
         ))}
