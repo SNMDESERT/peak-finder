@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "@/components/ThemeProvider";
 import { useAuth } from "@/hooks/useAuth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,20 +25,21 @@ import {
   MapPin,
 } from "lucide-react";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/trips", label: "Trips" },
-  { href: "/achievements", label: "Achievements" },
-  { href: "/reviews", label: "Reviews" },
-  { href: "/about", label: "About Us" },
-];
-
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { user, isAuthenticated } = useAuth();
   const [location] = useLocation();
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { href: "/", label: t("nav.home") },
+    { href: "/trips", label: t("nav.trips") },
+    { href: "/achievements", label: t("nav.achievements") },
+    { href: "/reviews", label: t("nav.reviews") },
+    { href: "/about", label: t("nav.about") },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -106,6 +109,11 @@ export function Navigation() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <LanguageSwitcher
+              variant={isLandingPage ? "landing" : "default"}
+              isScrolled={isScrolled}
+            />
+
             <Button
               variant="ghost"
               size="icon"
@@ -171,7 +179,7 @@ export function Navigation() {
                       data-testid="link-dashboard"
                     >
                       <User className="mr-2 h-4 w-4" />
-                      Dashboard
+                      {t("nav.dashboard")}
                     </DropdownMenuItem>
                   </Link>
                   <Link href="/achievements">
@@ -180,7 +188,7 @@ export function Navigation() {
                       data-testid="link-my-achievements"
                     >
                       <Award className="mr-2 h-4 w-4" />
-                      My Achievements
+                      {t("nav.achievements")}
                     </DropdownMenuItem>
                   </Link>
                   <Link href="/trips">
@@ -189,7 +197,7 @@ export function Navigation() {
                       data-testid="link-my-trips"
                     >
                       <MapPin className="mr-2 h-4 w-4" />
-                      My Trips
+                      {t("nav.trips")}
                     </DropdownMenuItem>
                   </Link>
                   <DropdownMenuSeparator />
@@ -199,7 +207,7 @@ export function Navigation() {
                     data-testid="button-logout"
                   >
                     <LogOut className="mr-2 h-4 w-4" />
-                    Log Out
+                    {t("common.logout")}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -213,7 +221,7 @@ export function Navigation() {
                 }`}
                 data-testid="button-login"
               >
-                Sign In
+                {t("common.login")}
               </Button>
             )}
 
