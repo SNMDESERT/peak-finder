@@ -15,6 +15,7 @@ import {
 import { Slider } from "@/components/ui/slider";
 import { TripCard } from "@/components/TripCard";
 import type { Trip, Region } from "@shared/schema";
+import { useTranslation } from "react-i18next";
 import {
   Search,
   Filter,
@@ -32,40 +33,6 @@ import {
   Clock,
   X,
 } from "lucide-react";
-
-const activityTypes = [
-  { value: "all", label: "All Activities", icon: Compass },
-  { value: "climbing", label: "Climbing", icon: Mountain },
-  { value: "hiking", label: "Hiking", icon: Footprints },
-  { value: "camping", label: "Camping", icon: Tent },
-  { value: "photography", label: "Photography", icon: Camera },
-  { value: "cultural", label: "Cultural Tours", icon: Compass },
-  { value: "wildlife", label: "Wildlife", icon: Binoculars },
-];
-
-const difficultyLevels = [
-  { value: "all", label: "All Levels" },
-  { value: "beginner", label: "Beginner" },
-  { value: "intermediate", label: "Intermediate" },
-  { value: "advanced", label: "Advanced" },
-  { value: "expert", label: "Expert" },
-];
-
-const seasons = [
-  { value: "all", label: "All Seasons", icon: Compass },
-  { value: "spring", label: "Spring (Mar-May)", icon: Flower2 },
-  { value: "summer", label: "Summer (Jun-Aug)", icon: Sun },
-  { value: "fall", label: "Fall (Sep-Nov)", icon: Leaf },
-  { value: "winter", label: "Winter (Dec-Feb)", icon: Snowflake },
-];
-
-const durationRanges = [
-  { value: "all", label: "Any Duration" },
-  { value: "short", label: "Half Day (< 4h)" },
-  { value: "medium", label: "Full Day (4-8h)" },
-  { value: "long", label: "Multi-Day (1-3 days)" },
-  { value: "extended", label: "Extended (4+ days)" },
-];
 
 const parseDurationToHours = (duration: string | null): number | null => {
   if (!duration) return null;
@@ -96,6 +63,7 @@ const getCurrentSeason = (): string => {
 };
 
 export default function Trips() {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedActivity, setSelectedActivity] = useState("all");
   const [selectedDifficulty, setSelectedDifficulty] = useState("all");
@@ -104,6 +72,40 @@ export default function Trips() {
   const [selectedDuration, setSelectedDuration] = useState("all");
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+
+  const activityTypes = [
+    { value: "all", labelKey: "filters.allActivities", icon: Compass },
+    { value: "climbing", labelKey: "activities.climbing", icon: Mountain },
+    { value: "hiking", labelKey: "activities.hiking", icon: Footprints },
+    { value: "camping", labelKey: "activities.camping", icon: Tent },
+    { value: "photography", labelKey: "activities.photography", icon: Camera },
+    { value: "cultural", labelKey: "activities.cultural", icon: Compass },
+    { value: "wildlife", labelKey: "activities.wildlife", icon: Binoculars },
+  ];
+
+  const difficultyLevels = [
+    { value: "all", labelKey: "filters.allLevels" },
+    { value: "beginner", labelKey: "difficulty.beginner" },
+    { value: "intermediate", labelKey: "difficulty.intermediate" },
+    { value: "advanced", labelKey: "difficulty.advanced" },
+    { value: "expert", labelKey: "difficulty.expert" },
+  ];
+
+  const seasons = [
+    { value: "all", labelKey: "filters.allSeasons", icon: Compass },
+    { value: "spring", labelKey: "seasons.spring", icon: Flower2 },
+    { value: "summer", labelKey: "seasons.summer", icon: Sun },
+    { value: "fall", labelKey: "seasons.fall", icon: Leaf },
+    { value: "winter", labelKey: "seasons.winter", icon: Snowflake },
+  ];
+
+  const durationRanges = [
+    { value: "all", labelKey: "filters.anyDuration" },
+    { value: "short", labelKey: "duration.halfDay" },
+    { value: "medium", labelKey: "duration.fullDay" },
+    { value: "long", labelKey: "duration.multiDay" },
+    { value: "extended", labelKey: "duration.extended" },
+  ];
 
   const { data: trips, isLoading: tripsLoading } = useQuery<Trip[]>({
     queryKey: ["/api/trips"],
@@ -197,6 +199,13 @@ export default function Trips() {
     return regions.find((r) => r.id === regionId)?.name;
   };
 
+  const getActivityLabel = (value: string) => {
+    const activity = activityTypes.find(a => a.value === value);
+    if (!activity) return value;
+    if (value === "all") return t(`trips.${activity.labelKey}`);
+    return t(`landing.${activity.labelKey}`);
+  };
+
   return (
     <div className="min-h-screen pt-20 lg:pt-24 pb-12 bg-background">
       <section className="relative py-16 lg:py-24 overflow-hidden">
@@ -211,14 +220,13 @@ export default function Trips() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <Badge className="bg-white/20 backdrop-blur-sm text-white border-white/30 mb-6">
             <MapPin className="h-3.5 w-3.5 mr-1.5" />
-            {trips?.length || 0} Adventures Available
+            {t("trips.adventuresAvailable", "{{count}} Adventures Available", { count: trips?.length || 0 })}
           </Badge>
           <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-            Mountain Trips & Adventures
+            {t("trips.pageTitle", "Mountain Trips & Adventures")}
           </h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
-            Discover unforgettable journeys through Azerbaijan's breathtaking
-            landscapes. From summit climbs to cultural explorations.
+            {t("trips.pageDescription", "Discover unforgettable journeys through Azerbaijan's breathtaking landscapes. From summit climbs to cultural explorations.")}
           </p>
         </div>
       </section>
@@ -231,7 +239,7 @@ export default function Trips() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="search"
-                  placeholder="Search trips by name, location..."
+                  placeholder={t("trips.searchPlaceholder")}
                   className="pl-10"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -242,14 +250,16 @@ export default function Trips() {
               <div className="flex flex-wrap gap-3">
                 <Select value={selectedActivity} onValueChange={setSelectedActivity}>
                   <SelectTrigger className="w-[160px]" data-testid="select-activity">
-                    <SelectValue placeholder="Activity" />
+                    <SelectValue placeholder={t("trips.filters.activity")} />
                   </SelectTrigger>
                   <SelectContent>
                     {activityTypes.map((type) => (
                       <SelectItem key={type.value} value={type.value}>
                         <div className="flex items-center gap-2">
                           <type.icon className="h-4 w-4" />
-                          {type.label}
+                          {type.value === "all" 
+                            ? t(`trips.${type.labelKey}`)
+                            : t(`landing.${type.labelKey}`)}
                         </div>
                       </SelectItem>
                     ))}
@@ -258,12 +268,14 @@ export default function Trips() {
 
                 <Select value={selectedDifficulty} onValueChange={setSelectedDifficulty}>
                   <SelectTrigger className="w-[160px]" data-testid="select-difficulty">
-                    <SelectValue placeholder="Difficulty" />
+                    <SelectValue placeholder={t("trips.filters.difficulty")} />
                   </SelectTrigger>
                   <SelectContent>
                     {difficultyLevels.map((level) => (
                       <SelectItem key={level.value} value={level.value}>
-                        {level.label}
+                        {level.value === "all"
+                          ? t(`trips.${level.labelKey}`)
+                          : t(`trips.${level.labelKey}`)}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -271,13 +283,13 @@ export default function Trips() {
 
                 <Select value={selectedRegion} onValueChange={setSelectedRegion}>
                   <SelectTrigger className="w-[160px]" data-testid="select-region">
-                    <SelectValue placeholder="Region" />
+                    <SelectValue placeholder={t("trips.filters.region")} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Regions</SelectItem>
+                    <SelectItem value="all">{t("trips.filters.allRegions")}</SelectItem>
                     {regions?.map((region) => (
                       <SelectItem key={region.id} value={region.id}>
-                        {region.name}
+                        {t(`regions.${region.id}`, region.name)}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -295,7 +307,7 @@ export default function Trips() {
             </div>
 
             <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-border">
-              <span className="text-sm text-muted-foreground">Quick filters:</span>
+              <span className="text-sm text-muted-foreground">{t("trips.quickFilters", "Quick filters")}:</span>
               {activityTypes.slice(1).map((type) => (
                 <Button
                   key={type.value}
@@ -310,7 +322,7 @@ export default function Trips() {
                   data-testid={`filter-${type.value}`}
                 >
                   <type.icon className="h-3.5 w-3.5" />
-                  {type.label}
+                  {t(`landing.${type.labelKey}`)}
                 </Button>
               ))}
               
@@ -323,30 +335,32 @@ export default function Trips() {
                   data-testid="button-clear-all-filters"
                 >
                   <X className="h-3.5 w-3.5" />
-                  Clear All
+                  {t("common.clearAll")}
                 </Button>
               )}
             </div>
 
             {showAdvancedFilters && (
               <div className="mt-4 pt-4 border-t border-border space-y-4">
-                <div className="text-sm font-medium text-muted-foreground">Advanced Filters</div>
+                <div className="text-sm font-medium text-muted-foreground">{t("trips.advancedFilters")}</div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div className="space-y-2">
                     <label className="text-sm font-medium flex items-center gap-2">
                       <Sun className="h-4 w-4 text-primary" />
-                      Best Season
+                      {t("trips.filters.season")}
                     </label>
                     <Select value={selectedSeason} onValueChange={setSelectedSeason}>
                       <SelectTrigger data-testid="select-season">
-                        <SelectValue placeholder="Select season" />
+                        <SelectValue placeholder={t("trips.filters.season")} />
                       </SelectTrigger>
                       <SelectContent>
                         {seasons.map((season) => (
                           <SelectItem key={season.value} value={season.value}>
                             <div className="flex items-center gap-2">
                               <season.icon className="h-4 w-4" />
-                              {season.label}
+                              {season.value === "all"
+                                ? t(`trips.${season.labelKey}`)
+                                : t(`trips.${season.labelKey}`)}
                             </div>
                           </SelectItem>
                         ))}
@@ -357,16 +371,18 @@ export default function Trips() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium flex items-center gap-2">
                       <Clock className="h-4 w-4 text-primary" />
-                      Duration
+                      {t("trips.filters.duration")}
                     </label>
                     <Select value={selectedDuration} onValueChange={setSelectedDuration}>
                       <SelectTrigger data-testid="select-duration">
-                        <SelectValue placeholder="Select duration" />
+                        <SelectValue placeholder={t("trips.filters.duration")} />
                       </SelectTrigger>
                       <SelectContent>
                         {durationRanges.map((range) => (
                           <SelectItem key={range.value} value={range.value}>
-                            {range.label}
+                            {range.value === "all"
+                              ? t(`trips.${range.labelKey}`)
+                              : t(`trips.${range.labelKey}`)}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -375,7 +391,7 @@ export default function Trips() {
 
                   <div className="space-y-2 sm:col-span-2">
                     <label className="text-sm font-medium flex items-center justify-between">
-                      <span>Price Range</span>
+                      <span>{t("trips.filters.priceRange")}</span>
                       <span className="text-muted-foreground">
                         ${priceRange[0]} - ${priceRange[1]}
                       </span>
@@ -404,11 +420,11 @@ export default function Trips() {
           <div>
             <h2 className="text-2xl font-bold">
               {selectedActivity !== "all"
-                ? activityTypes.find((t) => t.value === selectedActivity)?.label
-                : "All Trips"}
+                ? getActivityLabel(selectedActivity)
+                : t("trips.allTrips")}
             </h2>
             <p className="text-muted-foreground">
-              {filteredTrips?.length || 0} trips found
+              {t("trips.tripsFound", { count: filteredTrips?.length || 0 })}
             </p>
           </div>
         </div>
@@ -440,16 +456,16 @@ export default function Trips() {
         ) : (
           <Card className="p-12 text-center">
             <Filter className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold mb-2">No trips found</h3>
+            <h3 className="text-lg font-semibold mb-2">{t("trips.noTrips")}</h3>
             <p className="text-muted-foreground mb-4">
-              Try adjusting your filters or search query
+              {t("trips.noTripsDescription")}
             </p>
             <Button
               variant="outline"
               onClick={clearAllFilters}
               data-testid="button-clear-filters"
             >
-              Clear All Filters
+              {t("common.clearAll")}
             </Button>
           </Card>
         )}

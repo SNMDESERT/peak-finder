@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -51,18 +52,6 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const bookingFormSchema = z.object({
-  bookingDate: z.date({
-    required_error: "Please select a date for your trip",
-  }),
-  groupSize: z.string().min(1, "Please select group size"),
-  participantNames: z.string().optional(),
-  contactPhone: z.string().min(10, "Please enter a valid phone number"),
-  specialRequests: z.string().optional(),
-});
-
-type BookingFormValues = z.infer<typeof bookingFormSchema>;
-
 interface BookingModalProps {
   trip: Trip;
   open: boolean;
@@ -70,8 +59,21 @@ interface BookingModalProps {
 }
 
 export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [step, setStep] = useState(1);
+
+  const bookingFormSchema = z.object({
+    bookingDate: z.date({
+      required_error: t("booking.validation.dateRequired", "Please select a date for your trip"),
+    }),
+    groupSize: z.string().min(1, t("booking.validation.groupSizeRequired", "Please select group size")),
+    participantNames: z.string().optional(),
+    contactPhone: z.string().min(10, t("booking.validation.phoneInvalid", "Please enter a valid phone number")),
+    specialRequests: z.string().optional(),
+  });
+
+  type BookingFormValues = z.infer<typeof bookingFormSchema>;
 
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(bookingFormSchema),
@@ -97,15 +99,15 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/user/trips"] });
       toast({
-        title: "Booking Confirmed!",
-        description: `Your trip to ${trip.title} has been booked successfully.`,
+        title: t("booking.toast.confirmedTitle", "Booking Confirmed!"),
+        description: t("booking.toast.confirmedDescription", "Your trip to {{tripTitle}} has been booked successfully.", { tripTitle: trip.title }),
       });
       setStep(3);
     },
     onError: (error: Error) => {
       toast({
-        title: "Booking Failed",
-        description: error.message || "Failed to book trip. Please try again.",
+        title: t("booking.toast.failedTitle", "Booking Failed"),
+        description: error.message || t("booking.toast.failedDescription", "Failed to book trip. Please try again."),
         variant: "destructive",
       });
     },
@@ -130,12 +132,12 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Mountain className="h-5 w-5 text-primary" />
-            {step === 3 ? "Booking Confirmed!" : "Book Your Adventure"}
+            {step === 3 ? t("booking.titleConfirmed", "Booking Confirmed!") : t("booking.titleBook", "Book Your Adventure")}
           </DialogTitle>
           <DialogDescription>
             {step === 3
-              ? "Your mountain adventure awaits!"
-              : `Reserve your spot for ${trip.title}`}
+              ? t("booking.descriptionConfirmed", "Your mountain adventure awaits!")
+              : t("booking.descriptionBook", "Reserve your spot for {{tripTitle}}", { tripTitle: trip.title })}
           </DialogDescription>
         </DialogHeader>
 
@@ -152,11 +154,11 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Users className="h-4 w-4 text-muted-foreground" />
-                <span>Max {maxGroupSize} participants</span>
+                <span>{t("booking.maxParticipants", "Max {{count}} participants", { count: maxGroupSize })}</span>
               </div>
               {trip.price && (
                 <div className="text-lg font-semibold text-primary">
-                  ${Number(trip.price).toFixed(0)} per person
+                  ${Number(trip.price).toFixed(0)} {t("booking.perPerson", "per person")}
                 </div>
               )}
             </div>
@@ -166,7 +168,7 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
               className="w-full"
               data-testid="button-continue-booking"
             >
-              Continue to Booking Details
+              {t("booking.continueToDetails", "Continue to Booking Details")}
             </Button>
           </div>
         )}
@@ -179,7 +181,7 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                 name="bookingDate"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Trip Date</FormLabel>
+                    <FormLabel>{t("booking.tripDate", "Trip Date")}</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -194,7 +196,7 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                             {field.value ? (
                               format(field.value, "PPP")
                             ) : (
-                              <span>Select a date</span>
+                              <span>{t("booking.selectDate", "Select a date")}</span>
                             )}
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                           </Button>
@@ -223,14 +225,14 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                 name="groupSize"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Group Size</FormLabel>
+                    <FormLabel>{t("booking.groupSize", "Group Size")}</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
                         <SelectTrigger data-testid="select-group-size">
-                          <SelectValue placeholder="Select number of participants" />
+                          <SelectValue placeholder={t("booking.selectParticipants", "Select number of participants")} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -240,13 +242,13 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                             value={size.toString()}
                             data-testid={`option-group-size-${size}`}
                           >
-                            {size} {size === 1 ? "person" : "people"}
+                            {size} {size === 1 ? t("booking.person", "person") : t("booking.people", "people")}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                     <FormDescription>
-                      Maximum {maxGroupSize} participants per booking
+                      {t("booking.maxPerBooking", "Maximum {{count}} participants per booking", { count: maxGroupSize })}
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -258,10 +260,10 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                 name="participantNames"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Participant Names (Optional)</FormLabel>
+                    <FormLabel>{t("booking.participantNames", "Participant Names (Optional)")}</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Enter names of all participants, one per line"
+                        placeholder={t("booking.participantNamesPlaceholder", "Enter names of all participants, one per line")}
                         className="resize-none"
                         data-testid="input-participant-names"
                         {...field}
@@ -277,7 +279,7 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                 name="contactPhone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Contact Phone</FormLabel>
+                    <FormLabel>{t("booking.contactPhone", "Contact Phone")}</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -299,12 +301,12 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                 name="specialRequests"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Special Requests (Optional)</FormLabel>
+                    <FormLabel>{t("booking.specialRequests", "Special Requests (Optional)")}</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                         <Textarea
-                          placeholder="Any dietary requirements, accessibility needs, or special requests..."
+                          placeholder={t("booking.specialRequestsPlaceholder", "Any dietary requirements, accessibility needs, or special requests...")}
                           className="pl-10 resize-none"
                           data-testid="input-special-requests"
                           {...field}
@@ -320,7 +322,7 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                 <div className="rounded-lg bg-muted p-4">
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">
-                      Total for {form.watch("groupSize") || 1} participant(s)
+                      {t("booking.totalFor", "Total for {{count}} participant(s)", { count: parseInt(form.watch("groupSize") || "1") })}
                     </span>
                     <span className="text-xl font-bold text-primary">
                       $
@@ -341,7 +343,7 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                   className="flex-1"
                   data-testid="button-back"
                 >
-                  Back
+                  {t("common.back", "Back")}
                 </Button>
                 <Button
                   type="submit"
@@ -349,7 +351,7 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                   disabled={bookingMutation.isPending}
                   data-testid="button-confirm-booking"
                 >
-                  {bookingMutation.isPending ? "Booking..." : "Confirm Booking"}
+                  {bookingMutation.isPending ? t("booking.booking", "Booking...") : t("booking.confirmBooking", "Confirm Booking")}
                 </Button>
               </div>
             </form>
@@ -364,10 +366,10 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
 
             <div className="space-y-2">
               <h3 className="text-lg font-semibold">
-                Your adventure is booked!
+                {t("booking.adventureBooked", "Your adventure is booked!")}
               </h3>
               <p className="text-muted-foreground">
-                We've sent a confirmation to your email with all the details.
+                {t("booking.confirmationSent", "We've sent a confirmation to your email with all the details.")}
               </p>
             </div>
 
@@ -381,7 +383,7 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                 <span>
                   {form.getValues("bookingDate")
                     ? format(form.getValues("bookingDate"), "PPP")
-                    : "Date selected"}
+                    : t("booking.dateSelected", "Date selected")}
                 </span>
               </div>
               <div className="flex items-center gap-2 text-sm">
@@ -389,14 +391,14 @@ export function BookingModal({ trip, open, onOpenChange }: BookingModalProps) {
                 <span>
                   {form.getValues("groupSize")}{" "}
                   {parseInt(form.getValues("groupSize")) === 1
-                    ? "participant"
-                    : "participants"}
+                    ? t("booking.participant", "participant")
+                    : t("booking.participants", "participants")}
                 </span>
               </div>
             </div>
 
             <Button onClick={handleClose} className="w-full" data-testid="button-close-booking">
-              Close
+              {t("common.close", "Close")}
             </Button>
           </div>
         )}

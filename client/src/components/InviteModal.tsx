@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useMutation } from "@tanstack/react-query";
 import {
   Dialog,
@@ -22,6 +23,7 @@ interface InviteModalProps {
 }
 
 export function InviteModal({ trip, trigger }: InviteModalProps) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [inviteLink, setInviteLink] = useState("");
@@ -41,14 +43,14 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
       const link = `${baseUrl}/invite/${invitation.inviteCode}`;
       setInviteLink(link);
       toast({
-        title: "Invitation created",
-        description: "Share the link with your friends to invite them to this trip",
+        title: t("inviteModal.toast.createdTitle", "Invitation created"),
+        description: t("inviteModal.toast.createdDescription", "Share the link with your friends to invite them to this trip"),
       });
     },
     onError: () => {
       toast({
-        title: "Failed to create invitation",
-        description: "Please try again later",
+        title: t("inviteModal.toast.failedTitle", "Failed to create invitation"),
+        description: t("inviteModal.toast.failedDescription", "Please try again later"),
         variant: "destructive",
       });
     },
@@ -63,27 +65,26 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
       await navigator.clipboard.writeText(inviteLink);
       setCopied(true);
       toast({
-        title: "Link copied",
-        description: "Invite link has been copied to clipboard",
+        title: t("inviteModal.toast.copiedTitle", "Link copied"),
+        description: t("inviteModal.toast.copiedDescription", "Invite link has been copied to clipboard"),
       });
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       toast({
-        title: "Failed to copy",
-        description: "Could not copy link to clipboard",
+        title: t("inviteModal.toast.copyFailedTitle", "Failed to copy"),
+        description: t("inviteModal.toast.copyFailedDescription", "Could not copy link to clipboard"),
         variant: "destructive",
       });
     }
   };
 
   const sendViaEmail = () => {
-    const subject = encodeURIComponent(`Join me on a trip: ${trip.title}`);
+    const subject = encodeURIComponent(t("inviteModal.email.subject", "Join me on a trip: {{tripTitle}}", { tripTitle: trip.title }));
     const body = encodeURIComponent(
-      `Hey! I'd love for you to join me on this amazing mountain adventure:\n\n` +
-      `${trip.title}\n` +
-      `${trip.location}\n\n` +
-      `Click here to view the trip and join: ${inviteLink}\n\n` +
-      `See you on the trail!`
+      t("inviteModal.email.body", 
+        `Hey! I'd love for you to join me on this amazing mountain adventure:\n\n{{tripTitle}}\n{{tripLocation}}\n\nClick here to view the trip and join: {{inviteLink}}\n\nSee you on the trail!`,
+        { tripTitle: trip.title, tripLocation: trip.location, inviteLink: inviteLink }
+      )
     );
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
@@ -101,15 +102,15 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
         {trigger || (
           <Button variant="outline" size="sm" data-testid="button-invite-friends">
             <UserPlus className="h-4 w-4 mr-1" />
-            Invite Friends
+            {t("inviteModal.inviteFriends", "Invite Friends")}
           </Button>
         )}
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Invite Friends to Trip</DialogTitle>
+          <DialogTitle>{t("inviteModal.title", "Invite Friends to Trip")}</DialogTitle>
           <DialogDescription>
-            Create an invite link to share with friends for "{trip.title}"
+            {t("inviteModal.description", 'Create an invite link to share with friends for "{{tripTitle}}"', { tripTitle: trip.title })}
           </DialogDescription>
         </DialogHeader>
 
@@ -117,7 +118,7 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
           {!inviteLink ? (
             <>
               <div className="space-y-2">
-                <Label htmlFor="email">Friend's Email (optional)</Label>
+                <Label htmlFor="email">{t("inviteModal.emailLabel", "Friend's Email (optional)")}</Label>
                 <Input
                   id="email"
                   type="email"
@@ -127,7 +128,7 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
                   data-testid="input-invite-email"
                 />
                 <p className="text-sm text-muted-foreground">
-                  Leave empty to create a general invite link
+                  {t("inviteModal.emailHint", "Leave empty to create a general invite link")}
                 </p>
               </div>
               <Button
@@ -137,11 +138,11 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
                 data-testid="button-create-invite"
               >
                 {createInvitationMutation.isPending ? (
-                  "Creating..."
+                  t("inviteModal.creating", "Creating...")
                 ) : (
                   <>
                     <Link className="h-4 w-4 mr-2" />
-                    Generate Invite Link
+                    {t("inviteModal.generateLink", "Generate Invite Link")}
                   </>
                 )}
               </Button>
@@ -149,7 +150,7 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
           ) : (
             <>
               <div className="space-y-2">
-                <Label>Invite Link</Label>
+                <Label>{t("inviteModal.inviteLink", "Invite Link")}</Label>
                 <div className="flex gap-2">
                   <Input
                     value={inviteLink}
@@ -171,7 +172,7 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
                   </Button>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  This link expires in 7 days
+                  {t("inviteModal.linkExpiry", "This link expires in 7 days")}
                 </p>
               </div>
 
@@ -184,7 +185,7 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
                     data-testid="button-send-email-invite"
                   >
                     <Mail className="h-4 w-4 mr-2" />
-                    Send via Email
+                    {t("inviteModal.sendViaEmail", "Send via Email")}
                   </Button>
                 )}
                 <Button
@@ -196,7 +197,7 @@ export function InviteModal({ trip, trigger }: InviteModalProps) {
                   className={email ? "" : "w-full"}
                   data-testid="button-create-new-invite"
                 >
-                  Create New Link
+                  {t("inviteModal.createNewLink", "Create New Link")}
                 </Button>
               </div>
             </>

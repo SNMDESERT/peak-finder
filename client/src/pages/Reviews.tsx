@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
@@ -50,6 +51,7 @@ const reviewFormSchema = z.object({
 type ReviewFormData = z.infer<typeof reviewFormSchema>;
 
 export default function Reviews() {
+  const { t } = useTranslation();
   const { user, isAuthenticated } = useAuth();
   const { toast } = useToast();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -83,8 +85,8 @@ export default function Reviews() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/reviews"] });
       toast({
-        title: "Review submitted!",
-        description: "Thank you for sharing your experience.",
+        title: t("reviews.toast.submitted", "Review submitted!"),
+        description: t("reviews.toast.thankYou", "Thank you for sharing your experience."),
       });
       setIsDialogOpen(false);
       form.reset();
@@ -93,8 +95,8 @@ export default function Reviews() {
     onError: (error) => {
       if (isUnauthorizedError(error)) {
         toast({
-          title: "Unauthorized",
-          description: "Please sign in to submit a review.",
+          title: t("reviews.error.unauthorized", "Unauthorized"),
+          description: t("reviews.error.signInRequired", "Please sign in to submit a review."),
           variant: "destructive",
         });
         setTimeout(() => {
@@ -103,8 +105,8 @@ export default function Reviews() {
         return;
       }
       toast({
-        title: "Error",
-        description: "Failed to submit review. Please try again.",
+        title: t("reviews.error.title", "Error"),
+        description: t("reviews.error.failed", "Failed to submit review. Please try again."),
         variant: "destructive",
       });
     },
@@ -139,14 +141,13 @@ export default function Reviews() {
           <div className="text-center mb-12">
             <Badge className="mb-4" variant="secondary">
               <MessageSquare className="h-3.5 w-3.5 mr-1.5" />
-              Traveler Feedback
+              {t("reviews.badge", "Traveler Feedback")}
             </Badge>
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-              Reviews & Experiences
+              {t("reviews.pageTitle", "Reviews & Experiences")}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Read authentic reviews from fellow adventurers and share your own
-              mountain experiences across Azerbaijan.
+              {t("reviews.pageDescription", "Read authentic reviews from fellow adventurers and share your own mountain experiences across Azerbaijan.")}
             </p>
           </div>
 
@@ -171,7 +172,7 @@ export default function Reviews() {
                       ))}
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Based on {reviews?.length || 0} reviews
+                      {t("reviews.basedOn", "Based on {{count}} reviews", { count: reviews?.length || 0 })}
                     </p>
                   </div>
                 </div>
@@ -205,9 +206,9 @@ export default function Reviews() {
             <Card className="border-card-border flex flex-col justify-center">
               <CardContent className="p-6 text-center">
                 <PenLine className="h-12 w-12 mx-auto text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Share Your Experience</h3>
+                <h3 className="text-xl font-semibold mb-2">{t("reviews.shareExperience", "Share Your Experience")}</h3>
                 <p className="text-muted-foreground mb-6">
-                  Completed a trip? Help other adventurers by sharing your story.
+                  {t("reviews.shareDescription", "Completed a trip? Help other adventurers by sharing your story.")}
                 </p>
 
                 {isAuthenticated ? (
@@ -215,17 +216,17 @@ export default function Reviews() {
                     <DialogTrigger asChild>
                       <Button className="gap-2" data-testid="button-write-review">
                         <PenLine className="h-4 w-4" />
-                        Write a Review
+                        {t("reviews.writeReview", "Write a Review")}
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-lg">
                       <DialogHeader>
-                        <DialogTitle>Write Your Review</DialogTitle>
+                        <DialogTitle>{t("reviews.form.dialogTitle", "Write Your Review")}</DialogTitle>
                       </DialogHeader>
                       <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                           <div className="space-y-2">
-                            <label className="text-sm font-medium">Your Rating</label>
+                            <label className="text-sm font-medium">{t("reviews.form.yourRating", "Your Rating")}</label>
                             <div className="flex items-center gap-1">
                               {[1, 2, 3, 4, 5].map((star) => (
                                 <button
@@ -247,7 +248,7 @@ export default function Reviews() {
                             </div>
                             {selectedRating === 0 && (
                               <p className="text-xs text-destructive">
-                                Please select a rating
+                                {t("reviews.form.selectRating", "Please select a rating")}
                               </p>
                             )}
                           </div>
@@ -257,11 +258,11 @@ export default function Reviews() {
                             name="tripId"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Trip (Optional)</FormLabel>
+                                <FormLabel>{t("reviews.form.tripOptional", "Trip (Optional)")}</FormLabel>
                                 <Select onValueChange={field.onChange} value={field.value}>
                                   <FormControl>
                                     <SelectTrigger data-testid="select-trip">
-                                      <SelectValue placeholder="Select a trip" />
+                                      <SelectValue placeholder={t("reviews.form.selectTrip", "Select a trip")} />
                                     </SelectTrigger>
                                   </FormControl>
                                   <SelectContent>
@@ -282,10 +283,10 @@ export default function Reviews() {
                             name="title"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Review Title</FormLabel>
+                                <FormLabel>{t("reviews.form.reviewTitle", "Review Title")}</FormLabel>
                                 <FormControl>
                                   <Input
-                                    placeholder="Summarize your experience"
+                                    placeholder={t("reviews.form.titlePlaceholder", "Summarize your experience")}
                                     {...field}
                                     data-testid="input-review-title"
                                   />
@@ -300,10 +301,10 @@ export default function Reviews() {
                             name="content"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Your Review</FormLabel>
+                                <FormLabel>{t("reviews.form.yourReview", "Your Review")}</FormLabel>
                                 <FormControl>
                                   <Textarea
-                                    placeholder="Share your detailed experience..."
+                                    placeholder={t("reviews.form.contentPlaceholder", "Share your detailed experience...")}
                                     className="min-h-[120px]"
                                     {...field}
                                     data-testid="input-review-content"
@@ -319,20 +320,20 @@ export default function Reviews() {
                             name="activityType"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Activity Type (Optional)</FormLabel>
+                                <FormLabel>{t("reviews.form.activityTypeOptional", "Activity Type (Optional)")}</FormLabel>
                                 <Select onValueChange={field.onChange} value={field.value}>
                                   <FormControl>
                                     <SelectTrigger data-testid="select-activity-type">
-                                      <SelectValue placeholder="Select activity" />
+                                      <SelectValue placeholder={t("reviews.form.selectActivity", "Select activity")} />
                                     </SelectTrigger>
                                   </FormControl>
                                   <SelectContent>
-                                    <SelectItem value="climbing">Climbing</SelectItem>
-                                    <SelectItem value="hiking">Hiking</SelectItem>
-                                    <SelectItem value="camping">Camping</SelectItem>
-                                    <SelectItem value="photography">Photography</SelectItem>
-                                    <SelectItem value="cultural">Cultural Tour</SelectItem>
-                                    <SelectItem value="wildlife">Wildlife</SelectItem>
+                                    <SelectItem value="climbing">{t("reviews.activities.climbing", "Climbing")}</SelectItem>
+                                    <SelectItem value="hiking">{t("reviews.activities.hiking", "Hiking")}</SelectItem>
+                                    <SelectItem value="camping">{t("reviews.activities.camping", "Camping")}</SelectItem>
+                                    <SelectItem value="photography">{t("reviews.activities.photography", "Photography")}</SelectItem>
+                                    <SelectItem value="cultural">{t("reviews.activities.cultural", "Cultural Tour")}</SelectItem>
+                                    <SelectItem value="wildlife">{t("reviews.activities.wildlife", "Wildlife")}</SelectItem>
                                   </SelectContent>
                                 </Select>
                                 <FormMessage />
@@ -346,7 +347,9 @@ export default function Reviews() {
                             disabled={createReviewMutation.isPending || selectedRating === 0}
                             data-testid="button-submit-review"
                           >
-                            {createReviewMutation.isPending ? "Submitting..." : "Submit Review"}
+                            {createReviewMutation.isPending 
+                              ? t("reviews.form.submitting", "Submitting...") 
+                              : t("reviews.form.submitReview", "Submit Review")}
                           </Button>
                         </form>
                       </Form>
@@ -357,7 +360,7 @@ export default function Reviews() {
                     onClick={() => (window.location.href = "/api/login")}
                     data-testid="button-signin-review"
                   >
-                    Sign In to Review
+                    {t("reviews.signInToReview", "Sign In to Review")}
                   </Button>
                 )}
               </CardContent>
@@ -369,9 +372,9 @@ export default function Reviews() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-2xl font-bold">All Reviews</h2>
+            <h2 className="text-2xl font-bold">{t("reviews.allReviews", "All Reviews")}</h2>
             <p className="text-muted-foreground">
-              {filteredReviews?.length || 0} reviews
+              {t("reviews.reviewCount", "{{count}} reviews", { count: filteredReviews?.length || 0 })}
             </p>
           </div>
 
@@ -379,15 +382,15 @@ export default function Reviews() {
             <Filter className="h-4 w-4 text-muted-foreground" />
             <Select value={filterRating} onValueChange={setFilterRating}>
               <SelectTrigger className="w-[140px]" data-testid="filter-rating">
-                <SelectValue placeholder="Filter" />
+                <SelectValue placeholder={t("common.filter", "Filter")} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Ratings</SelectItem>
-                <SelectItem value="5">5 Stars</SelectItem>
-                <SelectItem value="4">4 Stars</SelectItem>
-                <SelectItem value="3">3 Stars</SelectItem>
-                <SelectItem value="2">2 Stars</SelectItem>
-                <SelectItem value="1">1 Star</SelectItem>
+                <SelectItem value="all">{t("reviews.filter.allRatings", "All Ratings")}</SelectItem>
+                <SelectItem value="5">{t("reviews.filter.stars5", "5 Stars")}</SelectItem>
+                <SelectItem value="4">{t("reviews.filter.stars4", "4 Stars")}</SelectItem>
+                <SelectItem value="3">{t("reviews.filter.stars3", "3 Stars")}</SelectItem>
+                <SelectItem value="2">{t("reviews.filter.stars2", "2 Stars")}</SelectItem>
+                <SelectItem value="1">{t("reviews.filter.star1", "1 Star")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -423,9 +426,9 @@ export default function Reviews() {
         ) : (
           <Card className="p-12 text-center">
             <MessageSquare className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold mb-2">No reviews yet</h3>
+            <h3 className="text-lg font-semibold mb-2">{t("reviews.noReviews", "No reviews yet")}</h3>
             <p className="text-muted-foreground">
-              Be the first to share your mountain adventure experience!
+              {t("reviews.beFirst", "Be the first to share your mountain adventure experience!")}
             </p>
           </Card>
         )}

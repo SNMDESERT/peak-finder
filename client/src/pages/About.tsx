@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getRegionSymbol } from "@/lib/regionSymbols";
+import { useTranslation } from "react-i18next";
 import {
   Mountain,
   Heart,
@@ -11,85 +12,36 @@ import {
   Award,
   MapPin,
   Compass,
-  Star,
   Target,
   Leaf,
 } from "lucide-react";
 
-const values = [
-  {
-    icon: Shield,
-    title: "Safety First",
-    description:
-      "Every trip is carefully vetted with certified guides and proper safety equipment. Your wellbeing is our priority.",
-  },
-  {
-    icon: Heart,
-    title: "Cultural Heritage",
-    description:
-      "We celebrate Azerbaijan's rich traditions through our regional badge system, connecting adventurers with local history.",
-  },
-  {
-    icon: Users,
-    title: "Community",
-    description:
-      "Join a passionate community of climbers and explorers who share experiences and inspire each other.",
-  },
-  {
-    icon: Leaf,
-    title: "Sustainability",
-    description:
-      "We promote responsible tourism that preserves the natural beauty of Azerbaijan's mountains for future generations.",
-  },
+const valueKeys = [
+  { key: "safety", icon: Shield },
+  { key: "culture", icon: Heart },
+  { key: "community", icon: Users },
+  { key: "sustainability", icon: Leaf },
 ];
 
-const regions = [
-  {
-    key: "karabakh",
-    name: "Karabakh",
-    description:
-      "The legendary Karabakh horse, known for its golden sheen, represents the region's proud equestrian heritage and the resilience of its people.",
-  },
-  {
-    key: "nakhchivan",
-    name: "Nakhchivan",
-    description:
-      "Home to the Momine Khatun Mausoleum and ancient fortifications, representing centuries of architectural excellence.",
-  },
-  {
-    key: "shaki",
-    name: "Shaki",
-    description:
-      "A UNESCO World Heritage site on the historic Silk Road, where caravans once traded precious goods between East and West.",
-  },
-  {
-    key: "gabala",
-    name: "Gabala",
-    description:
-      "Azerbaijan's premier outdoor destination, featuring stunning alpine scenery and world-class adventure facilities.",
-  },
-  {
-    key: "ganja",
-    name: "Ganja",
-    description:
-      "Famous for its vibrant carpet-weaving tradition, Ganja's intricate patterns tell stories of the region's artistic soul.",
-  },
-  {
-    key: "gobustan",
-    name: "Gobustan",
-    description:
-      "Ancient rock carvings dating back 40,000 years, a UNESCO site showcasing humanity's earliest artistic expressions.",
-  },
-];
-
-const stats = [
-  { value: "Early Access", label: "Live Now" },
-  { value: "Be the First", label: "Explorers Joining" },
-  { value: "6", label: "Regions Available" },
-  { value: "50+", label: "Badges Ready" },
+const regionKeys = [
+  "karabakh",
+  "nakhchivan",
+  "shaki",
+  "gabala",
+  "ganja",
+  "gobustan",
 ];
 
 export default function About() {
+  const { t } = useTranslation();
+
+  const stats = [
+    { value: t("about.stats.earlyAccess", "Early Access"), label: t("about.stats.liveNow", "Live Now") },
+    { value: t("about.stats.beFirst", "Be the First"), label: t("about.stats.explorersJoining", "Explorers Joining") },
+    { value: "6", label: t("about.stats.regionsAvailable", "Regions Available") },
+    { value: "50+", label: t("about.stats.badgesReady", "Badges Ready") },
+  ];
+
   return (
     <div className="min-h-screen pt-20 lg:pt-24 pb-12 bg-background">
       <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -107,22 +59,20 @@ export default function About() {
             data-testid="badge-about-story"
           >
             <Mountain className="h-3.5 w-3.5 mr-1.5" />
-            Our Story
+            {t("about.story.badge", "Our Story")}
           </Badge>
           <h1
             className="text-4xl lg:text-6xl font-bold mb-6"
             data-testid="text-about-title"
           >
-            Connecting Adventurers with
-            <span className="block mt-2">Azerbaijan's Mountains</span>
+            {t("about.story.title", "Connecting Adventurers with")}
+            <span className="block mt-2">{t("about.story.titleHighlight", "Azerbaijan's Mountains")}</span>
           </h1>
           <p
             className="text-lg lg:text-xl text-white/90 max-w-3xl mx-auto"
             data-testid="text-about-subtitle"
           >
-            We're on a mission to make Azerbaijan's breathtaking mountain
-            landscapes accessible to explorers worldwide, while celebrating the
-            rich cultural heritage of each unique region.
+            {t("about.story.subtitle", "We're on a mission to make Azerbaijan's breathtaking mountain landscapes accessible to explorers worldwide, while celebrating the rich cultural heritage of each unique region.")}
           </p>
         </div>
       </section>
@@ -133,32 +83,25 @@ export default function About() {
             <div>
               <Badge className="mb-4" variant="secondary" data-testid="badge-mission">
                 <Target className="h-3.5 w-3.5 mr-1.5" />
-                Our Mission
+                {t("about.mission.badge", "Our Mission")}
               </Badge>
               <h2
                 className="text-3xl lg:text-4xl font-bold mb-6"
                 data-testid="text-mission-title"
               >
-                Elevating Mountain Tourism in Azerbaijan
+                {t("about.mission.title", "Elevating Mountain Tourism in Azerbaijan")}
               </h2>
               <p
                 className="text-muted-foreground text-lg mb-6 leading-relaxed"
                 data-testid="text-mission-p1"
               >
-                AzMountain was founded with a simple yet powerful vision: to
-                transform how people experience Azerbaijan's magnificent
-                mountain landscapes. We believe that every summit conquered and
-                every trail explored should be celebrated.
+                {t("about.mission.p1", "AzMountain was founded with a simple yet powerful vision: to transform how people experience Azerbaijan's magnificent mountain landscapes. We believe that every summit conquered and every trail explored should be celebrated.")}
               </p>
               <p
                 className="text-muted-foreground text-lg mb-6 leading-relaxed"
                 data-testid="text-mission-p2"
               >
-                Our innovative achievement system rewards your adventures with
-                authentic regional symbols, connecting you with the cultural
-                heritage of each area you explore. From the legendary Karabakh
-                horses to the ancient petroglyphs of Gobustan, every badge tells
-                a story.
+                {t("about.mission.p2", "Our innovative achievement system rewards your adventures with authentic regional symbols, connecting you with the cultural heritage of each area you explore. From the legendary Karabakh horses to the ancient petroglyphs of Gobustan, every badge tells a story.")}
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {stats.map((stat, index) => (
@@ -201,25 +144,24 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <Badge className="mb-4" variant="secondary" data-testid="badge-values">
-              Our Values
+              {t("about.values.badge", "Our Values")}
             </Badge>
             <h2
               className="text-3xl lg:text-4xl font-bold mb-4"
               data-testid="text-values-title"
             >
-              What Drives Us Forward
+              {t("about.values.title", "What Drives Us Forward")}
             </h2>
             <p
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
               data-testid="text-values-description"
             >
-              Our core values shape every trip we curate and every experience we
-              create for our community.
+              {t("about.values.description", "Our core values shape every trip we curate and every experience we create for our community.")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
+            {valueKeys.map((value, index) => (
               <Card
                 key={index}
                 className="text-center border-card-border card-hover"
@@ -233,13 +175,13 @@ export default function About() {
                     className="font-semibold text-lg mb-2"
                     data-testid={`value-title-${index}`}
                   >
-                    {value.title}
+                    {t(`about.values.${value.key}`, value.key)}
                   </h3>
                   <p
                     className="text-sm text-muted-foreground"
                     data-testid={`value-description-${index}`}
                   >
-                    {value.description}
+                    {t(`about.values.${value.key}Desc`, "")}
                   </p>
                 </CardContent>
               </Card>
@@ -253,59 +195,58 @@ export default function About() {
           <div className="text-center mb-14">
             <Badge className="mb-4" variant="secondary" data-testid="badge-symbols">
               <Award className="h-3.5 w-3.5 mr-1.5" />
-              Regional Symbols
+              {t("about.symbols.badge", "Regional Symbols")}
             </Badge>
             <h2
               className="text-3xl lg:text-4xl font-bold mb-4"
               data-testid="text-symbols-title"
             >
-              The Heart of Our Achievement System
+              {t("about.symbols.title", "The Heart of Our Achievement System")}
             </h2>
             <p
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
               data-testid="text-symbols-description"
             >
-              Each region of Azerbaijan has its own unique cultural symbol that
-              represents centuries of heritage, tradition, and natural beauty.
+              {t("about.symbols.description", "Each region of Azerbaijan has its own unique cultural symbol that represents centuries of heritage, tradition, and natural beauty.")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {regions.map((region, index) => {
-              const symbol = getRegionSymbol(region.key);
+            {regionKeys.map((regionKey, index) => {
+              const symbol = getRegionSymbol(regionKey);
               const SymbolIcon = symbol.icon;
               return (
                 <Card
                   key={index}
                   className="overflow-visible border-card-border"
-                  data-testid={`card-about-region-${region.key}`}
+                  data-testid={`card-about-region-${regionKey}`}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div
                         className={`w-16 h-16 rounded-xl bg-gradient-to-br ${symbol.bgGradient} flex items-center justify-center shadow-lg flex-shrink-0`}
-                        data-testid={`icon-about-region-${region.key}`}
+                        data-testid={`icon-about-region-${regionKey}`}
                       >
                         <SymbolIcon className="h-8 w-8 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3
                           className="font-semibold text-lg mb-1"
-                          data-testid={`text-about-region-name-${region.key}`}
+                          data-testid={`text-about-region-name-${regionKey}`}
                         >
-                          {region.name}
+                          {t(`regions.${regionKey}`, regionKey)}
                         </h3>
                         <p
                           className="text-sm text-secondary font-medium mb-3"
-                          data-testid={`text-about-region-symbol-${region.key}`}
+                          data-testid={`text-about-region-symbol-${regionKey}`}
                         >
                           {symbol.symbolName}
                         </p>
                         <p
                           className="text-sm text-muted-foreground"
-                          data-testid={`text-about-region-description-${region.key}`}
+                          data-testid={`text-about-region-description-${regionKey}`}
                         >
-                          {region.description}
+                          {t(`about.regions.${regionKey}`, "")}
                         </p>
                       </div>
                     </div>
@@ -324,14 +265,13 @@ export default function About() {
             className="text-3xl lg:text-4xl font-bold mb-6"
             data-testid="text-about-cta-title"
           >
-            Ready to Start Your Journey?
+            {t("about.cta.title", "Ready to Start Your Journey?")}
           </h2>
           <p
             className="text-lg text-white/90 mb-10 max-w-2xl mx-auto"
             data-testid="text-about-cta-description"
           >
-            Join our community of adventurers and discover the magic of
-            Azerbaijan's mountains. Your first achievement badge awaits.
+            {t("about.cta.description", "Join our community of adventurers and discover the magic of Azerbaijan's mountains. Your first achievement badge awaits.")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/trips">
@@ -342,7 +282,7 @@ export default function About() {
                 data-testid="button-about-explore"
               >
                 <MapPin className="h-5 w-5" />
-                Explore Trips
+                {t("about.cta.exploreTrips", "Explore Trips")}
               </Button>
             </Link>
             <Link href="/achievements">
@@ -353,7 +293,7 @@ export default function About() {
                 data-testid="button-about-achievements"
               >
                 <Award className="h-5 w-5 mr-2" />
-                View Achievements
+                {t("about.cta.viewAchievements", "View Achievements")}
               </Button>
             </Link>
           </div>

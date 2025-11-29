@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { getRegionSymbol, regionSymbols } from "@/lib/regionSymbols";
+import { useTranslation } from "react-i18next";
 import {
   Mountain,
   Award,
@@ -23,56 +24,49 @@ import {
   Gem,
 } from "lucide-react";
 
-const featuredRegions = [
-  {
-    key: "karabakh",
-    name: "Karabakh",
-    description: "Home of the legendary Karabakh horses and Shusha's peaks",
-  },
-  {
-    key: "nakhchivan",
-    name: "Nakhchivan",
-    description: "Sacred mountains and historic Momine Khatun mausoleum",
-  },
-  {
-    key: "shaki",
-    name: "Shaki",
-    description: "UNESCO heritage and the majestic Caucasus foothills",
-  },
-  {
-    key: "gabala",
-    name: "Gabala",
-    description: "Premier outdoor resort with stunning alpine scenery",
-  },
-  {
-    key: "ganja",
-    name: "Ganja",
-    description: "Ancient city with vibrant culture and nearby trails",
-  },
-  {
-    key: "gobustan",
-    name: "Gobustan",
-    description: "Ancient rock art and mystical mud volcanoes",
-  },
+const featuredRegionKeys = [
+  "karabakh",
+  "nakhchivan",
+  "shaki",
+  "gabala",
+  "ganja",
+  "gobustan",
 ];
 
-const activities = [
-  { icon: Mountain, label: "Climbing", count: "25+ routes" },
-  { icon: Footprints, label: "Hiking", count: "40+ trails" },
-  { icon: Tent, label: "Camping", count: "15+ sites" },
-  { icon: Camera, label: "Photography", count: "30+ spots" },
-  { icon: Compass, label: "Cultural Tours", count: "20+ tours" },
-  { icon: Binoculars, label: "Wildlife", count: "10+ experiences" },
-];
-
-const stats = [
-  { value: "Early Access", label: "Live Now" },
-  { value: "6", label: "Regions Available" },
-  { value: "50+", label: "Badges Ready" },
-  { value: "Be the First", label: "Explorers Joining" },
-];
+const activityIcons = {
+  climbing: Mountain,
+  hiking: Footprints,
+  camping: Tent,
+  photography: Camera,
+  cultural: Compass,
+  wildlife: Binoculars,
+};
 
 export default function Landing() {
+  const { t } = useTranslation();
+
+  const activities = [
+    { key: "climbing", icon: Mountain, count: "25+ routes" },
+    { key: "hiking", icon: Footprints, count: "40+ trails" },
+    { key: "camping", icon: Tent, count: "15+ sites" },
+    { key: "photography", icon: Camera, count: "30+ spots" },
+    { key: "cultural", icon: Compass, count: "20+ tours" },
+    { key: "wildlife", icon: Binoculars, count: "10+ experiences" },
+  ];
+
+  const stats = [
+    { value: "Early Access", labelKey: "stats.liveNow" },
+    { value: "6", labelKey: "stats.regionsAvailable" },
+    { value: "50+", labelKey: "stats.badgesReady" },
+    { value: t("landing.stats.beFirst", "Be the First"), labelKey: "stats.explorersJoining" },
+  ];
+
+  const levels = [
+    { level: 1, nameKey: "levels.novice", points: "0 - 500 pts" },
+    { level: 5, nameKey: "levels.trailMaster", points: "2,000 - 5,000 pts" },
+    { level: 10, nameKey: "levels.champion", points: "10,000+ pts" },
+  ];
+
   return (
     <div className="min-h-screen">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -91,16 +85,16 @@ export default function Landing() {
             data-testid="badge-hero-rating"
           >
             <Mountain className="h-3.5 w-3.5 mr-1.5" />
-            Azerbaijan's First Mountain Tourism App
+            {t("landing.badge")}
           </Badge>
 
           <h1
             className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight"
             data-testid="text-hero-title"
           >
-            Conquer the Peaks of
+            {t("landing.title")}
             <span className="block mt-2 bg-gradient-to-r from-secondary via-yellow-400 to-primary bg-clip-text text-transparent">
-              Azerbaijan
+              {t("landing.titleHighlight")}
             </span>
           </h1>
 
@@ -108,9 +102,7 @@ export default function Landing() {
             className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed"
             data-testid="text-hero-description"
           >
-            Embark on unforgettable mountain adventures across Azerbaijan's
-            stunning landscapes. Earn unique regional achievement badges as you
-            explore the majestic Caucasus peaks.
+            {t("landing.description")}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -121,7 +113,7 @@ export default function Landing() {
                 data-testid="button-hero-explore-trips"
               >
                 <Compass className="h-5 w-5" />
-                Explore Trips
+                {t("landing.exploreTrips")}
               </Button>
             </Link>
             <Link href="/achievements">
@@ -132,13 +124,18 @@ export default function Landing() {
                 data-testid="button-hero-view-achievements"
               >
                 <Award className="h-5 w-5" />
-                View Achievements
+                {t("landing.viewAchievements")}
               </Button>
             </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {stats.map((stat, index) => (
+            {[
+              { value: "Early Access", label: t("landing.stats.liveNow", "Live Now") },
+              { value: "6", label: t("landing.stats.regionsAvailable", "Regions Available") },
+              { value: "50+", label: t("landing.stats.badgesReady", "Badges Ready") },
+              { value: t("landing.stats.beFirst", "Be the First"), label: t("landing.stats.explorersJoining", "Explorers Joining") },
+            ].map((stat, index) => (
               <div
                 key={index}
                 className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
@@ -174,20 +171,19 @@ export default function Landing() {
               variant="secondary"
               data-testid="badge-activities"
             >
-              Mountain Activities
+              {t("landing.activities.badge", "Mountain Activities")}
             </Badge>
             <h2
               className="text-3xl lg:text-4xl font-bold mb-4"
               data-testid="text-activities-title"
             >
-              Choose Your Adventure
+              {t("landing.activities.title")}
             </h2>
             <p
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
               data-testid="text-activities-description"
             >
-              From challenging summit climbs to serene cultural explorations,
-              find the perfect mountain experience for your skill level.
+              {t("landing.activities.description")}
             </p>
           </div>
 
@@ -196,7 +192,7 @@ export default function Landing() {
               <Card
                 key={index}
                 className="group hover-elevate cursor-pointer border-card-border"
-                data-testid={`card-activity-${activity.label.toLowerCase()}`}
+                data-testid={`card-activity-${activity.key}`}
               >
                 <CardContent className="p-6 text-center">
                   <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -206,7 +202,7 @@ export default function Landing() {
                     className="font-semibold text-sm mb-1"
                     data-testid={`text-activity-name-${index}`}
                   >
-                    {activity.label}
+                    {t(`landing.activities.${activity.key}`)}
                   </h3>
                   <p
                     className="text-xs text-muted-foreground"
@@ -229,60 +225,58 @@ export default function Landing() {
               variant="secondary"
               data-testid="badge-achievements-section"
             >
-              Achievement System
+              {t("landing.achievements.badge", "Achievement System")}
             </Badge>
             <h2
               className="text-3xl lg:text-4xl font-bold mb-4"
               data-testid="text-badges-title"
             >
-              Collect Regional Badges
+              {t("landing.achievements.title")}
             </h2>
             <p
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
               data-testid="text-badges-description"
             >
-              Each region of Azerbaijan has its own unique cultural symbol.
-              Complete trips and challenges to earn exclusive achievement badges
-              representing the heritage of each area.
+              {t("landing.achievements.description")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredRegions.map((region, index) => {
-              const symbol = getRegionSymbol(region.key);
+            {featuredRegionKeys.map((regionKey, index) => {
+              const symbol = getRegionSymbol(regionKey);
               const SymbolIcon = symbol.icon;
               return (
                 <Card
                   key={index}
                   className="group overflow-visible card-hover border-card-border"
-                  data-testid={`card-region-${region.key}`}
+                  data-testid={`card-region-${regionKey}`}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div
                         className={`w-16 h-16 rounded-xl bg-gradient-to-br ${symbol.bgGradient} flex items-center justify-center shadow-lg flex-shrink-0`}
-                        data-testid={`icon-region-${region.key}`}
+                        data-testid={`icon-region-${regionKey}`}
                       >
                         <SymbolIcon className="h-8 w-8 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3
                           className="font-semibold text-lg mb-1"
-                          data-testid={`text-region-name-${region.key}`}
+                          data-testid={`text-region-name-${regionKey}`}
                         >
-                          {region.name}
+                          {t(`regions.${regionKey}`)}
                         </h3>
                         <p
                           className="text-sm text-secondary font-medium mb-2"
-                          data-testid={`text-region-symbol-${region.key}`}
+                          data-testid={`text-region-symbol-${regionKey}`}
                         >
                           {symbol.symbolName}
                         </p>
                         <p
                           className="text-sm text-muted-foreground line-clamp-2"
-                          data-testid={`text-region-description-${region.key}`}
+                          data-testid={`text-region-description-${regionKey}`}
                         >
-                          {region.description}
+                          {t(`landing.regionDescriptions.${regionKey}`)}
                         </p>
                       </div>
                     </div>
@@ -299,7 +293,7 @@ export default function Landing() {
                 className="gap-2"
                 data-testid="button-all-achievements"
               >
-                View All Achievements
+                {t("landing.achievements.viewAll")}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
@@ -316,34 +310,23 @@ export default function Landing() {
                 variant="secondary"
                 data-testid="badge-levels"
               >
-                Climbing Levels
+                {t("landing.levels.badge")}
               </Badge>
               <h2
                 className="text-3xl lg:text-4xl font-bold mb-6"
                 data-testid="text-levels-title"
               >
-                Level Up Your Journey
+                {t("landing.levels.title")}
               </h2>
               <p
                 className="text-muted-foreground text-lg mb-8 leading-relaxed"
                 data-testid="text-levels-description"
               >
-                Every trip you complete, every summit you conquer, and every
-                challenge you overcome earns you points. As you progress, unlock
-                new levels and exclusive rewards tied to Azerbaijan's rich
-                cultural heritage.
+                {t("landing.levels.description")}
               </p>
 
               <div className="space-y-4">
-                {[
-                  { level: 1, name: "Novice Explorer", points: "0 - 500 pts" },
-                  {
-                    level: 5,
-                    name: "Trail Master",
-                    points: "2,000 - 5,000 pts",
-                  },
-                  { level: 10, name: "Summit Champion", points: "10,000+ pts" },
-                ].map((tier, index) => (
+                {levels.map((tier, index) => (
                   <div
                     key={tier.level}
                     className="flex items-center gap-4 p-4 rounded-lg bg-muted/50"
@@ -359,7 +342,7 @@ export default function Landing() {
                         className="font-semibold"
                         data-testid={`tier-name-${tier.level}`}
                       >
-                        {tier.name}
+                        {t(`landing.${tier.nameKey}`)}
                       </div>
                       <div
                         className="text-sm text-muted-foreground"
@@ -379,7 +362,7 @@ export default function Landing() {
                   data-testid="button-start-journey"
                 >
                   <Users className="h-4 w-4" />
-                  Start Your Journey
+                  {t("landing.levels.startJourney")}
                 </Button>
               </div>
             </div>
@@ -403,10 +386,10 @@ export default function Landing() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">
-                      This month
+                      {t("landing.thisMonth", "This month")}
                     </div>
                     <div className="font-bold text-lg">
-                      +2,450 points earned
+                      {t("landing.pointsEarned", "+2,450 points earned")}
                     </div>
                   </div>
                 </div>
@@ -422,15 +405,13 @@ export default function Landing() {
             className="text-3xl lg:text-4xl font-bold mb-6"
             data-testid="text-cta-title"
           >
-            Ready to Explore Azerbaijan's Mountains?
+            {t("landing.cta.title")}
           </h2>
           <p
             className="text-lg text-white/90 mb-10 max-w-2xl mx-auto"
             data-testid="text-cta-description"
           >
-            Join thousands of adventurers discovering the beauty of the
-            Caucasus. Sign up today and start earning your first achievement
-            badge.
+            {t("landing.cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
@@ -440,7 +421,7 @@ export default function Landing() {
               onClick={() => (window.location.href = "/api/login")}
               data-testid="button-get-started"
             >
-              Get Started Free
+              {t("common.getStarted")}
               <ArrowRight className="h-5 w-5" />
             </Button>
             <Link href="/about">
@@ -450,7 +431,7 @@ export default function Landing() {
                 className="w-full sm:w-auto text-lg px-8 border-white/30 text-white hover:bg-white/10 bg-white/5"
                 data-testid="button-learn-more"
               >
-                Learn More
+                {t("common.learnMore")}
               </Button>
             </Link>
           </div>

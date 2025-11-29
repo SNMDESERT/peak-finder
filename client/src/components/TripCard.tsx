@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,8 @@ interface TripCardProps {
 }
 
 export function TripCard({ trip, regionName }: TripCardProps) {
+  const { t } = useTranslation();
+
   return (
     <Card
       className="group overflow-visible card-hover border-card-border"
@@ -58,11 +61,11 @@ export function TripCard({ trip, regionName }: TripCardProps) {
           <Badge
             className={`${difficultyColors[trip.difficulty]} border-0 text-xs font-medium`}
           >
-            {trip.difficulty.charAt(0).toUpperCase() + trip.difficulty.slice(1)}
+            {t(`tripCard.difficulty.${trip.difficulty}`, trip.difficulty.charAt(0).toUpperCase() + trip.difficulty.slice(1))}
           </Badge>
           {trip.featured && (
             <Badge className="bg-secondary text-secondary-foreground border-0 text-xs font-medium">
-              Featured
+              {t("tripCard.featured", "Featured")}
             </Badge>
           )}
         </div>
@@ -70,7 +73,7 @@ export function TripCard({ trip, regionName }: TripCardProps) {
         <div className="absolute bottom-3 left-3 right-3">
           <div className="flex items-center gap-2 text-white/90 text-xs">
             {activityIcons[trip.activityType] || <Mountain className="h-3.5 w-3.5" />}
-            <span className="capitalize">{trip.activityType}</span>
+            <span>{t(`tripCard.activity.${trip.activityType}`, trip.activityType)}</span>
           </div>
         </div>
       </div>
@@ -109,7 +112,7 @@ export function TripCard({ trip, regionName }: TripCardProps) {
           {trip.maxGroupSize && (
             <div className="flex items-center gap-1">
               <Users className="h-3.5 w-3.5 text-primary" />
-              <span>Max {trip.maxGroupSize}</span>
+              <span>{t("tripCard.maxGroupSize", "Max {{count}}", { count: trip.maxGroupSize })}</span>
             </div>
           )}
         </div>
@@ -121,20 +124,20 @@ export function TripCard({ trip, regionName }: TripCardProps) {
                 <span className="text-lg font-bold text-primary">
                   ${Number(trip.price).toFixed(0)}
                 </span>
-                <span className="text-xs text-muted-foreground">per person</span>
+                <span className="text-xs text-muted-foreground">{t("tripCard.perPerson", "per person")}</span>
               </div>
             )}
           </div>
           <Link href={`/trips/${trip.id}`}>
             <Button size="sm" data-testid={`button-view-trip-${trip.id}`}>
-              View Details
+              {t("tripCard.viewDetails", "View Details")}
             </Button>
           </Link>
         </div>
 
         <div className="flex items-center gap-1 text-xs text-secondary">
           <TrendingUp className="h-3 w-3" />
-          <span>+{trip.pointsReward || 100} points</span>
+          <span>{t("tripCard.pointsReward", "+{{count}} points", { count: trip.pointsReward || 100 })}</span>
         </div>
       </CardContent>
     </Card>

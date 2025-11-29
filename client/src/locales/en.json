@@ -67,15 +67,36 @@
     "cta": {
       "title": "Ready to Explore Azerbaijan's Mountains?",
       "description": "Join thousands of adventurers discovering the beauty of the Caucasus. Sign up today and start earning your first achievement badge."
+    },
+    "stats": {
+      "liveNow": "Live Now",
+      "regionsAvailable": "Regions Available",
+      "badgesReady": "Badges Ready",
+      "beFirst": "Be the First",
+      "explorersJoining": "Explorers Joining"
+    },
+    "thisMonth": "This month",
+    "pointsEarned": "+2,450 points earned",
+    "regionDescriptions": {
+      "karabakh": "Home of the legendary Karabakh horses and Shusha's peaks",
+      "nakhchivan": "Sacred mountains and historic Momine Khatun mausoleum",
+      "shaki": "UNESCO heritage and the majestic Caucasus foothills",
+      "gabala": "Premier outdoor resort with stunning alpine scenery",
+      "ganja": "Ancient city with vibrant culture and nearby trails",
+      "gobustan": "Ancient rock art and mystical mud volcanoes"
     }
   },
   "trips": {
     "title": "Mountain Trips",
+    "pageTitle": "Mountain Trips & Adventures",
+    "pageDescription": "Discover unforgettable journeys through Azerbaijan's breathtaking landscapes. From summit climbs to cultural explorations.",
+    "adventuresAvailable": "{{count}} Adventures Available",
     "allTrips": "All Trips",
     "tripsFound": "{{count}} trips found",
     "searchPlaceholder": "Search trips...",
     "advancedFilters": "Advanced Filters",
     "hideFilters": "Hide Filters",
+    "quickFilters": "Quick filters",
     "filters": {
       "activity": "Activity Type",
       "difficulty": "Difficulty",
@@ -130,6 +151,22 @@
   "achievements": {
     "title": "Achievement Badges",
     "description": "Earn unique badges representing Azerbaijan's six regions. Each badge celebrates the cultural heritage and natural beauty of its region.",
+    "gallery": "Achievement Gallery",
+    "pageTitle": "Regional Achievement Badges",
+    "pageDescription": "Collect unique badges representing Azerbaijan's rich cultural heritage. Each region has its own symbol - earn them all to become a true explorer.",
+    "yourProgress": "Your Progress",
+    "badgesEarnedCount": "{{earned}} of {{total}} badges earned",
+    "complete": "Complete",
+    "byRegion": "By Region",
+    "byTier": "By Tier",
+    "general": "General",
+    "earnedCount": "{{earned}} / {{total}} earned",
+    "tierLabel": "{{tier}} Tier",
+    "noAchievements": "No achievements available",
+    "checkBackSoon": "Check back soon for new badges to earn!",
+    "signInTitle": "Sign In to Track Your Progress",
+    "signInDescription": "Create an account to start earning badges and tracking your mountain adventures across Azerbaijan.",
+    "startJourney": "Start Your Journey",
     "earned": "Earned",
     "locked": "Locked",
     "progress": "Progress",
@@ -148,42 +185,170 @@
   "reviews": {
     "title": "Traveler Reviews",
     "description": "Read authentic experiences from fellow adventurers who have explored Azerbaijan's mountains.",
+    "badge": "Traveler Feedback",
+    "pageTitle": "Reviews & Experiences",
+    "pageDescription": "Read authentic reviews from fellow adventurers and share your own mountain experiences across Azerbaijan.",
+    "basedOn": "Based on {{count}} reviews",
+    "shareExperience": "Share Your Experience",
+    "shareDescription": "Completed a trip? Help other adventurers by sharing your story.",
     "writeReview": "Write a Review",
+    "signInToReview": "Sign In to Review",
+    "allReviews": "All Reviews",
+    "reviewCount": "{{count}} reviews",
+    "noReviews": "No reviews yet",
+    "beFirst": "Be the first to share your mountain adventure experience!",
     "rating": "Rating",
     "helpful": "Helpful",
-    "noReviews": "No reviews yet"
+    "form": {
+      "dialogTitle": "Write Your Review",
+      "yourRating": "Your Rating",
+      "selectRating": "Please select a rating",
+      "tripOptional": "Trip (Optional)",
+      "selectTrip": "Select a trip",
+      "reviewTitle": "Review Title",
+      "titlePlaceholder": "Summarize your experience",
+      "yourReview": "Your Review",
+      "contentPlaceholder": "Share your detailed experience...",
+      "activityTypeOptional": "Activity Type (Optional)",
+      "selectActivity": "Select activity",
+      "submitting": "Submitting...",
+      "submitReview": "Submit Review"
+    },
+    "filter": {
+      "allRatings": "All Ratings",
+      "stars5": "5 Stars",
+      "stars4": "4 Stars",
+      "stars3": "3 Stars",
+      "stars2": "2 Stars",
+      "star1": "1 Star"
+    },
+    "activities": {
+      "climbing": "Climbing",
+      "hiking": "Hiking",
+      "camping": "Camping",
+      "photography": "Photography",
+      "cultural": "Cultural Tour",
+      "wildlife": "Wildlife"
+    },
+    "toast": {
+      "submitted": "Review submitted!",
+      "thankYou": "Thank you for sharing your experience."
+    },
+    "error": {
+      "unauthorized": "Unauthorized",
+      "signInRequired": "Please sign in to submit a review.",
+      "title": "Error",
+      "failed": "Failed to submit review. Please try again."
+    }
   },
   "about": {
-    "badge": "Our Story",
-    "title": "Discover AzMountain",
-    "description": "We are passionate mountaineers and cultural enthusiasts dedicated to sharing the beauty of Azerbaijan's peaks with the world.",
-    "mission": "Our mission is to make mountain tourism accessible while preserving the rich cultural heritage of each region.",
+    "story": {
+      "badge": "Our Story",
+      "title": "Connecting Adventurers with",
+      "titleHighlight": "Azerbaijan's Mountains",
+      "subtitle": "We're on a mission to make Azerbaijan's breathtaking mountain landscapes accessible to explorers worldwide, while celebrating the rich cultural heritage of each unique region."
+    },
+    "mission": {
+      "badge": "Our Mission",
+      "title": "Elevating Mountain Tourism in Azerbaijan",
+      "p1": "AzMountain was founded with a simple yet powerful vision: to transform how people experience Azerbaijan's magnificent mountain landscapes. We believe that every summit conquered and every trail explored should be celebrated.",
+      "p2": "Our innovative achievement system rewards your adventures with authentic regional symbols, connecting you with the cultural heritage of each area you explore. From the legendary Karabakh horses to the ancient petroglyphs of Gobustan, every badge tells a story."
+    },
+    "stats": {
+      "liveNow": "Live Now",
+      "explorersJoining": "Explorers Joining",
+      "regionsAvailable": "Regions Available",
+      "badgesReady": "Badges Ready",
+      "earlyAccess": "Early Access",
+      "beFirst": "Be the First"
+    },
     "values": {
       "badge": "Our Values",
       "title": "What Drives Us Forward",
       "description": "Our core values shape every trip we curate and every experience we create for our community.",
       "safety": "Safety First",
-      "safetyDesc": "Your safety is our top priority on every adventure",
-      "culture": "Cultural Respect",
-      "cultureDesc": "We honor and preserve local traditions",
+      "safetyDesc": "Every trip is carefully vetted with certified guides and proper safety equipment. Your wellbeing is our priority.",
+      "culture": "Cultural Heritage",
+      "cultureDesc": "We celebrate Azerbaijan's rich traditions through our regional badge system, connecting adventurers with local history.",
       "sustainability": "Sustainability",
-      "sustainabilityDesc": "Protecting mountains for future generations",
+      "sustainabilityDesc": "We promote responsible tourism that preserves the natural beauty of Azerbaijan's mountains for future generations.",
       "community": "Community",
-      "communityDesc": "Building connections through shared adventures"
+      "communityDesc": "Join a passionate community of climbers and explorers who share experiences and inspire each other."
     },
     "symbols": {
       "badge": "Regional Symbols",
       "title": "The Heart of Our Achievement System",
       "description": "Each region of Azerbaijan has its own unique cultural symbol that represents centuries of heritage, tradition, and natural beauty."
     },
+    "regions": {
+      "karabakh": "The legendary Karabakh horse, known for its golden sheen, represents the region's proud equestrian heritage and the resilience of its people.",
+      "nakhchivan": "Home to the Momine Khatun Mausoleum and ancient fortifications, representing centuries of architectural excellence.",
+      "shaki": "A UNESCO World Heritage site on the historic Silk Road, where caravans once traded precious goods between East and West.",
+      "gabala": "Azerbaijan's premier outdoor destination, featuring stunning alpine scenery and world-class adventure facilities.",
+      "ganja": "Famous for its vibrant carpet-weaving tradition, Ganja's intricate patterns tell stories of the region's artistic soul.",
+      "gobustan": "Ancient rock carvings dating back 40,000 years, a UNESCO site showcasing humanity's earliest artistic expressions."
+    },
     "cta": {
       "title": "Ready to Start Your Journey?",
-      "description": "Join our community of adventurers and discover the magic of Azerbaijan's mountains. Your first achievement badge awaits."
+      "description": "Join our community of adventurers and discover the magic of Azerbaijan's mountains. Your first achievement badge awaits.",
+      "exploreTrips": "Explore Trips",
+      "viewAchievements": "View Achievements"
     }
+  },
+  "home": {
+    "welcomeBack": "Welcome back",
+    "explorer": "Explorer",
+    "levelExplorer": "Level {{level}} Mountain Explorer",
+    "totalPoints": "Total Points",
+    "tripsDone": "Trips Done",
+    "badgesEarned": "Badges Earned",
+    "elevation": "Elevation",
+    "progressToLevel": "Progress to Level {{level}}",
+    "featuredTrips": "Featured Trips",
+    "handpickedAdventures": "Handpicked adventures waiting for you",
+    "noFeaturedTrips": "No featured trips yet",
+    "checkBackSoon": "Check back soon for exciting mountain adventures!",
+    "browseAllTrips": "Browse All Trips",
+    "achievementBadges": "Achievement Badges",
+    "collectSymbols": "Collect regional symbols as you explore",
+    "noAchievements": "No achievements available",
+    "startExploring": "Start exploring to unlock your first badge!",
+    "quickActions": "Quick Actions",
+    "readyForAdventure": "Ready for Your Next Adventure?",
+    "exploreNewTrails": "Explore new mountain trails, join group expeditions, or plan your solo journey through Azerbaijan's stunning landscapes.",
+    "findTrip": "Find a Trip",
+    "myDashboard": "My Dashboard"
   },
   "dashboard": {
     "title": "Your Dashboard",
     "welcome": "Welcome back",
+    "unauthorized": "Unauthorized",
+    "pleaseSignIn": "Please sign in to view your dashboard.",
+    "level": "Level {{level}}",
+    "mountainExplorer": "Mountain Explorer",
+    "progressToLevel": "Progress to Level {{level}}",
+    "pointsProgress": "{{current}} / 500 points",
+    "earnMorePoints": "Complete trips and challenges to earn more points",
+    "totalPoints": "Total Points",
+    "tripsDone": "Trips Done",
+    "badgesEarned": "Badges Earned",
+    "elevation": "Elevation",
+    "upcomingTrips": "Upcoming Trips",
+    "booked": "Booked",
+    "noUpcomingTrips": "No upcoming trips",
+    "bookTrip": "Book a Trip",
+    "recentCompletions": "Recent Completions",
+    "completed": "Completed",
+    "noCompletedTrips": "No completed trips yet",
+    "recentAchievements": "Recent Achievements",
+    "noBadgesEarned": "No badges earned yet",
+    "startEarning": "Start Earning",
+    "nextGoals": "Next Goals",
+    "goals": {
+      "karabakhExplorer": "Karabakh Explorer",
+      "summitMaster": "Summit Master",
+      "nakhchivanHeritage": "Nakhchivan Heritage"
+    },
     "stats": {
       "level": "Level",
       "points": "Points",
@@ -195,23 +360,110 @@
     "noTrips": "No trips completed yet",
     "noAchievements": "No achievements earned yet"
   },
+  "tripCard": {
+    "featured": "Featured",
+    "viewDetails": "View Details",
+    "perPerson": "per person",
+    "maxGroupSize": "Max {{count}}",
+    "pointsReward": "+{{count}} points",
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    },
+    "activity": {
+      "climbing": "Climbing",
+      "hiking": "Hiking",
+      "camping": "Camping",
+      "photography": "Photography",
+      "cultural": "Cultural",
+      "wildlife": "Wildlife"
+    }
+  },
   "booking": {
     "title": "Book Trip",
-    "selectDate": "Select Date",
+    "titleBook": "Book Your Adventure",
+    "titleConfirmed": "Booking Confirmed!",
+    "descriptionBook": "Reserve your spot for {{tripTitle}}",
+    "descriptionConfirmed": "Your mountain adventure awaits!",
+    "selectDate": "Select a date",
+    "tripDate": "Trip Date",
     "groupSize": "Group Size",
+    "selectParticipants": "Select number of participants",
+    "person": "person",
+    "people": "people",
+    "participant": "participant",
     "participants": "Participant Names",
+    "participantNames": "Participant Names (Optional)",
+    "participantNamesPlaceholder": "Enter names of all participants, one per line",
+    "maxParticipants": "Max {{count}} participants",
+    "maxPerBooking": "Maximum {{count}} participants per booking",
+    "contactPhone": "Contact Phone",
     "contact": "Contact Phone",
-    "specialRequests": "Special Requests",
+    "specialRequests": "Special Requests (Optional)",
+    "specialRequestsPlaceholder": "Any dietary requirements, accessibility needs, or special requests...",
+    "continueToDetails": "Continue to Booking Details",
+    "confirmBooking": "Confirm Booking",
+    "booking": "Booking...",
     "confirm": "Confirm Booking",
     "success": "Booking Confirmed!",
-    "total": "Total"
+    "total": "Total",
+    "totalFor": "Total for {{count}} participant(s)",
+    "perPerson": "per person",
+    "adventureBooked": "Your adventure is booked!",
+    "confirmationSent": "We've sent a confirmation to your email with all the details.",
+    "dateSelected": "Date selected",
+    "validation": {
+      "dateRequired": "Please select a date for your trip",
+      "groupSizeRequired": "Please select group size",
+      "phoneInvalid": "Please enter a valid phone number"
+    },
+    "toast": {
+      "confirmedTitle": "Booking Confirmed!",
+      "confirmedDescription": "Your trip to {{tripTitle}} has been booked successfully.",
+      "failedTitle": "Booking Failed",
+      "failedDescription": "Failed to book trip. Please try again."
+    }
+  },
+  "inviteModal": {
+    "inviteFriends": "Invite Friends",
+    "title": "Invite Friends to Trip",
+    "description": "Create an invite link to share with friends for \"{{tripTitle}}\"",
+    "emailLabel": "Friend's Email (optional)",
+    "emailHint": "Leave empty to create a general invite link",
+    "creating": "Creating...",
+    "generateLink": "Generate Invite Link",
+    "inviteLink": "Invite Link",
+    "linkExpiry": "This link expires in 7 days",
+    "sendViaEmail": "Send via Email",
+    "createNewLink": "Create New Link",
+    "email": {
+      "subject": "Join me on a trip: {{tripTitle}}",
+      "body": "Hey! I'd love for you to join me on this amazing mountain adventure:\n\n{{tripTitle}}\n{{tripLocation}}\n\nClick here to view the trip and join: {{inviteLink}}\n\nSee you on the trail!"
+    },
+    "toast": {
+      "createdTitle": "Invitation created",
+      "createdDescription": "Share the link with your friends to invite them to this trip",
+      "failedTitle": "Failed to create invitation",
+      "failedDescription": "Please try again later",
+      "copiedTitle": "Link copied",
+      "copiedDescription": "Invite link has been copied to clipboard",
+      "copyFailedTitle": "Failed to copy",
+      "copyFailedDescription": "Could not copy link to clipboard"
+    }
   },
   "footer": {
     "description": "Discover the breathtaking mountain landscapes of Azerbaijan. From the majestic Caucasus peaks to the ancient trails of Karabakh, embark on adventures that reward your spirit.",
     "explore": "Explore",
+    "mountainTrips": "Mountain Trips",
+    "achievementBadges": "Achievement Badges",
+    "travelerReviews": "Traveler Reviews",
+    "aboutUs": "About Us",
     "contact": "Contact",
     "newsletter": "Newsletter",
     "newsletterDesc": "Subscribe to get the latest mountain adventures and exclusive offers.",
+    "emailPlaceholder": "Enter your email",
     "subscribe": "Subscribe",
     "verified": "Verified Trips",
     "guides": "Local Expert Guides",
@@ -235,5 +487,109 @@
     "mountainPeak": "Mountain Peak",
     "carpetPattern": "Carpet Pattern",
     "petroglyphs": "Petroglyphs"
+  },
+  "privacy": {
+    "backToHome": "Back to Home",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: November 2025",
+    "intro": "At AzMountain, we value your privacy. This policy explains how we collect, use, and protect your information when you use Azerbaijan's first mountain tourism app.",
+    "sections": {
+      "collect": {
+        "title": "Information We Collect",
+        "accountInfo": {
+          "label": "Account Information:",
+          "text": "Name, email address, and profile picture when you sign up"
+        },
+        "tripActivity": {
+          "label": "Trip Activity:",
+          "text": "Your completed trips, bookings, and achievement progress"
+        },
+        "reviewsPhotos": {
+          "label": "Reviews & Photos:",
+          "text": "Content you choose to share about your experiences"
+        }
+      },
+      "use": {
+        "title": "How We Use Your Information",
+        "personalize": "To provide and personalize your mountain adventure experience",
+        "track": "To track your achievements and climbing progress",
+        "process": "To process trip bookings and send important updates",
+        "improve": "To improve our services and develop new features"
+      },
+      "protect": {
+        "title": "How We Protect Your Data",
+        "encrypted": "Secure encrypted connections for all data transfers",
+        "noSell": "We never sell your personal information to third parties",
+        "delete": "You can delete your account and data at any time"
+      },
+      "contact": {
+        "title": "Contact Us",
+        "text": "Questions about your privacy? Contact us at"
+      }
+    }
+  },
+  "invite": {
+    "title": "Trip Invitation",
+    "notFound": "Invitation Not Found",
+    "invalidOrExpired": "This invitation link may be invalid or has expired.",
+    "browseAllTrips": "Browse All Trips",
+    "invitedByName": "{{name}} invited you to join this trip",
+    "invitedGeneric": "You've been invited to join this adventure",
+    "maxGroupSize": "Max group size:",
+    "expired": "This invitation has expired",
+    "viewTripDetails": "View Trip Details",
+    "accepted": "Invitation accepted",
+    "signInToAccept": "Sign In to Accept Invitation",
+    "signInHint": "Sign in with your account to join this trip",
+    "accepting": "Accepting...",
+    "acceptAndView": "Accept Invitation & View Trip",
+    "browseOtherTrips": "Browse Other Trips",
+    "toast": {
+      "acceptedTitle": "Invitation accepted",
+      "acceptedDescription": "You can now view and book this trip",
+      "failedTitle": "Failed to accept invitation",
+      "failedDescription": "Please try again later"
+    }
+  },
+  "notFound": {
+    "title": "404 Page Not Found",
+    "message": "Did you forget to add the page to the router?"
+  },
+  "terms": {
+    "backToHome": "Back to Home",
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: November 2025",
+    "intro": "Welcome to AzMountain! By using our platform, you agree to these simple terms that help us maintain a safe and enjoyable experience for all mountain adventurers.",
+    "sections": {
+      "usage": {
+        "title": "Using AzMountain",
+        "age": "You must be at least 18 years old to create an account",
+        "accurate": "Provide accurate information when booking trips",
+        "respect": "Respect other users and share honest, helpful reviews",
+        "secure": "Keep your account credentials secure"
+      },
+      "trips": {
+        "title": "Trip Bookings",
+        "availability": "Bookings are subject to availability and weather conditions",
+        "safety": "Follow all safety guidelines provided by trip leaders",
+        "cancellation": "Cancellation policies vary by trip - check details before booking",
+        "fitness": "Ensure you have appropriate fitness level for your chosen difficulty"
+      },
+      "safety": {
+        "title": "Safety & Responsibility",
+        "risks": "Mountain activities carry inherent risks - participate at your own discretion",
+        "insurance": "We recommend appropriate travel and health insurance",
+        "regulations": "Follow local regulations and respect the natural environment"
+      },
+      "content": {
+        "title": "Your Content",
+        "ownership": "You own the photos and reviews you share",
+        "permission": "By posting, you grant us permission to display your content on the platform",
+        "prohibited": "Do not post harmful, offensive, or copyrighted content"
+      }
+    },
+    "contact": {
+      "text": "Questions about these terms? Contact us at"
+    }
   }
 }

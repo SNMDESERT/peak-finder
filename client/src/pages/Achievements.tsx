@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "@/hooks/useAuth";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,15 +11,16 @@ import { getRegionSymbol } from "@/lib/regionSymbols";
 import type { Achievement, UserAchievement, Region } from "@shared/schema";
 import { Award, Trophy, Lock, Star, Crown, Medal } from "lucide-react";
 
-const tierInfo = {
-  bronze: { icon: Medal, color: "text-amber-600", label: "Bronze" },
-  silver: { icon: Award, color: "text-slate-400", label: "Silver" },
-  gold: { icon: Trophy, color: "text-yellow-500", label: "Gold" },
-  platinum: { icon: Crown, color: "text-cyan-400", label: "Platinum" },
-};
-
 export default function Achievements() {
+  const { t } = useTranslation();
   const { user, isAuthenticated } = useAuth();
+
+  const tierInfo = {
+    bronze: { icon: Medal, color: "text-amber-600", label: t("achievements.tiers.bronze", "Bronze") },
+    silver: { icon: Award, color: "text-slate-400", label: t("achievements.tiers.silver", "Silver") },
+    gold: { icon: Trophy, color: "text-yellow-500", label: t("achievements.tiers.gold", "Gold") },
+    platinum: { icon: Crown, color: "text-cyan-400", label: t("achievements.tiers.platinum", "Platinum") },
+  };
 
   const { data: achievements, isLoading: achievementsLoading } = useQuery<Achievement[]>({
     queryKey: ["/api/achievements"],
@@ -62,8 +64,8 @@ export default function Achievements() {
   const progressPercentage = totalAchievements > 0 ? (earnedCount / totalAchievements) * 100 : 0;
 
   const getRegionName = (regionId: string) => {
-    if (regionId === "general") return "General";
-    return regions?.find((r) => r.id === regionId)?.name || "Unknown";
+    if (regionId === "general") return t("achievements.general", "General");
+    return t(`regions.${regionId}`, regions?.find((r) => r.id === regionId)?.name || regionId);
   };
 
   return (
@@ -73,20 +75,19 @@ export default function Achievements() {
           <div className="text-center mb-12">
             <Badge className="mb-4" variant="secondary" data-testid="badge-achievements-title">
               <Award className="h-3.5 w-3.5 mr-1.5" />
-              Achievement Gallery
+              {t("achievements.gallery", "Achievement Gallery")}
             </Badge>
             <h1
               className="text-4xl lg:text-5xl font-bold mb-4"
               data-testid="text-achievements-title"
             >
-              Regional Achievement Badges
+              {t("achievements.pageTitle", "Regional Achievement Badges")}
             </h1>
             <p
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
               data-testid="text-achievements-description"
             >
-              Collect unique badges representing Azerbaijan's rich cultural heritage.
-              Each region has its own symbol - earn them all to become a true explorer.
+              {t("achievements.pageDescription", "Collect unique badges representing Azerbaijan's rich cultural heritage. Each region has its own symbol - earn them all to become a true explorer.")}
             </p>
           </div>
 
@@ -103,13 +104,13 @@ export default function Achievements() {
                         className="font-semibold"
                         data-testid="text-progress-title"
                       >
-                        Your Progress
+                        {t("achievements.yourProgress", "Your Progress")}
                       </h3>
                       <p
                         className="text-sm text-muted-foreground"
                         data-testid="text-progress-count"
                       >
-                        {earnedCount} of {totalAchievements} badges earned
+                        {t("achievements.badgesEarnedCount", "{{earned}} of {{total}} badges earned", { earned: earnedCount, total: totalAchievements })}
                       </p>
                     </div>
                   </div>
@@ -120,7 +121,7 @@ export default function Achievements() {
                     >
                       {Math.round(progressPercentage)}%
                     </div>
-                    <div className="text-xs text-muted-foreground">Complete</div>
+                    <div className="text-xs text-muted-foreground">{t("achievements.complete", "Complete")}</div>
                   </div>
                 </div>
                 <Progress
@@ -138,10 +139,10 @@ export default function Achievements() {
         <Tabs defaultValue="regions" className="space-y-8">
           <TabsList className="w-full max-w-md mx-auto grid grid-cols-2">
             <TabsTrigger value="regions" data-testid="tab-by-region">
-              By Region
+              {t("achievements.byRegion", "By Region")}
             </TabsTrigger>
             <TabsTrigger value="tiers" data-testid="tab-by-tier">
-              By Tier
+              {t("achievements.byTier", "By Tier")}
             </TabsTrigger>
           </TabsList>
 
@@ -181,8 +182,10 @@ export default function Achievements() {
                           className="text-sm text-muted-foreground"
                           data-testid={`text-region-count-${regionId}`}
                         >
-                          {regionAchievements.filter((a) => earnedMap.has(a.id)).length} /{" "}
-                          {regionAchievements.length} earned
+                          {t("achievements.earnedCount", "{{earned}} / {{total}} earned", { 
+                            earned: regionAchievements.filter((a) => earnedMap.has(a.id)).length,
+                            total: regionAchievements.length
+                          })}
                         </p>
                       </div>
                     </div>
@@ -209,9 +212,9 @@ export default function Achievements() {
             ) : (
               <Card className="p-12 text-center" data-testid="card-no-achievements">
                 <Award className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-semibold mb-2">No achievements available</h3>
+                <h3 className="text-lg font-semibold mb-2">{t("achievements.noAchievements", "No achievements available")}</h3>
                 <p className="text-muted-foreground">
-                  Check back soon for new badges to earn!
+                  {t("achievements.checkBackSoon", "Check back soon for new badges to earn!")}
                 </p>
               </Card>
             )}
@@ -246,14 +249,16 @@ export default function Achievements() {
                           className="text-xl font-bold capitalize"
                           data-testid={`text-tier-title-${tier}`}
                         >
-                          {info.label} Tier
+                          {t("achievements.tierLabel", "{{tier}} Tier", { tier: info.label })}
                         </h2>
                         <p
                           className="text-sm text-muted-foreground"
                           data-testid={`text-tier-count-${tier}`}
                         >
-                          {tierAchievements.filter((a) => earnedMap.has(a.id)).length} /{" "}
-                          {tierAchievements.length} earned
+                          {t("achievements.earnedCount", "{{earned}} / {{total}} earned", { 
+                            earned: tierAchievements.filter((a) => earnedMap.has(a.id)).length,
+                            total: tierAchievements.length
+                          })}
                         </p>
                       </div>
                     </div>
@@ -291,14 +296,13 @@ export default function Achievements() {
               className="text-xl font-bold mb-2"
               data-testid="text-signin-title"
             >
-              Sign In to Track Your Progress
+              {t("achievements.signInTitle", "Sign In to Track Your Progress")}
             </h3>
             <p
               className="text-muted-foreground mb-6 max-w-md mx-auto"
               data-testid="text-signin-description"
             >
-              Create an account to start earning badges and tracking your mountain
-              adventures across Azerbaijan.
+              {t("achievements.signInDescription", "Create an account to start earning badges and tracking your mountain adventures across Azerbaijan.")}
             </p>
             <button
               onClick={() => (window.location.href = "/api/login")}
@@ -306,7 +310,7 @@ export default function Achievements() {
               data-testid="button-signin-achievements"
             >
               <Star className="h-4 w-4" />
-              Start Your Journey
+              {t("achievements.startJourney", "Start Your Journey")}
             </button>
           </Card>
         )}

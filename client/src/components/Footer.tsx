@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -17,6 +18,8 @@ import {
 } from "lucide-react";
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,9 +36,7 @@ export function Footer() {
                 </div>
               </Link>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Discover the breathtaking mountain landscapes of Azerbaijan.
-                From the majestic Caucasus peaks to the ancient trails of
-                Karabakh, embark on adventures that reward your spirit.
+                {t("footer.description", "Discover the breathtaking mountain landscapes of Azerbaijan. From the majestic Caucasus peaks to the ancient trails of Karabakh, embark on adventures that reward your spirit.")}
               </p>
               <div className="flex items-center gap-2 pt-2">
                 <Button
@@ -74,33 +75,33 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-base mb-4">Explore</h4>
+              <h4 className="font-semibold text-base mb-4">{t("footer.explore", "Explore")}</h4>
               <ul className="space-y-3">
                 <li>
                   <Link href="/trips" data-testid="link-footer-trips">
                     <span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer text-sm">
-                      Mountain Trips
+                      {t("footer.mountainTrips", "Mountain Trips")}
                     </span>
                   </Link>
                 </li>
                 <li>
                   <Link href="/achievements" data-testid="link-footer-achievements">
                     <span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer text-sm">
-                      Achievement Badges
+                      {t("footer.achievementBadges", "Achievement Badges")}
                     </span>
                   </Link>
                 </li>
                 <li>
                   <Link href="/reviews" data-testid="link-footer-reviews">
                     <span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer text-sm">
-                      Traveler Reviews
+                      {t("footer.travelerReviews", "Traveler Reviews")}
                     </span>
                   </Link>
                 </li>
                 <li>
                   <Link href="/about" data-testid="link-footer-about">
                     <span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer text-sm">
-                      About Us
+                      {t("footer.aboutUs", "About Us")}
                     </span>
                   </Link>
                 </li>
@@ -108,7 +109,7 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-base mb-4">Contact</h4>
+              <h4 className="font-semibold text-base mb-4">{t("footer.contact", "Contact")}</h4>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-sm text-muted-foreground">
                   <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
@@ -126,15 +127,14 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-base mb-4">Newsletter</h4>
+              <h4 className="font-semibold text-base mb-4">{t("footer.newsletter", "Newsletter")}</h4>
               <p className="text-sm text-muted-foreground mb-4">
-                Subscribe to get the latest mountain adventures and exclusive
-                offers.
+                {t("footer.newsletterDesc", "Subscribe to get the latest mountain adventures and exclusive offers.")}
               </p>
               <div className="flex gap-2">
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t("footer.emailPlaceholder", "Enter your email")}
                   className="flex-1"
                   data-testid="input-newsletter-email"
                 />
@@ -148,15 +148,15 @@ export function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-6 mt-10 pt-8 border-t border-border">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Shield className="h-4 w-4 text-primary" />
-              <span>Verified Trips</span>
+              <span>{t("footer.verified", "Verified Trips")}</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Users className="h-4 w-4 text-primary" />
-              <span>Local Expert Guides</span>
+              <span>{t("footer.guides", "Local Expert Guides")}</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Award className="h-4 w-4 text-primary" />
-              <span>Safe Climbing Practices</span>
+              <span>{t("footer.safePractices", "Safe Climbing Practices")}</span>
             </div>
           </div>
         </div>
@@ -164,17 +164,17 @@ export function Footer() {
         <div className="py-6 border-t border-border">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} AzMountain. All rights reserved.
+              &copy; {new Date().getFullYear()} AzMountain. {t("footer.rights", "All rights reserved.")}
             </p>
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <Link href="/privacy" data-testid="link-privacy-policy">
                 <span className="hover:text-primary cursor-pointer transition-colors">
-                  Privacy Policy
+                  {t("footer.privacy", "Privacy Policy")}
                 </span>
               </Link>
               <Link href="/terms" data-testid="link-terms-of-service">
                 <span className="hover:text-primary cursor-pointer transition-colors">
-                  Terms of Service
+                  {t("footer.terms", "Terms of Service")}
                 </span>
               </Link>
             </div>

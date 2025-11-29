@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TripCard } from "@/components/TripCard";
 import { AchievementBadge } from "@/components/AchievementBadge";
+import { useTranslation } from "react-i18next";
 import type { Trip, Achievement, UserAchievement } from "@shared/schema";
 import {
   Mountain,
@@ -21,6 +22,7 @@ import {
 } from "lucide-react";
 
 export default function Home() {
+  const { t } = useTranslation();
   const { user } = useAuth();
 
   const { data: trips, isLoading: tripsLoading } = useQuery<Trip[]>({
@@ -61,10 +63,10 @@ export default function Home() {
                   </div>
                   <div>
                     <h1 className="text-2xl lg:text-3xl font-bold">
-                      Welcome back, {user?.firstName || "Explorer"}!
+                      {t("home.welcomeBack", "Welcome back")}, {user?.firstName || t("home.explorer", "Explorer")}!
                     </h1>
                     <p className="text-muted-foreground">
-                      Level {climbingLevel} Mountain Explorer
+                      {t("home.levelExplorer", "Level {{level}} Mountain Explorer", { level: climbingLevel })}
                     </p>
                   </div>
                 </div>
@@ -72,25 +74,25 @@ export default function Home() {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                   <div className="text-center p-3 rounded-lg bg-background/50">
                     <div className="text-2xl font-bold text-primary">{totalPoints}</div>
-                    <div className="text-xs text-muted-foreground">Total Points</div>
+                    <div className="text-xs text-muted-foreground">{t("home.totalPoints", "Total Points")}</div>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-background/50">
                     <div className="text-2xl font-bold text-primary">
                       {user?.tripsCompleted || 0}
                     </div>
-                    <div className="text-xs text-muted-foreground">Trips Done</div>
+                    <div className="text-xs text-muted-foreground">{t("home.tripsDone", "Trips Done")}</div>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-background/50">
                     <div className="text-2xl font-bold text-primary">
                       {earnedAchievementIds.size}
                     </div>
-                    <div className="text-xs text-muted-foreground">Badges Earned</div>
+                    <div className="text-xs text-muted-foreground">{t("home.badgesEarned", "Badges Earned")}</div>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-background/50">
                     <div className="text-2xl font-bold text-primary">
                       {((user?.totalElevation || 0) / 1000).toFixed(1)}km
                     </div>
-                    <div className="text-xs text-muted-foreground">Elevation</div>
+                    <div className="text-xs text-muted-foreground">{t("home.elevation", "Elevation")}</div>
                   </div>
                 </div>
               </div>
@@ -98,7 +100,7 @@ export default function Home() {
               <div className="mt-6 pt-6 border-t border-border">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm text-muted-foreground">
-                    Progress to Level {climbingLevel + 1}
+                    {t("home.progressToLevel", "Progress to Level {{level}}", { level: climbingLevel + 1 })}
                   </span>
                   <span className="text-sm font-medium">
                     {totalPoints % 500} / 500 pts
@@ -115,15 +117,15 @@ export default function Home() {
             <div>
               <h2 className="text-2xl font-bold flex items-center gap-2">
                 <Compass className="h-6 w-6 text-primary" />
-                Featured Trips
+                {t("home.featuredTrips", "Featured Trips")}
               </h2>
               <p className="text-muted-foreground">
-                Handpicked adventures waiting for you
+                {t("home.handpickedAdventures", "Handpicked adventures waiting for you")}
               </p>
             </div>
             <Link href="/trips">
               <Button variant="outline" className="gap-2" data-testid="link-all-trips">
-                View All
+                {t("common.viewAll")}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
@@ -151,12 +153,12 @@ export default function Home() {
           ) : (
             <Card className="p-12 text-center">
               <Mountain className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No featured trips yet</h3>
+              <h3 className="text-lg font-semibold mb-2">{t("home.noFeaturedTrips", "No featured trips yet")}</h3>
               <p className="text-muted-foreground mb-4">
-                Check back soon for exciting mountain adventures!
+                {t("home.checkBackSoon", "Check back soon for exciting mountain adventures!")}
               </p>
               <Link href="/trips">
-                <Button data-testid="button-browse-trips">Browse All Trips</Button>
+                <Button data-testid="button-browse-trips">{t("home.browseAllTrips", "Browse All Trips")}</Button>
               </Link>
             </Card>
           )}
@@ -167,15 +169,15 @@ export default function Home() {
             <div>
               <h2 className="text-2xl font-bold flex items-center gap-2">
                 <Award className="h-6 w-6 text-secondary" />
-                Achievement Badges
+                {t("home.achievementBadges", "Achievement Badges")}
               </h2>
               <p className="text-muted-foreground">
-                Collect regional symbols as you explore
+                {t("home.collectSymbols", "Collect regional symbols as you explore")}
               </p>
             </div>
             <Link href="/achievements">
               <Button variant="outline" className="gap-2" data-testid="link-all-achievements">
-                View All
+                {t("common.viewAll")}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
@@ -207,9 +209,9 @@ export default function Home() {
           ) : (
             <Card className="p-12 text-center">
               <Award className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No achievements available</h3>
+              <h3 className="text-lg font-semibold mb-2">{t("home.noAchievements", "No achievements available")}</h3>
               <p className="text-muted-foreground">
-                Start exploring to unlock your first badge!
+                {t("home.startExploring", "Start exploring to unlock your first badge!")}
               </p>
             </Card>
           )}
@@ -220,26 +222,25 @@ export default function Home() {
             <div className="grid lg:grid-cols-2">
               <div className="p-8 lg:p-12 flex flex-col justify-center">
                 <Badge className="w-fit mb-4" variant="secondary">
-                  Quick Actions
+                  {t("home.quickActions", "Quick Actions")}
                 </Badge>
                 <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-                  Ready for Your Next Adventure?
+                  {t("home.readyForAdventure", "Ready for Your Next Adventure?")}
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  Explore new mountain trails, join group expeditions, or plan your
-                  solo journey through Azerbaijan's stunning landscapes.
+                  {t("home.exploreNewTrails", "Explore new mountain trails, join group expeditions, or plan your solo journey through Azerbaijan's stunning landscapes.")}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/trips">
                     <Button className="gap-2" data-testid="button-find-trip">
                       <MapPin className="h-4 w-4" />
-                      Find a Trip
+                      {t("home.findTrip", "Find a Trip")}
                     </Button>
                   </Link>
                   <Link href="/dashboard">
                     <Button variant="outline" className="gap-2" data-testid="button-my-dashboard">
                       <Calendar className="h-4 w-4" />
-                      My Dashboard
+                      {t("home.myDashboard", "My Dashboard")}
                     </Button>
                   </Link>
                 </div>

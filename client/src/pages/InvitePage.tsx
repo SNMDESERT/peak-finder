@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useRoute, useLocation } from "wouter";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +20,7 @@ export default function InvitePage() {
   const [, params] = useRoute("/invite/:code");
   const inviteCode = params?.code;
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const { data: user, isLoading: userLoading } = useQuery<User>({
     queryKey: ["/api/auth/user"],
@@ -41,8 +42,8 @@ export default function InvitePage() {
     },
     onSuccess: () => {
       toast({
-        title: "Invitation accepted",
-        description: "You can now view and book this trip",
+        title: t("invite.toast.acceptedTitle", "Invitation accepted"),
+        description: t("invite.toast.acceptedDescription", "You can now view and book this trip"),
       });
       queryClient.invalidateQueries({ queryKey: ["/api/invitations", inviteCode] });
       if (invitation?.trip) {
@@ -51,8 +52,8 @@ export default function InvitePage() {
     },
     onError: () => {
       toast({
-        title: "Failed to accept invitation",
-        description: "Please try again later",
+        title: t("invite.toast.failedTitle", "Failed to accept invitation"),
+        description: t("invite.toast.failedDescription", "Please try again later"),
         variant: "destructive",
       });
     },
@@ -82,13 +83,13 @@ export default function InvitePage() {
           <CardContent className="pt-6 text-center">
             <AlertCircle className="h-16 w-16 text-destructive mx-auto mb-4" />
             <h2 className="text-xl font-semibold mb-2" data-testid="text-invitation-error">
-              Invitation Not Found
+              {t("invite.notFound", "Invitation Not Found")}
             </h2>
             <p className="text-muted-foreground mb-4">
-              This invitation link may be invalid or has expired.
+              {t("invite.invalidOrExpired", "This invitation link may be invalid or has expired.")}
             </p>
             <Button onClick={() => setLocation("/trips")} data-testid="button-browse-trips">
-              Browse All Trips
+              {t("invite.browseAllTrips", "Browse All Trips")}
             </Button>
           </CardContent>
         </Card>
@@ -107,15 +108,15 @@ export default function InvitePage() {
         <CardHeader>
           <div className="flex items-center gap-2 mb-2">
             <UserPlus className="h-5 w-5 text-primary" />
-            <span className="text-sm text-muted-foreground">Trip Invitation</span>
+            <span className="text-sm text-muted-foreground">{t("invite.title", "Trip Invitation")}</span>
           </div>
           <CardTitle data-testid="text-invitation-title">
             {trip?.title || "Mountain Adventure"}
           </CardTitle>
           <CardDescription>
             {inviter?.firstName
-              ? `${inviter.firstName} ${inviter.lastName || ""} invited you to join this trip`
-              : "You've been invited to join this adventure"}
+              ? t("invite.invitedByName", "{{name}} invited you to join this trip", { name: `${inviter.firstName} ${inviter.lastName || ""}`.trim() })
+              : t("invite.invitedGeneric", "You've been invited to join this adventure")}
           </CardDescription>
         </CardHeader>
 
@@ -162,7 +163,7 @@ export default function InvitePage() {
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Users className="h-4 w-4" />
                 <span data-testid="text-group-size">
-                  Max group size: {trip.maxGroupSize}
+                  {t("invite.maxGroupSize", "Max group size:")} {trip.maxGroupSize}
                 </span>
               </div>
             )}
@@ -179,7 +180,7 @@ export default function InvitePage() {
               <div className="text-center py-4">
                 <AlertCircle className="h-8 w-8 text-destructive mx-auto mb-2" />
                 <p className="text-destructive font-medium" data-testid="text-expired">
-                  This invitation has expired
+                  {t("invite.expired", "This invitation has expired")}
                 </p>
                 <Button
                   variant="outline"
@@ -187,21 +188,21 @@ export default function InvitePage() {
                   onClick={() => setLocation(`/trips/${trip?.id}`)}
                   data-testid="button-view-trip-expired"
                 >
-                  View Trip Details
+                  {t("invite.viewTripDetails", "View Trip Details")}
                 </Button>
               </div>
             ) : isAccepted ? (
               <div className="text-center py-4">
                 <CheckCircle className="h-8 w-8 text-green-500 mx-auto mb-2" />
                 <p className="text-green-600 font-medium" data-testid="text-accepted">
-                  Invitation accepted
+                  {t("invite.accepted", "Invitation accepted")}
                 </p>
                 <Button
                   className="mt-3"
                   onClick={() => setLocation(`/trips/${trip?.id}`)}
                   data-testid="button-view-trip-accepted"
                 >
-                  View Trip Details
+                  {t("invite.viewTripDetails", "View Trip Details")}
                 </Button>
               </div>
             ) : !user ? (
@@ -212,10 +213,10 @@ export default function InvitePage() {
                   data-testid="button-login-to-accept"
                 >
                   <UserPlus className="h-4 w-4 mr-2" />
-                  Sign In to Accept Invitation
+                  {t("invite.signInToAccept", "Sign In to Accept Invitation")}
                 </Button>
                 <p className="text-xs text-center text-muted-foreground">
-                  Sign in with your account to join this trip
+                  {t("invite.signInHint", "Sign in with your account to join this trip")}
                 </p>
               </div>
             ) : (
@@ -227,11 +228,11 @@ export default function InvitePage() {
                   data-testid="button-accept-invitation"
                 >
                   {acceptMutation.isPending ? (
-                    "Accepting..."
+                    t("invite.accepting", "Accepting...")
                   ) : (
                     <>
                       <UserPlus className="h-4 w-4 mr-2" />
-                      Accept Invitation & View Trip
+                      {t("invite.acceptAndView", "Accept Invitation & View Trip")}
                     </>
                   )}
                 </Button>
@@ -241,7 +242,7 @@ export default function InvitePage() {
                   onClick={() => setLocation("/trips")}
                   data-testid="button-decline-invitation"
                 >
-                  Browse Other Trips
+                  {t("invite.browseOtherTrips", "Browse Other Trips")}
                 </Button>
               </div>
             )}

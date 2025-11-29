@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "@/hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
@@ -28,21 +29,22 @@ import {
 } from "lucide-react";
 
 export default function Dashboard() {
+  const { t } = useTranslation();
   const { user, isAuthenticated, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
       toast({
-        title: "Unauthorized",
-        description: "Please sign in to view your dashboard.",
+        title: t("dashboard.unauthorized", "Unauthorized"),
+        description: t("dashboard.pleaseSignIn", "Please sign in to view your dashboard."),
         variant: "destructive",
       });
       setTimeout(() => {
         window.location.href = "/api/login";
       }, 500);
     }
-  }, [isAuthenticated, authLoading, toast]);
+  }, [isAuthenticated, authLoading, toast, t]);
 
   const { data: userTrips, isLoading: tripsLoading } = useQuery<
     (UserTrip & { trip?: Trip })[]
@@ -117,10 +119,10 @@ export default function Dashboard() {
                   <div className="flex items-center gap-2 mt-1">
                     <Badge variant="secondary" className="gap-1">
                       <Trophy className="h-3 w-3" />
-                      Level {climbingLevel}
+                      {t("dashboard.level", "Level {{level}}", { level: climbingLevel })}
                     </Badge>
                     <span className="text-muted-foreground text-sm">
-                      Mountain Explorer
+                      {t("dashboard.mountainExplorer", "Mountain Explorer")}
                     </span>
                   </div>
                 </div>
@@ -129,15 +131,15 @@ export default function Dashboard() {
               <div className="flex-1 lg:ml-8">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm font-medium">
-                    Progress to Level {climbingLevel + 1}
+                    {t("dashboard.progressToLevel", "Progress to Level {{level}}", { level: climbingLevel + 1 })}
                   </span>
                   <span className="text-sm text-muted-foreground">
-                    {totalPoints % 500} / 500 points
+                    {t("dashboard.pointsProgress", "{{current}} / 500 points", { current: totalPoints % 500 })}
                   </span>
                 </div>
                 <Progress value={levelProgress} className="h-3" />
                 <p className="text-xs text-muted-foreground mt-2">
-                  Complete trips and challenges to earn more points
+                  {t("dashboard.earnMorePoints", "Complete trips and challenges to earn more points")}
                 </p>
               </div>
             </div>
@@ -153,7 +155,7 @@ export default function Dashboard() {
                 </div>
                 <div>
                   <div className="text-2xl font-bold">{totalPoints}</div>
-                  <div className="text-sm text-muted-foreground">Total Points</div>
+                  <div className="text-sm text-muted-foreground">{t("dashboard.totalPoints", "Total Points")}</div>
                 </div>
               </div>
             </CardContent>
@@ -169,7 +171,7 @@ export default function Dashboard() {
                   <div className="text-2xl font-bold">
                     {user.tripsCompleted || completedTrips.length}
                   </div>
-                  <div className="text-sm text-muted-foreground">Trips Done</div>
+                  <div className="text-sm text-muted-foreground">{t("dashboard.tripsDone", "Trips Done")}</div>
                 </div>
               </div>
             </CardContent>
@@ -183,7 +185,7 @@ export default function Dashboard() {
                 </div>
                 <div>
                   <div className="text-2xl font-bold">{earnedAchievementIds.size}</div>
-                  <div className="text-sm text-muted-foreground">Badges Earned</div>
+                  <div className="text-sm text-muted-foreground">{t("dashboard.badgesEarned", "Badges Earned")}</div>
                 </div>
               </div>
             </CardContent>
@@ -199,7 +201,7 @@ export default function Dashboard() {
                   <div className="text-2xl font-bold">
                     {((user.totalElevation || 0) / 1000).toFixed(1)}km
                   </div>
-                  <div className="text-sm text-muted-foreground">Elevation</div>
+                  <div className="text-sm text-muted-foreground">{t("dashboard.elevation", "Elevation")}</div>
                 </div>
               </div>
             </CardContent>
@@ -212,11 +214,11 @@ export default function Dashboard() {
               <CardHeader className="flex flex-row items-center justify-between gap-2 space-y-0 pb-4">
                 <CardTitle className="text-lg flex items-center gap-2">
                   <Clock className="h-5 w-5 text-primary" />
-                  Upcoming Trips
+                  {t("dashboard.upcomingTrips", "Upcoming Trips")}
                 </CardTitle>
                 <Link href="/trips">
                   <Button variant="ghost" size="sm" className="gap-1" data-testid="button-view-all-trips">
-                    View All
+                    {t("common.viewAll", "View All")}
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
@@ -247,17 +249,17 @@ export default function Dashboard() {
                             {ut.trip?.location || "Location"}
                           </div>
                         </div>
-                        <Badge variant="outline">Booked</Badge>
+                        <Badge variant="outline">{t("dashboard.booked", "Booked")}</Badge>
                       </div>
                     ))}
                   </div>
                 ) : (
                   <div className="text-center py-8">
                     <Calendar className="h-10 w-10 mx-auto text-muted-foreground mb-3" />
-                    <p className="text-muted-foreground mb-4">No upcoming trips</p>
+                    <p className="text-muted-foreground mb-4">{t("dashboard.noUpcomingTrips", "No upcoming trips")}</p>
                     <Link href="/trips">
                       <Button size="sm" data-testid="button-book-trip">
-                        Book a Trip
+                        {t("dashboard.bookTrip", "Book a Trip")}
                       </Button>
                     </Link>
                   </div>
@@ -269,7 +271,7 @@ export default function Dashboard() {
               <CardHeader className="flex flex-row items-center justify-between gap-2 space-y-0 pb-4">
                 <CardTitle className="text-lg flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  Recent Completions
+                  {t("dashboard.recentCompletions", "Recent Completions")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -296,7 +298,7 @@ export default function Dashboard() {
                           <div className="text-sm text-muted-foreground">
                             {ut.completedAt
                               ? new Date(ut.completedAt).toLocaleDateString()
-                              : "Completed"}
+                              : t("dashboard.completed", "Completed")}
                           </div>
                         </div>
                         <Badge className="bg-green-500/10 text-green-600 border-0">
@@ -308,7 +310,7 @@ export default function Dashboard() {
                 ) : (
                   <div className="text-center py-8">
                     <Target className="h-10 w-10 mx-auto text-muted-foreground mb-3" />
-                    <p className="text-muted-foreground">No completed trips yet</p>
+                    <p className="text-muted-foreground">{t("dashboard.noCompletedTrips", "No completed trips yet")}</p>
                   </div>
                 )}
               </CardContent>
@@ -320,11 +322,11 @@ export default function Dashboard() {
               <CardHeader className="flex flex-row items-center justify-between gap-2 space-y-0 pb-4">
                 <CardTitle className="text-lg flex items-center gap-2">
                   <Award className="h-5 w-5 text-secondary" />
-                  Recent Achievements
+                  {t("dashboard.recentAchievements", "Recent Achievements")}
                 </CardTitle>
                 <Link href="/achievements">
                   <Button variant="ghost" size="sm" className="gap-1" data-testid="button-view-all-achievements">
-                    View All
+                    {t("common.viewAll", "View All")}
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
@@ -343,10 +345,10 @@ export default function Dashboard() {
                 ) : (
                   <div className="text-center py-8">
                     <Award className="h-10 w-10 mx-auto text-muted-foreground mb-3" />
-                    <p className="text-muted-foreground mb-4">No badges earned yet</p>
+                    <p className="text-muted-foreground mb-4">{t("dashboard.noBadgesEarned", "No badges earned yet")}</p>
                     <Link href="/trips">
                       <Button size="sm" data-testid="button-start-earning">
-                        Start Earning
+                        {t("dashboard.startEarning", "Start Earning")}
                       </Button>
                     </Link>
                   </div>
@@ -358,7 +360,7 @@ export default function Dashboard() {
               <CardContent className="p-6">
                 <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
                   <Target className="h-5 w-5 text-primary" />
-                  Next Goals
+                  {t("dashboard.nextGoals", "Next Goals")}
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3" data-testid="goal-karabakh">
@@ -366,7 +368,7 @@ export default function Dashboard() {
                       <Zap className="h-5 w-5 text-amber-500" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-medium text-sm">Karabakh Explorer</div>
+                      <div className="font-medium text-sm">{t("dashboard.goals.karabakhExplorer", "Karabakh Explorer")}</div>
                       <Progress value={45} className="h-1.5 mt-1" />
                     </div>
                     <span className="text-xs text-muted-foreground">45%</span>
@@ -376,7 +378,7 @@ export default function Dashboard() {
                       <Mountain className="h-5 w-5 text-emerald-500" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-medium text-sm">Summit Master</div>
+                      <div className="font-medium text-sm">{t("dashboard.goals.summitMaster", "Summit Master")}</div>
                       <Progress value={20} className="h-1.5 mt-1" />
                     </div>
                     <span className="text-xs text-muted-foreground">20%</span>
@@ -386,7 +388,7 @@ export default function Dashboard() {
                       <Castle className="h-5 w-5 text-stone-500" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-medium text-sm">Nakhchivan Heritage</div>
+                      <div className="font-medium text-sm">{t("dashboard.goals.nakhchivanHeritage", "Nakhchivan Heritage")}</div>
                       <Progress value={10} className="h-1.5 mt-1" />
                     </div>
                     <span className="text-xs text-muted-foreground">10%</span>
