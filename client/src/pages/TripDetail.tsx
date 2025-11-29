@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { BookingModal } from "@/components/BookingModal";
 import { ShareButton } from "@/components/ShareButton";
 import { InviteModal } from "@/components/InviteModal";
+import { WeatherCard } from "@/components/WeatherCard";
 import { useAuth } from "@/hooks/useAuth";
 import type { Trip, Region } from "@shared/schema";
 import {
@@ -283,6 +284,11 @@ export default function TripDetail() {
                 </CardContent>
               </Card>
             )}
+
+            <WeatherCard
+              location={trip.location}
+              elevation={trip.elevation}
+            />
           </div>
 
           <div className="space-y-6">
