@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRoute, Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -48,6 +49,7 @@ const activityIcons: Record<string, React.ReactNode> = {
 };
 
 export default function TripDetail() {
+  const { t } = useTranslation();
   const [, params] = useRoute("/trips/:id");
   const { isAuthenticated } = useAuth();
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -89,14 +91,14 @@ export default function TripDetail() {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center space-y-4">
           <Mountain className="h-16 w-16 text-muted-foreground mx-auto" />
-          <h1 className="text-2xl font-bold">Trip Not Found</h1>
+          <h1 className="text-2xl font-bold">{t("tripDetail.notFoundTitle", "Trip Not Found")}</h1>
           <p className="text-muted-foreground">
-            The trip you're looking for doesn't exist.
+            {t("tripDetail.notFoundDescription", "The trip you're looking for doesn't exist.")}
           </p>
           <Link href="/trips">
             <Button data-testid="button-back-to-trips">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Trips
+              {t("tripDetail.backToTrips", "Back to Trips")}
             </Button>
           </Link>
         </div>
@@ -125,7 +127,7 @@ export default function TripDetail() {
               data-testid="button-back"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Trips
+              {t("tripDetail.backToTrips", "Back to Trips")}
             </Button>
           </Link>
         </div>
@@ -148,7 +150,7 @@ export default function TripDetail() {
               </Badge>
               {trip.featured && (
                 <Badge className="bg-secondary text-secondary-foreground border-0">
-                  Featured
+                  {t("tripDetail.featured", "Featured")}
                 </Badge>
               )}
             </div>
@@ -170,7 +172,7 @@ export default function TripDetail() {
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-xl font-semibold mb-4">About This Trip</h2>
+              <h2 className="text-xl font-semibold mb-4">{t("tripDetail.aboutThisTrip", "About This Trip")}</h2>
               <p className="text-muted-foreground leading-relaxed">
                 {trip.description}
               </p>
@@ -184,7 +186,7 @@ export default function TripDetail() {
                       <TrendingUp className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Elevation</p>
+                      <p className="text-sm text-muted-foreground">{t("tripDetail.elevation", "Elevation")}</p>
                       <p className="font-semibold">
                         {trip.elevation.toLocaleString()}m
                       </p>
@@ -199,7 +201,7 @@ export default function TripDetail() {
                       <Clock className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Duration</p>
+                      <p className="text-sm text-muted-foreground">{t("tripDetail.duration", "Duration")}</p>
                       <p className="font-semibold">{trip.duration}</p>
                     </div>
                   </CardContent>
@@ -212,9 +214,9 @@ export default function TripDetail() {
                       <Users className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Max Group</p>
+                      <p className="text-sm text-muted-foreground">{t("tripDetail.maxGroup", "Max Group")}</p>
                       <p className="font-semibold">
-                        {trip.maxGroupSize} people
+                        {t("tripDetail.peopleCount", "{{count}} people", { count: trip.maxGroupSize })}
                       </p>
                     </div>
                   </CardContent>
@@ -227,7 +229,7 @@ export default function TripDetail() {
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Distance</p>
+                      <p className="text-sm text-muted-foreground">{t("tripDetail.distance", "Distance")}</p>
                       <p className="font-semibold">{trip.distance}km</p>
                     </div>
                   </CardContent>
@@ -239,34 +241,34 @@ export default function TripDetail() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  What's Included
+                  {t("tripDetail.whatsIncluded", "What's Included")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="grid sm:grid-cols-2 gap-3">
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    Professional mountain guide
+                    {t("tripDetail.includedGuide", "Professional mountain guide")}
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    Safety equipment
+                    {t("tripDetail.includedSafety", "Safety equipment")}
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    Transportation from meeting point
+                    {t("tripDetail.includedTransport", "Transportation from meeting point")}
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    Lunch and refreshments
+                    {t("tripDetail.includedLunch", "Lunch and refreshments")}
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    Photos and videos
+                    {t("tripDetail.includedPhotos", "Photos and videos")}
                   </li>
                   <li className="flex items-center gap-2 text-sm">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    Certificate of completion
+                    {t("tripDetail.includedCertificate", "Certificate of completion")}
                   </li>
                 </ul>
               </CardContent>
@@ -277,7 +279,7 @@ export default function TripDetail() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Info className="h-5 w-5 text-primary" />
-                    About {region.name} Region
+                    {t("tripDetail.aboutRegion", "About {{region}} Region", { region: region.name })}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -305,13 +307,13 @@ export default function TripDetail() {
                         {Number(trip.price).toFixed(0)}
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">per person</p>
+                    <p className="text-sm text-muted-foreground">{t("tripDetail.perPerson", "per person")}</p>
                   </div>
                 )}
 
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Difficulty</span>
+                    <span className="text-muted-foreground">{t("tripDetail.difficultyLabel", "Difficulty")}</span>
                     <Badge
                       className={`${difficultyColors[trip.difficulty]} border-0`}
                     >
@@ -320,13 +322,13 @@ export default function TripDetail() {
                     </Badge>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Activity</span>
+                    <span className="text-muted-foreground">{t("tripDetail.activityLabel", "Activity")}</span>
                     <span className="font-medium capitalize">
                       {trip.activityType}
                     </span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Points Reward</span>
+                    <span className="text-muted-foreground">{t("tripDetail.pointsRewardLabel", "Points Reward")}</span>
                     <span className="font-medium text-secondary">
                       +{trip.pointsReward || 100} pts
                     </span>
@@ -342,7 +344,7 @@ export default function TripDetail() {
                       data-testid="button-book-trip"
                     >
                       <Calendar className="h-5 w-5 mr-2" />
-                      Book This Trip
+                      {t("tripDetail.bookThisTrip", "Book This Trip")}
                     </Button>
                   ) : (
                     <Button
@@ -353,7 +355,7 @@ export default function TripDetail() {
                     >
                       <a href="/api/login">
                         <Calendar className="h-5 w-5 mr-2" />
-                        Sign In to Book
+                        {t("tripDetail.signInToBook", "Sign In to Book")}
                       </a>
                     </Button>
                   )}
@@ -372,7 +374,7 @@ export default function TripDetail() {
 
                   <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                     <Award className="h-4 w-4" />
-                    <span>Earn achievement badges for completing trips</span>
+                    <span>{t("tripDetail.earnBadgesText", "Earn achievement badges for completing trips")}</span>
                   </div>
                 </div>
               </CardContent>

@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
@@ -48,6 +49,7 @@ interface WeatherCardProps {
 }
 
 export function WeatherCard({ location, elevation }: WeatherCardProps) {
+  const { t } = useTranslation();
   const coords = getLocationCoordinates(location);
 
   const { data: weather, isLoading, error } = useQuery<FullWeatherData>({
@@ -56,6 +58,14 @@ export function WeatherCard({ location, elevation }: WeatherCardProps) {
     staleTime: 30 * 60 * 1000,
     gcTime: 60 * 60 * 1000,
   });
+
+  const weekdayKeys = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
+  const getWeekdayLabel = (index: number, dayDate: Date) => {
+    if (index === 0) return t("weather.days.today", "Today");
+    const dayKey = weekdayKeys[dayDate.getDay()];
+    return t(`weather.days.${dayKey}`, dayKey.charAt(0).toUpperCase() + dayKey.slice(1));
+  };
 
   if (isLoading) {
     return (
@@ -82,7 +92,7 @@ export function WeatherCard({ location, elevation }: WeatherCardProps) {
         <CardContent className="p-4">
           <div className="flex items-center gap-2 text-muted-foreground">
             <AlertTriangle className="h-5 w-5" />
-            <span className="text-sm">Unable to load weather data</span>
+            <span className="text-sm">{t("weather.unableToLoad", "Unable to load weather data")}</span>
           </div>
         </CardContent>
       </Card>
@@ -90,29 +100,28 @@ export function WeatherCard({ location, elevation }: WeatherCardProps) {
   }
 
   const currentWeatherInfo = getWeatherInfo(weather.current.weatherCode);
-  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const getMountainCondition = (
     temp: number,
     windSpeed: number,
     weatherCode: number
-  ): { label: string; color: string } => {
+  ): { label: string; labelKey: string; color: string } => {
     if (weatherCode >= 95) {
-      return { label: "Dangerous", color: "bg-red-500" };
+      return { label: "Dangerous", labelKey: "dangerous", color: "bg-red-500" };
     }
     if (weatherCode >= 65 || weatherCode >= 73) {
-      return { label: "Poor", color: "bg-orange-500" };
+      return { label: "Poor", labelKey: "poor", color: "bg-orange-500" };
     }
     if (windSpeed > 50) {
-      return { label: "Windy", color: "bg-yellow-500" };
+      return { label: "Windy", labelKey: "windy", color: "bg-yellow-500" };
     }
     if (temp < 0) {
-      return { label: "Cold", color: "bg-blue-500" };
+      return { label: "Cold", labelKey: "cold", color: "bg-blue-500" };
     }
     if (weatherCode <= 3 && windSpeed < 30 && temp > 5 && temp < 25) {
-      return { label: "Excellent", color: "bg-green-500" };
+      return { label: "Excellent", labelKey: "excellent", color: "bg-green-500" };
     }
-    return { label: "Good", color: "bg-emerald-500" };
+    return { label: "Good", labelKey: "good", color: "bg-emerald-500" };
   };
 
   const condition = getMountainCondition(
@@ -127,10 +136,10 @@ export function WeatherCard({ location, elevation }: WeatherCardProps) {
         <CardTitle className="flex items-center justify-between text-base">
           <span className="flex items-center gap-2">
             <Cloud className="h-4 w-4 text-primary" />
-            Mountain Weather
+            {t("weather.mountainWeather", "Mountain Weather")}
           </span>
           <Badge className={`${condition.color} text-white`} data-testid="badge-condition">
-            {condition.label}
+            {t(`weather.conditions.${condition.labelKey}`, condition.label)}
           </Badge>
         </CardTitle>
       </CardHeader>
@@ -153,13 +162,13 @@ export function WeatherCard({ location, elevation }: WeatherCardProps) {
           <div className="text-right space-y-1">
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <Wind className="h-3 w-3" />
-              <span data-testid="text-wind-speed">{Math.round(weather.current.windSpeed)} km/h</span>
+              <span data-testid="text-wind-speed">{Math.round(weather.current.windSpeed)} {t("weather.kmh", "km/h")}</span>
             </div>
             {(elevation || weather.elevation) && (
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <Mountain className="h-3 w-3" />
                 <span data-testid="text-elevation">
-                  {elevation || Math.round(weather.elevation)}m
+                  {elevation || Math.round(weather.elevation)}{t("weather.meters", "m")}
                 </span>
               </div>
             )}
@@ -169,13 +178,13 @@ export function WeatherCard({ location, elevation }: WeatherCardProps) {
         <div className="border-t pt-3">
           <div className="flex items-center gap-1 mb-2">
             <Calendar className="h-3 w-3 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground">7-Day Forecast</span>
+            <span className="text-xs text-muted-foreground">{t("weather.sevenDayForecast", "7-Day Forecast")}</span>
           </div>
           <div className="grid grid-cols-7 gap-1" data-testid="weather-forecast">
             {weather.forecast.dates.slice(0, 7).map((date, index) => {
               const forecastInfo = getWeatherInfo(weather.forecast.weatherCodes[index]);
               const dayDate = new Date(date);
-              const dayName = index === 0 ? "Today" : weekdays[dayDate.getDay()];
+              const dayName = getWeekdayLabel(index, dayDate);
 
               return (
                 <div

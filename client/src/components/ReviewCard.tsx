@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,8 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({ review, user, trip }: ReviewCardProps) {
+  const { t, i18n } = useTranslation();
+
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -21,6 +24,17 @@ export function ReviewCard({ review, user, trip }: ReviewCardProps) {
         }`}
       />
     ));
+  };
+
+  const formatDate = (date: Date) => {
+    const locale = i18n.language === 'az' ? 'az-AZ' : 
+                   i18n.language === 'ru' ? 'ru-RU' : 
+                   i18n.language === 'tr' ? 'tr-TR' : 'en-US';
+    return new Date(date).toLocaleDateString(locale, {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
   };
 
   return (
@@ -34,7 +48,7 @@ export function ReviewCard({ review, user, trip }: ReviewCardProps) {
             <Avatar className="h-11 w-11 border-2 border-primary/20">
               <AvatarImage
                 src={user?.profileImageUrl || undefined}
-                alt={user?.firstName || "Reviewer"}
+                alt={user?.firstName || t("reviews.reviewer", "Reviewer")}
                 className="object-cover"
               />
               <AvatarFallback className="bg-primary text-primary-foreground text-sm">
@@ -48,18 +62,14 @@ export function ReviewCard({ review, user, trip }: ReviewCardProps) {
                 </span>
                 {user?.climbingLevel && (
                   <Badge variant="secondary" className="text-xs h-5">
-                    Level {user.climbingLevel}
+                    {t("reviews.level", "Level")} {user.climbingLevel}
                   </Badge>
                 )}
               </div>
               <div className="flex items-center gap-1 text-xs text-muted-foreground">
                 <Calendar className="h-3 w-3" />
                 <span>
-                  {new Date(review.createdAt!).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
+                  {formatDate(review.createdAt!)}
                 </span>
               </div>
             </div>
@@ -95,7 +105,7 @@ export function ReviewCard({ review, user, trip }: ReviewCardProps) {
             data-testid={`button-helpful-${review.id}`}
           >
             <ThumbsUp className="h-3.5 w-3.5" />
-            <span>Helpful ({review.helpful || 0})</span>
+            <span>{t("reviews.helpful", "Helpful")} ({review.helpful || 0})</span>
           </Button>
         </div>
       </CardContent>

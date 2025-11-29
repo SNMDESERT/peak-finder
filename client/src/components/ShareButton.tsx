@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -35,6 +36,7 @@ export function ShareButton({
   variant = "outline",
   size = "sm",
 }: ShareButtonProps) {
+  const { t } = useTranslation();
   const [showLinkDialog, setShowLinkDialog] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
@@ -49,14 +51,14 @@ export function ShareButton({
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
       toast({
-        title: "Link copied",
-        description: "Share link has been copied to clipboard",
+        title: t("share.linkCopied", "Link copied"),
+        description: t("share.linkCopiedDescription", "Share link has been copied to clipboard"),
       });
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       toast({
-        title: "Failed to copy",
-        description: "Could not copy link to clipboard",
+        title: t("share.copyFailed", "Failed to copy"),
+        description: t("share.copyFailedDescription", "Could not copy link to clipboard"),
         variant: "destructive",
       });
     }
@@ -73,7 +75,7 @@ export function ShareButton({
   };
 
   const shareViaEmail = () => {
-    const subject = encodeURIComponent(`Check out this ${type}: ${title}`);
+    const subject = encodeURIComponent(`${t("share.checkOutThis", "Check out this")} ${type}: ${title}`);
     const body = encodeURIComponent(`${shareText}\n\n${shareUrl}`);
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   };
@@ -89,8 +91,8 @@ export function ShareButton({
       } catch (err) {
         if ((err as Error).name !== "AbortError") {
           toast({
-            title: "Share failed",
-            description: "Could not share content",
+            title: t("share.shareFailed", "Share failed"),
+            description: t("share.shareFailedDescription", "Could not share content"),
             variant: "destructive",
           });
         }
@@ -110,7 +112,7 @@ export function ShareButton({
             data-testid={`button-share-${type}`}
           >
             <Share2 className="h-4 w-4 mr-1" />
-            Share
+            {t("share.share", "Share")}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
@@ -123,28 +125,28 @@ export function ShareButton({
             ) : (
               <Copy className="h-4 w-4 mr-2" />
             )}
-            Copy Link
+            {t("share.copyLink", "Copy Link")}
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={shareToTwitter}
             data-testid="button-share-twitter"
           >
             <SiX className="h-4 w-4 mr-2" />
-            Share on X
+            {t("share.shareOnX", "Share on X")}
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={shareToFacebook}
             data-testid="button-share-facebook"
           >
             <SiFacebook className="h-4 w-4 mr-2" />
-            Share on Facebook
+            {t("share.shareOnFacebook", "Share on Facebook")}
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={shareViaEmail}
             data-testid="button-share-email"
           >
             <Mail className="h-4 w-4 mr-2" />
-            Share via Email
+            {t("share.shareViaEmail", "Share via Email")}
           </DropdownMenuItem>
           {typeof navigator !== "undefined" && typeof navigator.share === "function" && (
             <DropdownMenuItem
@@ -152,7 +154,7 @@ export function ShareButton({
               data-testid="button-share-native"
             >
               <Link className="h-4 w-4 mr-2" />
-              More Options
+              {t("share.moreOptions", "More Options")}
             </DropdownMenuItem>
           )}
         </DropdownMenuContent>
@@ -161,9 +163,9 @@ export function ShareButton({
       <Dialog open={showLinkDialog} onOpenChange={setShowLinkDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Share Link</DialogTitle>
+            <DialogTitle>{t("share.shareLink", "Share Link")}</DialogTitle>
             <DialogDescription>
-              Copy this link to share with others
+              {t("share.shareLinkDescription", "Copy this link to share with others")}
             </DialogDescription>
           </DialogHeader>
           <div className="flex gap-2">

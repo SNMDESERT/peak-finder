@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { getRegionSymbol } from "@/lib/regionSymbols";
@@ -41,10 +42,15 @@ export function AchievementBadge({
   progress = 0,
   earnedAt,
 }: AchievementBadgeProps) {
+  const { t } = useTranslation();
   const tier = achievement.tier || "bronze";
   const colors = tierColors[tier] || tierColors.bronze;
   const regionSymbol = getRegionSymbol(achievement.symbol);
   const SymbolIcon = regionSymbol.icon;
+
+  const getTierLabel = (tierKey: string) => {
+    return t(`achievements.tiers.${tierKey}`, tierKey.charAt(0).toUpperCase() + tierKey.slice(1));
+  };
 
   return (
     <Card
@@ -112,7 +118,7 @@ export function AchievementBadge({
             className="text-xs text-muted-foreground"
             data-testid={`badge-earned-date-${achievement.id}`}
           >
-            Earned {new Date(earnedAt).toLocaleDateString()}
+            {t("achievements.earnedOn", "Earned")} {new Date(earnedAt).toLocaleDateString()}
           </span>
         )}
 
@@ -123,21 +129,21 @@ export function AchievementBadge({
             }`}
             data-testid={`badge-tier-${achievement.id}`}
           >
-            {tier}
+            {getTierLabel(tier)}
           </span>
           <span
             className="text-xs text-muted-foreground"
             data-testid={`badge-level-${achievement.id}`}
           >
-            Lvl {achievement.requiredLevel}+
+            {t("achievements.levelRequired", "Lvl")} {achievement.requiredLevel}+
           </span>
         </div>
 
         {earned && (
           <div className="mt-2">
             <ShareButton
-              title={`I earned the "${achievement.name}" badge!`}
-              description={`${achievement.description} - ${tier} tier achievement on AzMountain`}
+              title={t("achievements.shareTitle", "I earned the \"{{name}}\" badge!", { name: achievement.name })}
+              description={`${achievement.description} - ${getTierLabel(tier)} ${t("achievements.tierAchievement", "tier achievement on AzMountain")}`}
               type="achievement"
               size="sm"
               variant="ghost"

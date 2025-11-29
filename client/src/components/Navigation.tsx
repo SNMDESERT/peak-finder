@@ -34,11 +34,11 @@ export function Navigation() {
   const { t } = useTranslation();
 
   const navLinks = [
-    { href: "/", label: t("nav.home") },
-    { href: "/trips", label: t("nav.trips") },
-    { href: "/achievements", label: t("nav.achievements") },
-    { href: "/reviews", label: t("nav.reviews") },
-    { href: "/about", label: t("nav.about") },
+    { href: "/", label: t("nav.home", "Home") },
+    { href: "/trips", label: t("nav.trips", "Trips") },
+    { href: "/achievements", label: t("nav.achievements", "Achievements") },
+    { href: "/reviews", label: t("nav.reviews", "Reviews") },
+    { href: "/about", label: t("nav.about", "About") },
   ];
 
   useEffect(() => {
@@ -168,7 +168,7 @@ export function Navigation() {
                         {user.firstName} {user.lastName}
                       </span>
                       <span className="text-xs text-muted-foreground">
-                        Level {user.climbingLevel || 1}
+                        {t("nav.level", "Level")} {user.climbingLevel || 1}
                       </span>
                     </div>
                   </div>
@@ -179,7 +179,7 @@ export function Navigation() {
                       data-testid="link-dashboard"
                     >
                       <User className="mr-2 h-4 w-4" />
-                      {t("nav.dashboard")}
+                      {t("nav.dashboard", "Dashboard")}
                     </DropdownMenuItem>
                   </Link>
                   <Link href="/achievements">
@@ -188,7 +188,7 @@ export function Navigation() {
                       data-testid="link-my-achievements"
                     >
                       <Award className="mr-2 h-4 w-4" />
-                      {t("nav.achievements")}
+                      {t("nav.achievements", "Achievements")}
                     </DropdownMenuItem>
                   </Link>
                   <Link href="/trips">
@@ -197,7 +197,7 @@ export function Navigation() {
                       data-testid="link-my-trips"
                     >
                       <MapPin className="mr-2 h-4 w-4" />
-                      {t("nav.trips")}
+                      {t("nav.trips", "Trips")}
                     </DropdownMenuItem>
                   </Link>
                   <DropdownMenuSeparator />
@@ -207,7 +207,7 @@ export function Navigation() {
                     data-testid="button-logout"
                   >
                     <LogOut className="mr-2 h-4 w-4" />
-                    {t("common.logout")}
+                    {t("common.logout", "Logout")}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -221,7 +221,7 @@ export function Navigation() {
                 }`}
                 data-testid="button-login"
               >
-                {t("common.login")}
+                {t("common.login", "Login")}
               </Button>
             )}
 

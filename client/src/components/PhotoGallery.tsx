@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -30,6 +31,7 @@ interface PhotoGalleryProps {
 type PhotoWithUser = TripPhoto & { user?: Partial<User> };
 
 export function PhotoGallery({ tripId }: PhotoGalleryProps) {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const { toast } = useToast();
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
@@ -51,14 +53,14 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
       setPhotoUrl("");
       setPhotoCaption("");
       toast({
-        title: "Photo added",
-        description: "Your photo has been added to the gallery.",
+        title: t("gallery.photoAdded", "Photo added"),
+        description: t("gallery.photoAddedDescription", "Your photo has been added to the gallery."),
       });
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to add photo. Please try again.",
+        title: t("gallery.error", "Error"),
+        description: t("gallery.addPhotoError", "Failed to add photo. Please try again."),
         variant: "destructive",
       });
     },
@@ -72,14 +74,14 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
       queryClient.invalidateQueries({ queryKey: ["/api/trips", tripId, "photos"] });
       setSelectedPhotoIndex(null);
       toast({
-        title: "Photo deleted",
-        description: "Your photo has been removed from the gallery.",
+        title: t("gallery.photoDeleted", "Photo deleted"),
+        description: t("gallery.photoDeletedDescription", "Your photo has been removed from the gallery."),
       });
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to delete photo. Please try again.",
+        title: t("gallery.error", "Error"),
+        description: t("gallery.deletePhotoError", "Failed to delete photo. Please try again."),
         variant: "destructive",
       });
     },
@@ -88,8 +90,8 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
   const handleAddPhoto = () => {
     if (!photoUrl.trim()) {
       toast({
-        title: "Error",
-        description: "Please enter a photo URL.",
+        title: t("gallery.error", "Error"),
+        description: t("gallery.enterPhotoUrl", "Please enter a photo URL."),
         variant: "destructive",
       });
       return;
@@ -108,13 +110,20 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
 
   const selectedPhoto = selectedPhotoIndex !== null ? photos[selectedPhotoIndex] : null;
 
+  const getPhotoCountText = (count: number) => {
+    if (count === 1) {
+      return `(1 ${t("gallery.photo", "photo")})`;
+    }
+    return `(${count} ${t("gallery.photos", "photos")})`;
+  };
+
   if (isLoading) {
     return (
       <Card data-testid="card-gallery-loading">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Camera className="h-5 w-5 text-primary" />
-            Photo Gallery
+            {t("gallery.title", "Photo Gallery")}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -134,10 +143,10 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
         <CardHeader className="flex-row items-center justify-between gap-2 space-y-0">
           <CardTitle className="flex items-center gap-2">
             <Camera className="h-5 w-5 text-primary" />
-            Photo Gallery
+            {t("gallery.title", "Photo Gallery")}
             {photos.length > 0 && (
               <span className="text-sm font-normal text-muted-foreground">
-                ({photos.length} {photos.length === 1 ? "photo" : "photos"})
+                {getPhotoCountText(photos.length)}
               </span>
             )}
           </CardTitle>
@@ -149,7 +158,7 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
               data-testid="button-add-photo"
             >
               <Plus className="h-4 w-4 mr-1" />
-              Add Photo
+              {t("gallery.addPhoto", "Add Photo")}
             </Button>
           )}
         </CardHeader>
@@ -157,9 +166,9 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
           {photos.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 text-center" data-testid="gallery-empty">
               <ImageIcon className="h-12 w-12 text-muted-foreground/50 mb-3" />
-              <p className="text-muted-foreground">No photos yet</p>
+              <p className="text-muted-foreground">{t("gallery.noPhotosYet", "No photos yet")}</p>
               <p className="text-sm text-muted-foreground/75">
-                Be the first to share a photo from this trip!
+                {t("gallery.beFirstToShare", "Be the first to share a photo from this trip!")}
               </p>
             </div>
           ) : (
@@ -173,7 +182,7 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
                 >
                   <img
                     src={photo.imageUrl}
-                    alt={photo.caption || "Trip photo"}
+                    alt={photo.caption || t("gallery.tripPhoto", "Trip photo")}
                     className="h-full w-full object-cover transition-transform group-hover:scale-105"
                     onError={(e) => {
                       e.currentTarget.src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400";
@@ -192,8 +201,8 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
       <Dialog open={selectedPhotoIndex !== null} onOpenChange={(open) => !open && setSelectedPhotoIndex(null)}>
         <DialogContent className="max-w-4xl p-0 overflow-hidden" data-testid="dialog-lightbox">
           <DialogHeader className="sr-only">
-            <DialogTitle>Photo Viewer</DialogTitle>
-            <DialogDescription>View and navigate through trip photos</DialogDescription>
+            <DialogTitle>{t("gallery.photoViewer", "Photo Viewer")}</DialogTitle>
+            <DialogDescription>{t("gallery.photoViewerDescription", "View and navigate through trip photos")}</DialogDescription>
           </DialogHeader>
           {selectedPhoto && (
             <div className="relative">
@@ -226,7 +235,7 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
 
               <img
                 src={selectedPhoto.imageUrl}
-                alt={selectedPhoto.caption || "Trip photo"}
+                alt={selectedPhoto.caption || t("gallery.tripPhoto", "Trip photo")}
                 className="w-full max-h-[70vh] object-contain bg-black"
                 data-testid="img-lightbox-photo"
                 onError={(e) => {
@@ -287,16 +296,16 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <Camera className="h-5 w-5 text-primary" />
-              Add Photo
+              {t("gallery.addPhoto", "Add Photo")}
             </DialogTitle>
             <DialogDescription>
-              Share a photo from your trip experience
+              {t("gallery.addPhotoDescription", "Share a photo from your trip experience")}
             </DialogDescription>
           </DialogHeader>
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="photo-url">Photo URL</Label>
+              <Label htmlFor="photo-url">{t("gallery.photoUrl", "Photo URL")}</Label>
               <Input
                 id="photo-url"
                 placeholder="https://example.com/photo.jpg"
@@ -307,10 +316,10 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="photo-caption">Caption (optional)</Label>
+              <Label htmlFor="photo-caption">{t("gallery.captionOptional", "Caption (optional)")}</Label>
               <Textarea
                 id="photo-caption"
-                placeholder="Describe your photo..."
+                placeholder={t("gallery.captionPlaceholder", "Describe your photo...")}
                 value={photoCaption}
                 onChange={(e) => setPhotoCaption(e.target.value)}
                 rows={2}
@@ -322,7 +331,7 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
               <div className="relative aspect-video rounded-md overflow-hidden bg-muted">
                 <img
                   src={photoUrl}
-                  alt="Preview"
+                  alt={t("gallery.preview", "Preview")}
                   className="w-full h-full object-contain"
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
@@ -338,14 +347,14 @@ export function PhotoGallery({ tripId }: PhotoGalleryProps) {
                 onClick={() => setIsAddPhotoOpen(false)}
                 data-testid="button-cancel-photo"
               >
-                Cancel
+                {t("common.cancel", "Cancel")}
               </Button>
               <Button
                 onClick={handleAddPhoto}
                 disabled={!photoUrl.trim() || addPhotoMutation.isPending}
                 data-testid="button-submit-photo"
               >
-                {addPhotoMutation.isPending ? "Adding..." : "Add Photo"}
+                {addPhotoMutation.isPending ? t("gallery.adding", "Adding...") : t("gallery.addPhoto", "Add Photo")}
               </Button>
             </div>
           </div>
