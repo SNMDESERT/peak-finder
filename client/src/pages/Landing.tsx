@@ -90,8 +90,8 @@ export default function Landing() {
             className="bg-white/20 backdrop-blur-sm text-white border-white/30 mb-6 px-4 py-1.5"
             data-testid="badge-hero-rating"
           >
-            <Star className="h-3.5 w-3.5 mr-1.5 fill-yellow-400 text-yellow-400" />
-            Rated #1 Mountain Tourism in Azerbaijan
+            <Mountain className="h-3.5 w-3.5 mr-1.5" />
+            Azerbaijan's First Mountain Tourism App
           </Badge>
 
           <h1
