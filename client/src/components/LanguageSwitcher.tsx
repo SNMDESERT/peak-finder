@@ -9,9 +9,8 @@ import {
 import { Globe, Check } from "lucide-react";
 
 const languages = [
-  { code: "en", name: "English", shortCode: "EN" },
   { code: "az", name: "Azərbaycan", shortCode: "AZ" },
-  { code: "tr", name: "Türkçe", shortCode: "TR" },
+  { code: "en", name: "English", shortCode: "EN" },
   { code: "ru", name: "Русский", shortCode: "RU" },
 ];
 

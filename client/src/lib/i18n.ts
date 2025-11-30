@@ -4,13 +4,11 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import en from '../locales/en.json';
 import az from '../locales/az.json';
-import tr from '../locales/tr.json';
 import ru from '../locales/ru.json';
 
 const resources = {
   en: { translation: en },
   az: { translation: az },
-  tr: { translation: tr },
   ru: { translation: ru },
 };
 
@@ -25,9 +23,10 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage'],
       caches: ['localStorage'],
     },
+    lng: 'az',
   });
 
 export default i18n;

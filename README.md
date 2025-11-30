@@ -30,7 +30,7 @@ Peak Finder is a comprehensive mountain tourism platform for Azerbaijan that gam
   - Gobustan (Petroglyphs)
 - **Progress Tracking** - Track elevation gained, trips completed, and level progression
 - **Review System** - Share experiences and read reviews from other adventurers
-- **Multi-language Support** - Available in English, Azerbaijani, Turkish, and Russian
+- **Multi-language Support** - Available in Azerbaijani, English, and Russian
 - **Social Sharing** - Share achievements and invite friends to trips
 - **Advanced Filtering** - Filter by season, duration, price, region, difficulty, and activity type
 
@@ -103,7 +103,7 @@ Peak Finder, regional nailiyyət nişanları vasitəsilə dağ qalxma təcrübə
   - Qobustan (Petroqliflər)
 - **İrəliləyiş İzləmə** - Qazanılan yüksəklik, tamamlanan səyahətlər və səviyyə irəliləyişini izləyin
 - **Rəy Sistemi** - Təcrübələrinizi paylaşın və digər səyyahların rəylərini oxuyun
-- **Çox Dilli Dəstək** - İngilis, Azərbaycan, Türk və Rus dillərində mövcuddur
+- **Çox Dilli Dəstək** - Azərbaycan, İngilis və Rus dillərində mövcuddur
 - **Sosial Paylaşım** - Nailiyyətləri paylaşın və dostlarınızı səyahətlərə dəvət edin
 - **Qabaqcıl Filtrlər** - Mövsüm, müddət, qiymət, bölgə, çətinlik və fəaliyyət növünə görə filtrləyin
 
@@ -176,7 +176,7 @@ Peak Finder — это комплексная платформа горного 
   - Гобустан (Петроглифы)
 - **Отслеживание прогресса** — Следите за набранной высотой, завершёнными поездками и повышением уровня
 - **Система отзывов** — Делитесь впечатлениями и читайте отзывы других путешественников
-- **Многоязычная поддержка** — Доступно на английском, азербайджанском, турецком и русском языках
+- **Многоязычная поддержка** — Доступно на азербайджанском, английском и русском языках
 - **Социальный шеринг** — Делитесь достижениями и приглашайте друзей в путешествия
 - **Расширенная фильтрация** — Фильтруйте по сезону, продолжительности, цене, региону, сложности и типу активности
 
