@@ -8,7 +8,7 @@
     "learnMore": "Daha çox öyrən",
     "getStarted": "İndi başla",
     "search": "Axtar",
-    "filter": "Filtr",
+    "filter": "Filtrlə",
     "clearAll": "Hamısını təmizlə",
     "loading": "Yüklənir...",
     "back": "Geri",
@@ -30,16 +30,16 @@
     "shareLinkDescription": "Başqaları ilə paylaşmaq üçün bu linki kopyalayın",
     "linkCopied": "Link kopyalandı",
     "linkCopiedDescription": "Paylaşma linki mübadilə buferinə kopyalandı",
-    "copyFailed": "Kopyalamaq alınmadı",
+    "copyFailed": "Kopyalama alınmadı",
     "copyFailedDescription": "Linki mübadilə buferinə kopyalamaq mümkün olmadı",
     "shareFailed": "Paylaşmaq alınmadı",
     "shareFailedDescription": "Məzmunu paylaşmaq mümkün olmadı",
     "checkOutThis": "Buna baxın"
   },
   "weather": {
-    "mountainWeather": "Dağ Havası",
+    "mountainWeather": "Dağ havası",
     "unableToLoad": "Hava məlumatlarını yükləmək mümkün olmadı",
-    "sevenDayForecast": "7 Günlük Proqnoz",
+    "sevenDayForecast": "7 günlük proqnoz",
     "kmh": "km/saat",
     "meters": "m",
     "conditions": {
@@ -52,25 +52,25 @@
     },
     "days": {
       "today": "Bu gün",
-      "sun": "Baz",
-      "mon": "B.e",
-      "tue": "Ç.a",
-      "wed": "Çər",
-      "thu": "C.a",
-      "fri": "Cüm",
-      "sat": "Şən"
+      "sun": "Bazar",
+      "mon": "Bazar ertəsi",
+      "tue": "Çərşənbə axşamı",
+      "wed": "Çərşənbə",
+      "thu": "Cümə axşamı",
+      "fri": "Cümə",
+      "sat": "Şənbə"
     }
   },
   "gallery": {
-    "title": "Foto Qalereya",
-    "photo": "foto",
-    "photos": "foto",
+    "title": "Fotoqalereya",
+    "photo": "Foto",
+    "photos": "Fotoşəkillər",
     "addPhoto": "Foto əlavə et",
     "noPhotosYet": "Hələ foto yoxdur",
-    "beFirstToShare": "Bu səyahətdən foto paylaşan ilk siz olun!",
+    "beFirstToShare": "Bu səyahətə aid foto paylaşan ilk siz olun!",
     "tripPhoto": "Səyahət fotosu",
-    "photoViewer": "Foto Baxıcı",
-    "photoViewerDescription": "Səyahət fotolarına baxın və naviqasiya edin",
+    "photoViewer": "Foto baxıcı",
+    "photoViewerDescription": "Səyahət fotolarına baxın və onları gəzinin",
     "addPhotoDescription": "Səyahət təcrübənizdən foto paylaşın",
     "photoUrl": "Foto URL-i",
     "captionOptional": "Başlıq (istəyə bağlı)",
@@ -95,9 +95,9 @@
     "dashboard": "İdarə paneli"
   },
   "landing": {
-    "badge": "Azərbaycanın İlk Dağ Turizmi Tətbiqi",
-    "title": "Azərbaycanın Zirvələrini",
-    "titleHighlight": "Fəth Edin!",
+    "badge": "Azərbaycanın ilk dağ turizmi tətbiqi",
+    "title": "Azərbaycanın zirvələrini",
+    "titleHighlight": "fəth edin!",
     "description": "Azərbaycanın möhtəşəm mənzərələrində unudulmaz dağ macəralarına çıxın. Böyük Qafqaz zirvələrini kəşf edərkən unikal regional nailiyyət nişanları qazanın.",
     "exploreTrips": "Səyahətləri kəşf et",
     "viewAchievements": "Nailiyyətlərə bax",
@@ -105,11 +105,16 @@
       "adventures": "Tamamlanmış macəralar",
       "climbers": "Aktiv alpinistlər",
       "regions": "Unikal bölgələr",
-      "badges": "Nailiyyət nişanları"
+      "badges": "Nişanlar",
+      "liveNow": "Hackathon zamanı hazırlanıb",
+      "regionsAvailable": "Mövcud bölgələr",
+      "badgesReady": "Hazır nişanlar",
+      "beFirst": "İlk olun",
+      "explorersJoining": "Qoşulan kəşfiyyatçılar"
     },
     "activities": {
-      "title": "Macəranızı seçin",
-      "description": "Çətin zirvə qalxışlarından sakit mədəni ekskursiyalara qədər - səviyyənizə uyğun mükəmməl dağ təcrübəsini tapın.",
+      "title": "Macəranınızı seçin",
+      "description": "Çətin zirvə qalxışlarından sakit mədəni ekskursiyalara qədər — səviyyənizə uyğun mükəmməl dağ təcrübəsini tapın.",
       "climbing": "Alpinizm",
       "hiking": "Piyada gəzinti",
       "camping": "Düşərgə",
@@ -135,20 +140,13 @@
       "title": "Azərbaycan dağlarını kəşf etməyə hazırsınız?",
       "description": "Qafqazın gözəlliyini kəşf edən minlərlə macəraçıya qoşulun. Bu gün qeydiyyatdan keçin və ilk nailiyyət nişanınızı qazanmağa başlayın."
     },
-    "stats": {
-      "liveNow": "İndi Canlı",
-      "regionsAvailable": "Mövcud Bölgələr",
-      "badgesReady": "Hazır Nişanlar",
-      "beFirst": "İlk Olun",
-      "explorersJoining": "Qoşulan Kəşfiyyatçılar"
-    },
     "thisMonth": "Bu ay",
     "pointsEarned": "+2,450 xal qazanıldı",
     "regionDescriptions": {
       "karabakh": "Əfsanəvi Qarabağ atlarının və Şuşa zirvələrinin vətəni",
-      "nakhchivan": "Müqəddəs dağlar və tarixi Möminə Xatun türbəsi",
+      "nakhchivan": "Möminə Xatun türbəsi və qədim istehkamların evi",
       "shaki": "UNESCO irsi və möhtəşəm Qafqaz ətəkləri",
-      "gabala": "Heyrətamiz alp mənzərələri ilə birinci dərəcəli istirahət mərkəzi",
+      "gabala": "Heyrətamiz alp mənzərələri ilə məşhur istirahət mərkəzi",
       "ganja": "Canlı mədəniyyət və yaxınlıqdakı cığırlarla qədim şəhər",
       "gobustan": "Qədim qaya sənəti və mistik palçıq vulkanları"
     }
@@ -178,10 +176,10 @@
       "anyDuration": "İstənilən müddət"
     },
     "seasons": {
-      "spring": "Yaz (Mart-May)",
-      "summer": "Yay (İyun-Avqust)",
-      "fall": "Payız (Sentyabr-Noyabr)",
-      "winter": "Qış (Dekabr-Fevral)"
+      "spring": "Yaz (Mart–May)",
+      "summer": "Yay (İyun–Avqust)",
+      "fall": "Payız (Sentyabr–Noyabr)",
+      "winter": "Qış (Dekabr–Fevral)"
     },
     "difficulty": {
       "beginner": "Başlanğıc",
@@ -191,8 +189,8 @@
     },
     "duration": {
       "halfDay": "Yarım gün (< 4 saat)",
-      "fullDay": "Tam gün (4-8 saat)",
-      "multiDay": "Çox günlük (1-3 gün)",
+      "fullDay": "Tam gün (4–8 saat)",
+      "multiDay": "Çox günlük (1–3 gün)",
       "extended": "Uzun müddətli (4+ gün)"
     },
     "noTrips": "Səyahət tapılmadı",
@@ -205,64 +203,64 @@
   "tripDetail": {
     "backToTrips": "Səyahətlərə qayıt",
     "overview": "İcmal",
-    "highlights": "Səyahət məqamları",
+    "highlights": "Əsas məqamlar",
     "included": "Daxildir",
     "requirements": "Tələblər",
     "bookTrip": "Bu səyahəti sifariş et",
     "share": "Paylaş",
     "invite": "Dostları dəvət et",
     "weather": "Hava şəraiti",
-    "photoGallery": "Foto qalereya",
+    "photoGallery": "Fotoqalereya",
     "reviews": "Rəylər",
-    "notFoundTitle": "Səyahət Tapılmadı",
+    "notFoundTitle": "Səyahət tapılmadı",
     "notFoundDescription": "Axtardığınız səyahət mövcud deyil.",
-    "aboutThisTrip": "Bu Səyahət Haqqında",
+    "aboutThisTrip": "Bu səyahət haqqında",
     "elevation": "Hündürlük",
     "duration": "Müddət",
-    "maxGroup": "Maks Qrup",
+    "maxGroup": "Maks qrup",
     "distance": "Məsafə",
     "peopleCount": "{{count}} nəfər",
-    "whatsIncluded": "Nələr Daxildir",
+    "whatsIncluded": "Nələr daxildir",
     "includedGuide": "Peşəkar dağ bələdçisi",
     "includedSafety": "Təhlükəsizlik avadanlığı",
     "includedTransport": "Görüş nöqtəsindən nəqliyyat",
     "includedLunch": "Nahar və içkilər",
     "includedPhotos": "Foto və videolar",
     "includedCertificate": "Tamamlama sertifikatı",
-    "aboutRegion": "{{region}} Bölgəsi Haqqında",
+    "aboutRegion": "{{region}} bölgəsi haqqında",
     "perPerson": "adam başına",
     "difficultyLabel": "Çətinlik",
     "activityLabel": "Fəaliyyət",
-    "pointsRewardLabel": "Xal Mükafatı",
-    "bookThisTrip": "Bu Səyahəti Sifariş Et",
-    "signInToBook": "Sifariş Üçün Daxil Olun",
+    "pointsRewardLabel": "Xal mükafatı",
+    "bookThisTrip": "Bu səyahəti sifariş et",
+    "signInToBook": "Sifariş üçün daxil olun",
     "earnBadgesText": "Səyahətləri tamamlayaraq nailiyyət nişanları qazanın",
     "featured": "Seçilmiş"
   },
   "achievements": {
     "title": "Nailiyyət nişanları",
-    "description": "Azərbaycanın altı bölgəsini əks etdirən unikal nişanlar qazanın. Hər nişan öz bölgəsinin mədəni irsini və təbii gözəlliyini qeyd edir.",
-    "gallery": "Nailiyyət Qalereyası",
-    "pageTitle": "Regional Nailiyyət Nişanları",
-    "pageDescription": "Azərbaycanın zəngin mədəni irsini əks etdirən unikal nişanlar toplayın. Hər bölgənin öz simvolu var - hamısını qazanaraq əsl kəşfiyyatçı olun.",
-    "yourProgress": "Sizin İrəliləyişiniz",
+    "description": "Azərbaycanın altı regionunu əks etdirən unikal nişanlar qazanın. Hər nişan bölgənin mədəni irsini və təbii gözəlliyini qeyd edir.",
+    "gallery": "Nailiyyət qalereyası",
+    "pageTitle": "Regional nailiyyət nişanları",
+    "pageDescription": "Azərbaycanın zəngin mədəni irsini əks etdirən unikal nişanlar toplayın. Hər bölgənin öz simvolu var — hamısını qazanaraq əsl kəşfiyyatçı olun.",
+    "yourProgress": "Sizin irəliləyişiniz",
     "badgesEarnedCount": "{{total}} nişandan {{earned}} qazanılıb",
     "complete": "Tamamlandı",
     "byRegion": "Bölgəyə görə",
     "byTier": "Səviyyəyə görə",
     "general": "Ümumi",
     "earnedCount": "{{earned}} / {{total}} qazanılıb",
-    "tierLabel": "{{tier}} Səviyyəsi",
+    "tierLabel": "{{tier}} səviyyəsi",
     "noAchievements": "Mövcud nailiyyət yoxdur",
-    "checkBackSoon": "Yeni nişanlar üçün tezliklə yoxlayın!",
-    "signInTitle": "İrəliləyişinizi İzləmək Üçün Daxil Olun",
+    "checkBackSoon": "Yeni nişanlar üçün tezliklə yenidən yoxlayın!",
+    "signInTitle": "İrəliləyişinizi izləmək üçün daxil olun",
     "signInDescription": "Nişanlar qazanmağa və Azərbaycandakı dağ macəralarınızı izləməyə başlamaq üçün hesab yaradın.",
-    "startJourney": "Səyahətinizə Başlayın",
+    "startJourney": "Səyahətinizə başlayın",
     "earned": "Qazanılıb",
     "locked": "Kilidli",
     "progress": "İrəliləyiş",
-    "earnedOn": "Qazanılıb",
-    "levelRequired": "Səv",
+    "earnedOn": "Qazanıldığı tarix",
+    "levelRequired": "Səviyyə tələb olunur",
     "shareTitle": "Mən \"{{name}}\" nişanını qazandım!",
     "tierAchievement": "səviyyəli nailiyyət AzMountain-də",
     "tiers": {
@@ -280,52 +278,52 @@
   "reviews": {
     "title": "Səyahətçi rəyləri",
     "description": "Azərbaycan dağlarını kəşf etmiş həmkarlarınızın əsl təcrübələrini oxuyun.",
-    "badge": "Səyahətçi Rəyləri",
-    "pageTitle": "Rəylər və Təcrübələr",
+    "badge": "Səyahətçi rəyləri",
+    "pageTitle": "Rəylər və təcrübələr",
     "pageDescription": "Həmkarlarınızın həqiqi rəylərini oxuyun və öz dağ təcrübələrinizi Azərbaycanda paylaşın.",
     "basedOn": "{{count}} rəyə əsasən",
-    "shareExperience": "Təcrübənizi Paylaşın",
+    "shareExperience": "Təcrübənizi paylaşın",
     "shareDescription": "Səyahəti tamamladınız? Hekayənizi paylaşaraq digər macəraçılara kömək edin.",
-    "writeReview": "Rəy Yaz",
-    "signInToReview": "Rəy Yazmaq Üçün Daxil Olun",
-    "allReviews": "Bütün Rəylər",
+    "writeReview": "Rəy yaz",
+    "signInToReview": "Rəy yazmaq üçün daxil olun",
+    "allReviews": "Bütün rəylər",
     "reviewCount": "{{count}} rəy",
     "noReviews": "Hələ rəy yoxdur",
-    "beFirst": "Dağ macərası təcrübənizi paylaşan ilk siz olun!",
+    "beFirst": "Bu səyahət haqqında rəy yazan ilk siz olun!",
     "rating": "Reytinq",
     "helpful": "Faydalı",
     "level": "Səviyyə",
     "reviewer": "Rəyçi",
     "form": {
-      "dialogTitle": "Rəyinizi Yazın",
-      "yourRating": "Sizin Reytinqiniz",
+      "dialogTitle": "Rəyinizi yazın",
+      "yourRating": "Sizin reytinqiniz",
       "selectRating": "Zəhmət olmasa reytinq seçin",
-      "tripOptional": "Səyahət (İstəyə bağlı)",
+      "tripOptional": "Səyahət (istəyə bağlı)",
       "selectTrip": "Səyahət seçin",
-      "reviewTitle": "Rəy Başlığı",
+      "reviewTitle": "Rəy başlığı",
       "titlePlaceholder": "Təcrübənizi ümumiləşdirin",
-      "yourReview": "Sizin Rəyiniz",
+      "yourReview": "Sizin rəyiniz",
       "contentPlaceholder": "Ətraflı təcrübənizi paylaşın...",
-      "activityTypeOptional": "Fəaliyyət Növü (İstəyə bağlı)",
+      "activityTypeOptional": "Fəaliyyət növü (istəyə bağlı)",
       "selectActivity": "Fəaliyyət seçin",
       "submitting": "Göndərilir...",
-      "submitReview": "Rəyi Göndər"
+      "submitReview": "Rəyi göndər"
     },
     "filter": {
-      "allRatings": "Bütün Reytinqlər",
-      "stars5": "5 Ulduz",
-      "stars4": "4 Ulduz",
-      "stars3": "3 Ulduz",
-      "stars2": "2 Ulduz",
-      "star1": "1 Ulduz"
+      "allRatings": "Bütün reytinqlər",
+      "stars5": "5 ulduz",
+      "stars4": "4 ulduz",
+      "stars3": "3 ulduz",
+      "stars2": "2 ulduz",
+      "star1": "1 ulduz"
     },
     "activities": {
       "climbing": "Alpinizm",
-      "hiking": "Piyada Gəzinti",
+      "hiking": "Piyada gəzinti",
       "camping": "Düşərgə",
       "photography": "Fotoqrafiya",
-      "cultural": "Mədəni Tur",
-      "wildlife": "Vəhşi Təbiət"
+      "cultural": "Mədəni tur",
+      "wildlife": "Vəhşi təbiət"
     },
     "toast": {
       "submitted": "Rəy göndərildi!",
@@ -343,78 +341,78 @@
       "badge": "Bizim hekayəmiz",
       "title": "Macəraçıları birləşdiririk",
       "titleHighlight": "Azərbaycan dağları ilə",
-      "subtitle": "Missiyamız Azərbaycanın nəfəs kəsən dağ mənzərələrini dünya tədqiqatçılarına əlçatan etmək, eyni zamanda hər unikal bölgənin zəngin mədəni irsini qeyd etməkdir."
+      "subtitle": "Missiyamız Azərbaycanın nəfəs kəsən dağ mənzərələrini dünya tədqiqatçılarına əlçatan etmək və hər unikal bölgənin zəngin mədəni irsini qeyd etməkdir."
     },
     "mission": {
       "badge": "Missiyamız",
-      "title": "Azərbaycanda dağ turizmini yüksəldirik",
-      "p1": "AzMountain sadə, lakin güclü bir vizyonla yaradıldı: insanların Azərbaycanın möhtəşəm dağ mənzərələrini necə yaşadığını dəyişdirmək. İnanırıq ki, hər fəth edilmiş zirvə və kəşf edilmiş cığır qeyd olunmalıdır.",
-      "p2": "İnnovativ nailiyyət sistemimiz macəralarınızı əsl regional simvollarla mükafatlandırır, sizi kəşf etdiyiniz hər bölgənin mədəni irsi ilə birləşdirir. Əfsanəvi Qarabağ atlarından Qobustanın qədim qaya rəsmlərinə qədər, hər nişan bir hekayə danışır."
+      "title": "Azərbaycanda dağ turizmini inkişaf etdiririk",
+      "p1": "AzMountain sadə, lakin güclü bir vizyonla yaradıldı: insanların Azərbaycanın möhtəşəm dağ mənzərələrini necə yaşadığını dəyişdirmək.",
+      "p2": "İnnovativ nailiyyət sistemimiz macəralarınızı əsl regional simvollarla mükafatlandırır və sizi kəşf etdiyiniz hər bölgənin mədəni irsi ilə birləşdirir."
     },
     "stats": {
-      "liveNow": "Hakaton Müddətində Hazırlanıb",
-      "explorersJoining": "Qoşulan Kəşfiyyatçılar",
-      "regionsAvailable": "Mövcud Bölgələr",
-      "badgesReady": "Hazır Nişanlar",
-      "earlyAccess": "Early Access",
-      "beFirst": "İlk Olun"
+      "liveNow": "Hackathon zamanı hazırlanıb",
+      "explorersJoining": "Qoşulan kəşfiyyatçılar",
+      "regionsAvailable": "Mövcud bölgələr",
+      "badgesReady": "Hazır nişanlar",
+      "earlyAccess": "Erkən giriş",
+      "beFirst": "İlk olun"
     },
     "values": {
       "badge": "Dəyərlərimiz",
       "title": "Bizi irəli aparan nədir",
       "description": "Əsas dəyərlərimiz hazırladığımız hər səyahəti və icmamız üçün yaratdığımız hər təcrübəni formalaşdırır.",
-      "safety": "Əvvəlcə Təhlükəsizlik",
-      "safetyDesc": "Hər səyahət sertifikatlı bələdçilər və düzgün təhlükəsizlik avadanlığı ilə diqqətlə yoxlanılır. Sizin rifah halınız bizim prioritetimizdir.",
-      "culture": "Mədəni İrs",
-      "cultureDesc": "Biz regional nişan sistemimiz vasitəsilə Azərbaycanın zəngin ənənələrini qeyd edirik, macəraçıları yerli tarixlə birləşdiririk.",
+      "safety": "Təhlükəsizlik",
+      "safetyDesc": "Hər səyahət sertifikatlı bələdçilər və uyğun təhlükəsizlik avadanlığı ilə yoxlanılır. Sizin rifahınız bizim prioritetimizdir.",
+      "culture": "Mədəni irs",
+      "cultureDesc": "Biz regional nişan sistemimiz vasitəsilə Azərbaycanın zəngin ənənələrini qeyd edir və macəraçıları yerli tarixlə birləşdiririk.",
       "sustainability": "Davamlılıq",
       "sustainabilityDesc": "Gələcək nəsillər üçün Azərbaycan dağlarının təbii gözəlliyini qoruyan məsuliyyətli turizmi təşviq edirik.",
       "community": "İcma",
       "communityDesc": "Təcrübələri paylaşan və bir-birini ilhamlandıran həvəsli alpinistlər və kəşfiyyatçılar icmasına qoşulun."
     },
     "symbols": {
-      "badge": "Regional Simvollar",
-      "title": "Nailiyyət Sistemimizin Özəyi",
-      "description": "Azərbaycanın hər bölgəsinin əsrlər boyu irsi, ənənəni və təbii gözəlliyi əks etdirən özünəməxsus mədəni simvolu var."
+      "badge": "Regional simvollar",
+      "title": "Nailiyyət sistemimizin özü",
+      "description": "Azərbaycanın hər bölgəsinin əsrlər boyu formalaşmış irsi, ənənəsi və təbii gözəlliyini əks etdirən özünəməxsus mədəni simvolu var."
     },
     "regions": {
-      "karabakh": "Qızılı parıltısı ilə tanınan əfsanəvi Qarabağ atı, bölgənin qürurlu atçılıq irsi və xalqının dözümlülüyünü təmsil edir.",
-      "nakhchivan": "Möminə Xatun Türbəsi və qədim istehkamların evi, əsrlər boyu memarlıq mükəmməlliyini təmsil edir.",
-      "shaki": "Tarixi İpək Yolunda UNESCO Dünya İrsi sahəsi, karvanların bir zamanlar Şərq və Qərb arasında qiymətli mallar ticarət etdiyi yer.",
-      "gabala": "Azərbaycanın əsas açıq hava təyinatı, heyrətamiz alp mənzərələri və dünya səviyyəli macəra obyektləri ilə.",
-      "ganja": "Canlı xalça toxuculuğu ənənəsi ilə məşhur, Gəncənin mürəkkəb naxışları bölgənin bədii ruhunun hekayələrini danışır.",
-      "gobustan": "40,000 il əvvələ aid qədim qaya oymaları, bəşəriyyətin ən erkən bədii ifadələrini nümayiş etdirən UNESCO sahəsi."
+      "karabakh": "Qarabağ: Qızılı parıltısı ilə tanınan əfsanəvi Qarabağ atı və bölgənin atçılıq ənənəsi.",
+      "nakhchivan": "Naxçıvan: Möminə Xatun türbəsi və qədim istehkamlarla zəngin memarlıq irsi.",
+      "shaki": "Şəki: Tarixi İpək Yolunun bir parçası və UNESCO Dünya İrsi obyektləri.",
+      "gabala": "Qəbələ: Heyrətamiz alp mənzərələri və açıq hava fəaliyyətləri üçün məşhur mərkəz.",
+      "ganja": "Gəncə: Canlı xalça toxuculuğu ənənəsi və zəngin mədəni irs.",
+      "gobustan": "Qobustan: 40,000 il əvvələ aid qədim qaya oymaları və palçıq vulkanları."
     },
     "cta": {
       "title": "Səyahətinizə başlamağa hazırsınız?",
       "description": "Macəraçılar icmamıza qoşulun və Azərbaycan dağlarının sehrini kəşf edin. İlk nailiyyət nişanınız sizi gözləyir.",
-      "exploreTrips": "Səyahətləri Kəşf Et",
-      "viewAchievements": "Nailiyyətlərə Bax"
+      "exploreTrips": "Səyahətləri kəşf et",
+      "viewAchievements": "Nailiyyətlərə bax"
     }
   },
   "home": {
     "welcomeBack": "Xoş gəlmisiniz",
     "explorer": "Kəşfiyyatçı",
-    "levelExplorer": "Səviyyə {{level}} Dağ Kəşfiyyatçısı",
-    "totalPoints": "Ümumi Xallar",
-    "tripsDone": "Tamamlanan Səyahətlər",
-    "badgesEarned": "Qazanılan Nişanlar",
+    "levelExplorer": "Səviyyə {{level}} dağ kəşfiyyatçısı",
+    "totalPoints": "Ümumi xallar",
+    "tripsDone": "Tamamlanan səyahətlər",
+    "badgesEarned": "Qazanılmış nişanlar",
     "elevation": "Hündürlük",
     "progressToLevel": "Səviyyə {{level}}-ə irəliləyiş",
-    "featuredTrips": "Seçilmiş Səyahətlər",
+    "featuredTrips": "Seçilmiş səyahətlər",
     "handpickedAdventures": "Sizi gözləyən əl ilə seçilmiş macəralar",
     "noFeaturedTrips": "Hələ seçilmiş səyahət yoxdur",
-    "checkBackSoon": "Həyəcanverici dağ macəraları üçün tezliklə yoxlayın!",
-    "browseAllTrips": "Bütün Səyahətlərə Bax",
-    "achievementBadges": "Nailiyyət Nişanları",
+    "checkBackSoon": "Yeni dağ macəraları üçün tezliklə yenidən yoxlayın!",
+    "browseAllTrips": "Bütün səyahətlərə bax",
+    "achievementBadges": "Nailiyyət nişanları",
     "collectSymbols": "Kəşf etdikcə regional simvollar toplayın",
     "noAchievements": "Mövcud nailiyyət yoxdur",
     "startExploring": "İlk nişanınızı açmaq üçün kəşf etməyə başlayın!",
-    "quickActions": "Sürətli Əməliyyatlar",
-    "readyForAdventure": "Növbəti Macəranıza Hazırsınız?",
-    "exploreNewTrails": "Yeni dağ cığırlarını kəşf edin, qrup ekspedisiyalarına qoşulun və ya Azərbaycanın möhtəşəm mənzərələrində fərdi səyahətinizi planlaşdırın.",
-    "findTrip": "Səyahət Tap",
-    "myDashboard": "Mənim Panelim"
+    "quickActions": "Sürətli əməliyyatlar",
+    "readyForAdventure": "Növbəti macəranıza hazırsınız?",
+    "exploreNewTrails": "Yeni dağ cığırlarını kəşf edin, qrup ekspedisiyalarına qoşulun və ya öz fərdi səyahətinizi planlaşdırın.",
+    "findTrip": "Səyahət tap",
+    "myDashboard": "Mənim panelim"
   },
   "dashboard": {
     "title": "İdarə paneliniz",
@@ -422,29 +420,29 @@
     "unauthorized": "İcazəsiz",
     "pleaseSignIn": "İdarə panelinizə baxmaq üçün daxil olun.",
     "level": "Səviyyə {{level}}",
-    "mountainExplorer": "Dağ Kəşfiyyatçısı",
+    "mountainExplorer": "Dağ kəşfiyyatçısı",
     "progressToLevel": "Səviyyə {{level}}-ə irəliləyiş",
     "pointsProgress": "{{current}} / 500 xal",
     "earnMorePoints": "Daha çox xal qazanmaq üçün səyahətləri və çağırışları tamamlayın",
-    "totalPoints": "Ümumi Xallar",
-    "tripsDone": "Tamamlanan Səyahətlər",
-    "badgesEarned": "Qazanılan Nişanlar",
+    "totalPoints": "Ümumi xallar",
+    "tripsDone": "Tamamlanan səyahətlər",
+    "badgesEarned": "Qazanılmış nişanlar",
     "elevation": "Hündürlük",
-    "upcomingTrips": "Gələcək Səyahətlər",
+    "upcomingTrips": "Gələcək səyahətlər",
     "booked": "Sifariş edilib",
     "noUpcomingTrips": "Gələcək səyahət yoxdur",
-    "bookTrip": "Səyahət Sifariş Et",
-    "recentCompletions": "Son Tamamlamalar",
+    "bookTrip": "Səyahət sifariş et",
+    "recentCompletions": "Son tamamlanmalar",
     "completed": "Tamamlandı",
     "noCompletedTrips": "Hələ tamamlanmış səyahət yoxdur",
-    "recentAchievements": "Son Nailiyyətlər",
+    "recentAchievements": "Son nailiyyətlər",
     "noBadgesEarned": "Hələ qazanılmış nişan yoxdur",
-    "startEarning": "Qazanmağa Başla",
-    "nextGoals": "Növbəti Hədəflər",
+    "startEarning": "Qazanmağa başla",
+    "nextGoals": "Növbəti hədəflər",
     "goals": {
-      "karabakhExplorer": "Qarabağ Kəşfiyyatçısı",
-      "summitMaster": "Zirvə Ustası",
-      "nakhchivanHeritage": "Naxçıvan İrsi"
+      "karabakhExplorer": "Qarabağ kəşfiyyatçısı",
+      "summitMaster": "Zirvə ustası",
+      "nakhchivanHeritage": "Naxçıvan irsi"
     },
     "stats": {
       "level": "Səviyyə",
@@ -455,7 +453,7 @@
     "recentTrips": "Son səyahətlər",
     "earnedAchievements": "Qazanılmış nailiyyətlər",
     "noTrips": "Hələ tamamlanmış səyahət yoxdur",
-    "noAchievements": "Hələ qazanılmış nailiyyət yoxdur"
+    "noAchievements": "Hələ qazanılmış nişan yoxdur"
   },
   "tripCard": {
     "featured": "Seçilmiş",
@@ -480,7 +478,7 @@
   },
   "booking": {
     "title": "Səyahət sifarişi",
-    "titleBook": "Macəranızı sifariş edin",
+    "titleBook": "Macəranınızı sifariş edin",
     "titleConfirmed": "Sifariş təsdiqləndi!",
     "descriptionBook": "{{tripTitle}} üçün yerinizi rezerv edin",
     "descriptionConfirmed": "Dağ macəranız sizi gözləyir!",
@@ -491,25 +489,25 @@
     "person": "nəfər",
     "people": "nəfər",
     "participant": "iştirakçı",
-    "participants": "iştirakçı",
-    "participantNames": "İştirakçı adları (İstəyə bağlı)",
-    "participantNamesPlaceholder": "Bütün iştirakçıların adlarını hər sətirdə bir ad daxil edin",
+    "participants": "iştirakçılar",
+    "participantNames": "İştirakçı adları (istəyə bağlı)",
+    "participantNamesPlaceholder": "Hər sətirdə bir ad daxil edin",
     "maxParticipants": "Maks {{count}} iştirakçı",
     "maxPerBooking": "Hər sifarişdə maksimum {{count}} iştirakçı",
     "contactPhone": "Əlaqə telefonu",
     "contact": "Əlaqə telefonu",
-    "specialRequests": "Xüsusi istəklər (İstəyə bağlı)",
-    "specialRequestsPlaceholder": "Qida tələbləri, əlçatanlıq ehtiyacları və ya xüsusi istəklər...",
+    "specialRequests": "Xüsusi istəklər (istəyə bağlı)",
+    "specialRequestsPlaceholder": "Qida tələbləri, əlçatanlıq ehtiyacları və ya digər xüsusi istəklər...",
     "continueToDetails": "Sifariş detallarına davam et",
     "confirmBooking": "Sifarişi təsdiqlə",
-    "booking": "Sifariş edilir...",
-    "confirm": "Sifarişi təsdiqlə",
+    "booking": "Sifariş olunur...",
+    "confirm": "Təsdiqlə",
     "success": "Sifariş təsdiqləndi!",
     "total": "Cəmi",
     "totalFor": "{{count}} iştirakçı üçün cəmi",
     "perPerson": "adam başına",
     "adventureBooked": "Macəranız sifariş edildi!",
-    "confirmationSent": "Bütün detallarla e-poçtunuza təsdiq göndərdik.",
+    "confirmationSent": "Bütün detallarla e-poçtunuza təsdiq göndərildi.",
     "dateSelected": "Tarix seçildi",
     "validation": {
       "dateRequired": "Zəhmət olmasa səyahət üçün tarix seçin",
@@ -546,12 +544,12 @@
       "failedDescription": "Zəhmət olmasa daha sonra yenidən cəhd edin",
       "copiedTitle": "Link kopyalandı",
       "copiedDescription": "Dəvət linki mübadilə buferinə kopyalandı",
-      "copyFailedTitle": "Kopyalamaq alınmadı",
+      "copyFailedTitle": "Kopyalama alınmadı",
       "copyFailedDescription": "Linki mübadilə buferinə kopyalamaq mümkün olmadı"
     }
   },
   "footer": {
-    "description": "Azərbaycanın nəfəs kəsən dağ mənzərələrini kəşf edin. Möhtəşəm Qafqaz zirvələrindən Qarabağın qədim cığırlarına qədər - ruhunuzu mükafatlandıran macəralara çıxın.",
+    "description": "Azərbaycanın nəfəs kəsən dağ mənzərələrini kəşf edin. Möhtəşəm Qafqaz zirvələrindən Qarabağın qədim cığırlarına qədər — ruhunuzu doyuran macəralara çıxın.",
     "explore": "Kəşf edin",
     "mountainTrips": "Dağ səyahətləri",
     "achievementBadges": "Nailiyyət nişanları",
@@ -559,7 +557,7 @@
     "aboutUs": "Haqqımızda",
     "contact": "Əlaqə",
     "newsletter": "Xəbər bülleteni",
-    "newsletterDesc": "Ən son dağ macəraları və ekskluziv təkliflər almaq üçün abunə olun.",
+    "newsletterDesc": "Ən son dağ macəraları və ekskluziv təkliflər üçün abunə olun.",
     "emailPlaceholder": "E-poçtunuzu daxil edin",
     "subscribe": "Abunə ol",
     "verified": "Təsdiqlənmiş səyahətlər",
@@ -578,69 +576,69 @@
     "gobustan": "Qobustan"
   },
   "symbols": {
-    "goldenHorse": "Qızıl At",
-    "ancientFortress": "Qədim Qala",
-    "silkRoad": "İpək Yolu Karvanı",
-    "mountainPeak": "Dağ Zirvəsi",
-    "carpetPattern": "Xalça Naxışı",
+    "goldenHorse": "Qızıl at",
+    "ancientFortress": "Qədim qala",
+    "silkRoad": "İpək yolu karvanı",
+    "mountainPeak": "Dağ zirvəsi",
+    "carpetPattern": "Xalça naxışı",
     "petroglyphs": "Qaya rəsmləri"
   },
   "privacy": {
     "backToHome": "Ana səhifəyə qayıt",
-    "title": "Məxfilik Siyasəti",
+    "title": "Məxfilik siyasəti",
     "lastUpdated": "Son yenilənmə: Noyabr 2025",
-    "intro": "AzMountain-da məxfiliyinizə dəyər veririk. Bu siyasət Azərbaycanın ilk dağ turizmi tətbiqindən istifadə edərkən məlumatlarınızı necə topladığımızı, istifadə etdiyimizi və qoruduğumuzu izah edir.",
+    "intro": "AzMountain-da məxfiliyinizə dəyər veririk. Bu siyasət tətbiqdən istifadə edərkən məlumatlarınızı necə topladığımızı, istifadə etdiyimizi və qoruduğumuzu izah edir.",
     "sections": {
       "collect": {
-        "title": "Topladığımız Məlumatlar",
+        "title": "Topladığımız məlumatlar",
         "accountInfo": {
-          "label": "Hesab Məlumatları:",
-          "text": "Qeydiyyatdan keçərkən ad, e-poçt ünvanı və profil şəkli"
+          "label": "Hesab məlumatları:",
+          "text": "Qeydiyyat zamanı ad, e-poçt ünvanı və profil şəkli"
         },
         "tripActivity": {
-          "label": "Səyahət Fəaliyyəti:",
+          "label": "Səyahət fəaliyyəti:",
           "text": "Tamamlanmış səyahətləriniz, sifarişləriniz və nailiyyət irəliləyişiniz"
         },
         "reviewsPhotos": {
-          "label": "Rəylər və Şəkillər:",
-          "text": "Təcrübələriniz haqqında paylaşmağı seçdiyiniz məzmun"
+          "label": "Rəylər və şəkillər:",
+          "text": "Təcrübələriniz barədə paylaşdığınız məzmun"
         }
       },
       "use": {
-        "title": "Məlumatlarınızı Necə İstifadə Edirik",
-        "personalize": "Dağ macərası təcrübənizi təmin etmək və fərdiləşdirmək üçün",
-        "track": "Nailiyyətlərinizi və alpinizm irəliləyişinizi izləmək üçün",
+        "title": "Məlumatlarınızı necə istifadə edirik",
+        "personalize": "Təcrübənizi fərdiləşdirmək üçün",
+        "track": "Nailiyyətlərinizi və irəliləyişinizi izləmək üçün",
         "process": "Səyahət sifarişlərini emal etmək və vacib yeniləmələr göndərmək üçün",
         "improve": "Xidmətlərimizi yaxşılaşdırmaq və yeni funksiyalar inkişaf etdirmək üçün"
       },
       "protect": {
-        "title": "Məlumatlarınızı Necə Qoruyuruq",
-        "encrypted": "Bütün məlumat ötürmələri üçün təhlükəsiz şifrələnmiş bağlantılar",
+        "title": "Məlumatlarınızı necə qoruyuruq",
+        "encrypted": "Bütün məlumat ötürmələri üçün şifrələnmiş təhlükəsiz bağlantılar",
         "noSell": "Şəxsi məlumatlarınızı heç vaxt üçüncü tərəflərə satmırıq",
         "delete": "Hesabınızı və məlumatlarınızı istənilən vaxt silə bilərsiniz"
       },
       "contact": {
-        "title": "Bizimlə Əlaqə",
-        "text": "Məxfiliyinizlə bağlı suallar? Bizimlə əlaqə saxlayın"
+        "title": "Bizimlə əlaqə",
+        "text": "Məxfiliklə bağlı suallarınız varsa bizimlə əlaqə saxlayın"
       }
     }
   },
   "invite": {
-    "title": "Səyahət Dəvəti",
-    "notFound": "Dəvət Tapılmadı",
-    "invalidOrExpired": "Bu dəvət linki etibarsız ola bilər və ya müddəti bitib.",
-    "browseAllTrips": "Bütün Səyahətlərə Bax",
+    "title": "Səyahət dəvəti",
+    "notFound": "Dəvət tapılmadı",
+    "invalidOrExpired": "Bu dəvət linki etibarsızdır və ya müddəti bitib.",
+    "browseAllTrips": "Bütün səyahətlərə bax",
     "invitedByName": "{{name}} sizi bu səyahətə qoşulmağa dəvət etdi",
     "invitedGeneric": "Siz bu macəraya qoşulmağa dəvət olunmusunuz",
     "maxGroupSize": "Maksimum qrup ölçüsü:",
     "expired": "Bu dəvətin müddəti bitib",
-    "viewTripDetails": "Səyahət Təfərrüatlarına Bax",
+    "viewTripDetails": "Səyahət təfərrüatlarına bax",
     "accepted": "Dəvət qəbul edildi",
-    "signInToAccept": "Dəvəti Qəbul Etmək Üçün Daxil Olun",
+    "signInToAccept": "Dəvəti qəbul etmək üçün daxil olun",
     "signInHint": "Bu səyahətə qoşulmaq üçün hesabınızla daxil olun",
     "accepting": "Qəbul edilir...",
-    "acceptAndView": "Dəvəti Qəbul Et və Səyahətə Bax",
-    "browseOtherTrips": "Digər Səyahətlərə Bax",
+    "acceptAndView": "Dəvəti qəbul et və səyahətə bax",
+    "browseOtherTrips": "Digər səyahətlərə bax",
     "toast": {
       "acceptedTitle": "Dəvət qəbul edildi",
       "acceptedDescription": "İndi bu səyahətə baxa və sifariş edə bilərsiniz",
@@ -649,44 +647,44 @@
     }
   },
   "notFound": {
-    "title": "404 Səhifə Tapılmadı",
-    "message": "Səhifəni routerə əlavə etməyi unutdunuz?"
+    "title": "404 — Səhifə tapılmadı",
+    "message": "Səhifə tapılmadı. Routerə əlavə etməyi unutmusunuz?"
   },
   "terms": {
     "backToHome": "Ana səhifəyə qayıt",
-    "title": "Xidmət Şərtləri",
+    "title": "Xidmət şərtləri",
     "lastUpdated": "Son yenilənmə: Noyabr 2025",
-    "intro": "AzMountain-a xoş gəlmisiniz! Platformamızdan istifadə edərək, bütün dağ macəraçıları üçün təhlükəsiz və xoş təcrübə saxlamağımıza kömək edən bu sadə şərtlərlə razılaşırsınız.",
+    "intro": "AzMountain-a xoş gəlmişsiniz! Platformamızdan istifadə etməklə, təhlükəsiz və xoş bir təcrübə təmin etmək məqsədi ilə bu şərtlərlə razılaşırsınız.",
     "sections": {
       "usage": {
-        "title": "AzMountain-dan İstifadə",
+        "title": "AzMountain-dan istifadə",
         "age": "Hesab yaratmaq üçün ən azı 18 yaşında olmalısınız",
-        "accurate": "Səyahət sifariş edərkən dəqiq məlumat verin",
+        "accurate": "Səyahət sifariş edərkən düzgün məlumat verin",
         "respect": "Digər istifadəçilərə hörmət edin və dürüst, faydalı rəylər paylaşın",
         "secure": "Hesab məlumatlarınızı təhlükəsiz saxlayın"
       },
       "trips": {
-        "title": "Səyahət Sifarişləri",
+        "title": "Səyahət sifarişləri",
         "availability": "Sifarişlər mövcudluğa və hava şəraitinə bağlıdır",
         "safety": "Səyahət liderləri tərəfindən verilən bütün təhlükəsizlik təlimatlarına əməl edin",
-        "cancellation": "Ləğv siyasətləri səyahətdən asılı olaraq dəyişir - sifariş etməzdən əvvəl təfərrüatları yoxlayın",
-        "fitness": "Seçdiyiniz çətinlik üçün uyğun fiziki hazırlığınız olduğundan əmin olun"
+        "cancellation": "Ləğv siyasəti səyahətdən asılı olaraq dəyişir — sifariş etməzdən əvvəl şərtləri yoxlayın",
+        "fitness": "Seçdiyiniz çətinliyə uyğun fiziki hazırlığınız olduğundan əmin olun"
       },
       "safety": {
-        "title": "Təhlükəsizlik və Məsuliyyət",
-        "risks": "Dağ fəaliyyətləri təbii risklər daşıyır - öz mülahizənizlə iştirak edin",
-        "insurance": "Uyğun səyahət və sağlamlıq sığortası tövsiyə edirik",
-        "regulations": "Yerli qaydalara əməl edin və təbii mühitə hörmət edin"
+        "title": "Təhlükəsizlik və məsuliyyət",
+        "risks": "Dağ fəaliyyətləri təbii risklər daşıyır — iştirak edərkən ehtiyatlı olun",
+        "insurance": "Uyğun səyahət və sağlamlıq sığortası tövsiyə olunur",
+        "regulations": "Yerli qaydalara əməl edin və təbii mühiti qoruyun"
       },
       "content": {
-        "title": "Sizin Məzmununuz",
+        "title": "Sizin məzmununuz",
         "ownership": "Paylaşdığınız şəkillər və rəylər sizə məxsusdur",
-        "permission": "Paylaşaraq, məzmununuzu platformada göstərmək üçün bizə icazə verirsiniz",
-        "prohibited": "Zərərli, təhqiredici və ya müəllif hüquqları ilə qorunan məzmun paylaşmayın"
+        "permission": "Paylaşaraq, məzmununuzun platformada göstərilməsi üçün bizə icazə vermiş olursunuz",
+        "prohibited": "Zərərli, təhqiredici və müəllif hüquqları ilə qorunan məzmun paylaşmayın"
       }
     },
     "contact": {
-      "text": "Bu şərtlərlə bağlı suallar? Bizimlə əlaqə saxlayın"
+      "text": "Bu şərtlərlə bağlı suallarınız varsa bizimlə əlaqə saxlayın"
     }
   }
 }
