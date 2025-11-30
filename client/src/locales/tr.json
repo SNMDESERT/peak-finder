@@ -557,6 +557,7 @@
     "achievementBadges": "Başarı Rozetleri",
     "travelerReviews": "Gezgin Yorumları",
     "aboutUs": "Hakkımızda",
+    "ourTeam": "Ekibimiz",
     "contact": "İletişim",
     "newsletter": "Bülten",
     "newsletterDesc": "En son dağ maceraları ve özel teklifler için abone olun.",
@@ -687,6 +688,32 @@
     },
     "contact": {
       "text": "Bu şartlarla ilgili sorularınız mı var? Bize ulaşın"
+    }
+  },
+  "team": {
+    "backToHome": "Ana Sayfaya Dön",
+    "badge": "Ekibimiz",
+    "title": "Ekiple Tanışın",
+    "description": "Azerbaycan'da size en iyi dağ turizmi deneyimini sunmaya adanmış AzMountain'in arkasındaki tutkulu insanlar.",
+    "hackathonNote": "Hackathon sırasında tutkuyla geliştirildi",
+    "madeIn": "Azerbaycan'da Yapıldı",
+    "members": {
+      "huseyn": {
+        "name": "Hüseyin Memmedli",
+        "role": "Geliştirici"
+      },
+      "ibrahim": {
+        "name": "İbrahim Süleymanlı",
+        "role": "UI/UX Tasarımcısı"
+      },
+      "gulay": {
+        "name": "Gülay Elizade",
+        "role": "Araştırmacı"
+      },
+      "shabnam": {
+        "name": "Şebnem İsganderli",
+        "role": "Marka Stratejisti"
+      }
     }
   },
   "achievementNames": {

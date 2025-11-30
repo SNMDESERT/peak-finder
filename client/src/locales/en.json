@@ -557,6 +557,7 @@
     "achievementBadges": "Achievement Badges",
     "travelerReviews": "Traveler Reviews",
     "aboutUs": "About Us",
+    "ourTeam": "Our Team",
     "contact": "Contact",
     "newsletter": "Newsletter",
     "newsletterDesc": "Subscribe to get the latest mountain adventures and exclusive offers.",
@@ -687,6 +688,32 @@
     },
     "contact": {
       "text": "Questions about these terms? Contact us at"
+    }
+  },
+  "team": {
+    "backToHome": "Back to Home",
+    "badge": "Our Team",
+    "title": "Meet the Team",
+    "description": "The passionate people behind AzMountain who are dedicated to bringing you the best mountain tourism experience in Azerbaijan.",
+    "hackathonNote": "Built with passion during the hackathon",
+    "madeIn": "Made in Azerbaijan",
+    "members": {
+      "huseyn": {
+        "name": "Huseyn Mammadli",
+        "role": "Developer"
+      },
+      "ibrahim": {
+        "name": "Ibrahim Suleymanli",
+        "role": "UI/UX Designer"
+      },
+      "gulay": {
+        "name": "Gulay Alizade",
+        "role": "Researcher"
+      },
+      "shabnam": {
+        "name": "Shabnam Isgandarli",
+        "role": "Brand Strategist"
+      }
     }
   },
   "achievementNames": {

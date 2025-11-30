@@ -19,6 +19,7 @@ import Dashboard from "@/pages/Dashboard";
 import InvitePage from "@/pages/InvitePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import Team from "@/pages/Team";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/invite/:code" component={InvitePage} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
+      <Route path="/team" component={Team} />
       <Route component={NotFound} />
     </Switch>
   );

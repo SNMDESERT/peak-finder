@@ -105,6 +105,13 @@ export function Footer() {
                     </span>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/team" data-testid="link-footer-team">
+                    <span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer text-sm">
+                      {t("footer.ourTeam", "Our Team")}
+                    </span>
+                  </Link>
+                </li>
               </ul>
             </div>
 
