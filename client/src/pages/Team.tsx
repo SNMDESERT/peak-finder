@@ -2,14 +2,21 @@ import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Link } from "wouter";
 import { Users, Code, Palette, Search, Sparkles, ArrowLeft, Mountain } from "lucide-react";
+
+import huseynPhoto from "@assets/huseyn_1764484494735.jpeg";
+import ibrahimPhoto from "@assets/ibrahim_1764484494735.jpeg";
+import gulayPhoto from "@assets/gulay_1764484494736.jpeg";
+import shabnamPhoto from "@assets/shabnam_1764484494732.jpeg";
 
 interface TeamMember {
   id: string;
   nameKey: string;
   roleKey: string;
   icon: typeof Code;
+  photo: string;
   gradient: string;
   iconColor: string;
 }
@@ -20,6 +27,7 @@ const teamMembers: TeamMember[] = [
     nameKey: "team.members.huseyn.name",
     roleKey: "team.members.huseyn.role",
     icon: Code,
+    photo: huseynPhoto,
     gradient: "from-primary/20 to-primary/5",
     iconColor: "text-primary",
   },
@@ -28,6 +36,7 @@ const teamMembers: TeamMember[] = [
     nameKey: "team.members.ibrahim.name",
     roleKey: "team.members.ibrahim.role",
     icon: Palette,
+    photo: ibrahimPhoto,
     gradient: "from-secondary/20 to-secondary/5",
     iconColor: "text-secondary",
   },
@@ -36,6 +45,7 @@ const teamMembers: TeamMember[] = [
     nameKey: "team.members.gulay.name",
     roleKey: "team.members.gulay.role",
     icon: Search,
+    photo: gulayPhoto,
     gradient: "from-emerald-500/20 to-emerald-500/5",
     iconColor: "text-emerald-500",
   },
@@ -44,6 +54,7 @@ const teamMembers: TeamMember[] = [
     nameKey: "team.members.shabnam.name",
     roleKey: "team.members.shabnam.role",
     icon: Sparkles,
+    photo: shabnamPhoto,
     gradient: "from-purple-500/20 to-purple-500/5",
     iconColor: "text-purple-500",
   },
@@ -104,12 +115,19 @@ export default function Team() {
               >
                 <CardContent className="p-8">
                   <div className="flex flex-col items-center text-center space-y-4">
-                    <div
-                      className={`w-20 h-20 rounded-full bg-background flex items-center justify-center shadow-lg border border-card-border`}
+                    <Avatar
+                      className="w-24 h-24 border-4 border-background shadow-lg"
                       data-testid={`avatar-${member.id}`}
                     >
-                      <IconComponent className={`h-10 w-10 ${member.iconColor}`} />
-                    </div>
+                      <AvatarImage
+                        src={member.photo}
+                        alt={t(member.nameKey)}
+                        className="object-cover"
+                      />
+                      <AvatarFallback className="bg-background">
+                        <IconComponent className={`h-10 w-10 ${member.iconColor}`} />
+                      </AvatarFallback>
+                    </Avatar>
                     
                     <div className="space-y-2">
                       <h3
