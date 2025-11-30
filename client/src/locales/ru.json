@@ -688,5 +688,49 @@
     "contact": {
       "text": "Вопросы об этих условиях? Свяжитесь с нами"
     }
+  },
+  "achievementNames": {
+    "golden_horse_rider": "Золотой Всадник",
+    "karabakh_explorer": "Исследователь Карабаха",
+    "karabakh_master": "Мастер Карабаха",
+    "fortress_discoverer": "Открыватель Крепостей",
+    "ancient_heritage_seeker": "Искатель Древнего Наследия",
+    "silk_road_traveler": "Путешественник Шёлкового Пути",
+    "caravan_master": "Мастер Караванов",
+    "peak_beginner": "Начинающий Альпинист",
+    "summit_seeker": "Искатель Вершин",
+    "caucasus_champion": "Чемпион Кавказа",
+    "mountain_legend": "Горная Легенда",
+    "carpet_artist": "Ковровый Мастер",
+    "cultural_ambassador": "Культурный Посол",
+    "ancient_art_seeker": "Искатель Древнего Искусства",
+    "petroglyph_expert": "Эксперт по Петроглифам",
+    "history_guardian": "Хранитель Истории",
+    "first_steps": "Первые Шаги",
+    "rising_adventurer": "Восходящий Искатель Приключений",
+    "azerbaijan_explorer": "Исследователь Азербайджана",
+    "grand_master_explorer": "Великий Мастер-Исследователь"
+  },
+  "achievementDescriptions": {
+    "golden_horse_rider": "Завершите свой первый поход в регионе Карабах",
+    "karabakh_explorer": "Завершите 3 похода в регионе Карабах",
+    "karabakh_master": "Завершите 5 походов в Карабахе и заработайте 2000 очков",
+    "fortress_discoverer": "Завершите свой первый поход в регионе Нахичевань",
+    "ancient_heritage_seeker": "Завершите 3 похода в Нахичевани",
+    "silk_road_traveler": "Завершите свой первый поход в регионе Шеки",
+    "caravan_master": "Завершите 3 похода по Шёлковому Пути в Шеки",
+    "peak_beginner": "Завершите свой первый горный поход в Габале",
+    "summit_seeker": "Завершите 5 восхождений в Габале",
+    "caucasus_champion": "Покорите все главные вершины в регионе Габала",
+    "mountain_legend": "Достигните статуса мастера в Габале с 15 завершёнными походами",
+    "carpet_artist": "Завершите свой первый культурный поход в Гяндже",
+    "cultural_ambassador": "Завершите 3 культурных мероприятия в Гяндже",
+    "ancient_art_seeker": "Посетите петроглифы Гобустана",
+    "petroglyph_expert": "Завершите 3 исследования в Гобустане",
+    "history_guardian": "Освойте древнюю историю Гобустана",
+    "first_steps": "Завершите своё самое первое горное приключение",
+    "rising_adventurer": "Достигните 5-го уровня и исследуйте несколько регионов",
+    "azerbaijan_explorer": "Посетите все 6 регионов Азербайджана",
+    "grand_master_explorer": "Достигните легендарного статуса с максимальными очками"
   }
 }

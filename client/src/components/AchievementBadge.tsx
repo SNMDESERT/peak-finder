@@ -96,13 +96,13 @@ export function AchievementBadge({
             className="font-semibold text-sm line-clamp-1"
             data-testid={`badge-name-${achievement.id}`}
           >
-            {achievement.name}
+            {t(`achievementNames.${achievement.name.replace(/\s+/g, '_').toLowerCase()}`, achievement.name)}
           </h4>
           <p
             className="text-xs text-muted-foreground line-clamp-2"
             data-testid={`badge-description-${achievement.id}`}
           >
-            {achievement.description}
+            {t(`achievementDescriptions.${achievement.name.replace(/\s+/g, '_').toLowerCase()}`, achievement.description)}
           </p>
         </div>
 

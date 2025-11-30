@@ -686,5 +686,49 @@
     "contact": {
       "text": "Bu şərtlərlə bağlı suallarınız varsa bizimlə əlaqə saxlayın"
     }
+  },
+  "achievementNames": {
+    "golden_horse_rider": "Qızıl At Süvarisi",
+    "karabakh_explorer": "Qarabağ Kəşfiyyatçısı",
+    "karabakh_master": "Qarabağ Ustası",
+    "fortress_discoverer": "Qala Kəşfçisi",
+    "ancient_heritage_seeker": "Qədim İrs Axtarıcısı",
+    "silk_road_traveler": "İpək Yolu Səyyahı",
+    "caravan_master": "Karvan Ustası",
+    "peak_beginner": "Zirvə Başlangıcı",
+    "summit_seeker": "Zirvə Axtarıcısı",
+    "caucasus_champion": "Qafqaz Çempionu",
+    "mountain_legend": "Dağ Əfsanəsi",
+    "carpet_artist": "Xalça Sənətkarı",
+    "cultural_ambassador": "Mədəniyyət Səfiri",
+    "ancient_art_seeker": "Qədim Sənət Axtarıcısı",
+    "petroglyph_expert": "Petroqlif Eksperti",
+    "history_guardian": "Tarix Qoruyucusu",
+    "first_steps": "İlk Addımlar",
+    "rising_adventurer": "Yüksələn Macəraçı",
+    "azerbaijan_explorer": "Azərbaycan Kəşfiyyatçısı",
+    "grand_master_explorer": "Böyük Usta Kəşfiyyatçı"
+  },
+  "achievementDescriptions": {
+    "golden_horse_rider": "Qarabağ bölgəsində ilk səyahətinizi tamamlayın",
+    "karabakh_explorer": "Qarabağ bölgəsində 3 səyahət tamamlayın",
+    "karabakh_master": "Qarabağda 5 səyahət tamamlayın və 2000 xal qazanın",
+    "fortress_discoverer": "Naxçıvan bölgəsində ilk səyahətinizi tamamlayın",
+    "ancient_heritage_seeker": "Naxçıvanda 3 səyahət tamamlayın",
+    "silk_road_traveler": "Şəki bölgəsində ilk səyahətinizi tamamlayın",
+    "caravan_master": "Şəkidə İpək Yolu boyunca 3 səyahət tamamlayın",
+    "peak_beginner": "Qəbələdə ilk dağ səyahətinizi tamamlayın",
+    "summit_seeker": "Qəbələdə 5 alpinizm səyahəti tamamlayın",
+    "caucasus_champion": "Qəbələ bölgəsindəki bütün əsas zirvələri fəth edin",
+    "mountain_legend": "15 səyahət tamamlayaraq Qəbələdə usta statusuna çatın",
+    "carpet_artist": "Gəncədə ilk mədəni səyahətinizi tamamlayın",
+    "cultural_ambassador": "Gəncədə 3 mədəni təcrübə tamamlayın",
+    "ancient_art_seeker": "Qobustan petroqliflərini ziyarət edin",
+    "petroglyph_expert": "Qobustanda 3 kəşf tamamlayın",
+    "history_guardian": "Qobustanın qədim tarixini mənimsəyin",
+    "first_steps": "İlk dağ macəranızı tamamlayın",
+    "rising_adventurer": "5-ci səviyyəyə çatın və bir neçə bölgə kəşf edin",
+    "azerbaijan_explorer": "Azərbaycanın bütün 6 bölgəsini ziyarət edin",
+    "grand_master_explorer": "Maksimum xallarla əfsanəvi statusa çatın"
   }
 }

@@ -688,5 +688,49 @@
     "contact": {
       "text": "Questions about these terms? Contact us at"
     }
+  },
+  "achievementNames": {
+    "golden_horse_rider": "Golden Horse Rider",
+    "karabakh_explorer": "Karabakh Explorer",
+    "karabakh_master": "Karabakh Master",
+    "fortress_discoverer": "Fortress Discoverer",
+    "ancient_heritage_seeker": "Ancient Heritage Seeker",
+    "silk_road_traveler": "Silk Road Traveler",
+    "caravan_master": "Caravan Master",
+    "peak_beginner": "Peak Beginner",
+    "summit_seeker": "Summit Seeker",
+    "caucasus_champion": "Caucasus Champion",
+    "mountain_legend": "Mountain Legend",
+    "carpet_artist": "Carpet Artist",
+    "cultural_ambassador": "Cultural Ambassador",
+    "ancient_art_seeker": "Ancient Art Seeker",
+    "petroglyph_expert": "Petroglyph Expert",
+    "history_guardian": "History Guardian",
+    "first_steps": "First Steps",
+    "rising_adventurer": "Rising Adventurer",
+    "azerbaijan_explorer": "Azerbaijan Explorer",
+    "grand_master_explorer": "Grand Master Explorer"
+  },
+  "achievementDescriptions": {
+    "golden_horse_rider": "Complete your first trip in the Karabakh region",
+    "karabakh_explorer": "Complete 3 trips in the Karabakh region",
+    "karabakh_master": "Complete 5 trips in Karabakh and earn 2000 points",
+    "fortress_discoverer": "Complete your first trip in the Nakhchivan region",
+    "ancient_heritage_seeker": "Complete 3 trips in Nakhchivan",
+    "silk_road_traveler": "Complete your first trip in the Shaki region",
+    "caravan_master": "Complete 3 trips along the Silk Road in Shaki",
+    "peak_beginner": "Complete your first mountain trip in Gabala",
+    "summit_seeker": "Complete 5 climbing trips in Gabala",
+    "caucasus_champion": "Conquer all major peaks in Gabala region",
+    "mountain_legend": "Achieve master status in Gabala with 15 completed trips",
+    "carpet_artist": "Complete your first cultural trip in Ganja",
+    "cultural_ambassador": "Complete 3 cultural experiences in Ganja",
+    "ancient_art_seeker": "Visit the Gobustan petroglyphs",
+    "petroglyph_expert": "Complete 3 explorations in Gobustan",
+    "history_guardian": "Master the ancient history of Gobustan",
+    "first_steps": "Complete your very first mountain adventure",
+    "rising_adventurer": "Reach Level 5 and explore multiple regions",
+    "azerbaijan_explorer": "Visit all 6 regions of Azerbaijan",
+    "grand_master_explorer": "Achieve legendary status with maximum points"
   }
 }

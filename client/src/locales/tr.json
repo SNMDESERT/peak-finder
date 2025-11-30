@@ -688,5 +688,49 @@
     "contact": {
       "text": "Bu şartlarla ilgili sorularınız mı var? Bize ulaşın"
     }
+  },
+  "achievementNames": {
+    "golden_horse_rider": "Altın At Süvarisi",
+    "karabakh_explorer": "Karabağ Kaşifi",
+    "karabakh_master": "Karabağ Ustası",
+    "fortress_discoverer": "Kale Kaşifi",
+    "ancient_heritage_seeker": "Antik Miras Arayıcısı",
+    "silk_road_traveler": "İpek Yolu Seyyahı",
+    "caravan_master": "Kervan Ustası",
+    "peak_beginner": "Zirve Başlangıcı",
+    "summit_seeker": "Zirve Arayıcısı",
+    "caucasus_champion": "Kafkas Şampiyonu",
+    "mountain_legend": "Dağ Efsanesi",
+    "carpet_artist": "Halı Sanatçısı",
+    "cultural_ambassador": "Kültür Elçisi",
+    "ancient_art_seeker": "Antik Sanat Arayıcısı",
+    "petroglyph_expert": "Petroglif Uzmanı",
+    "history_guardian": "Tarih Koruyucusu",
+    "first_steps": "İlk Adımlar",
+    "rising_adventurer": "Yükselen Maceracı",
+    "azerbaijan_explorer": "Azerbaycan Kaşifi",
+    "grand_master_explorer": "Büyük Usta Kaşif"
+  },
+  "achievementDescriptions": {
+    "golden_horse_rider": "Karabağ bölgesinde ilk seyahatinizi tamamlayın",
+    "karabakh_explorer": "Karabağ bölgesinde 3 seyahat tamamlayın",
+    "karabakh_master": "Karabağ'da 5 seyahat tamamlayın ve 2000 puan kazanın",
+    "fortress_discoverer": "Nahçıvan bölgesinde ilk seyahatinizi tamamlayın",
+    "ancient_heritage_seeker": "Nahçıvan'da 3 seyahat tamamlayın",
+    "silk_road_traveler": "Şeki bölgesinde ilk seyahatinizi tamamlayın",
+    "caravan_master": "Şeki'de İpek Yolu boyunca 3 seyahat tamamlayın",
+    "peak_beginner": "Gabala'da ilk dağ seyahatinizi tamamlayın",
+    "summit_seeker": "Gabala'da 5 tırmanış seyahati tamamlayın",
+    "caucasus_champion": "Gabala bölgesindeki tüm büyük zirveleri fethedin",
+    "mountain_legend": "15 seyahat tamamlayarak Gabala'da usta statüsüne ulaşın",
+    "carpet_artist": "Gence'de ilk kültürel seyahatinizi tamamlayın",
+    "cultural_ambassador": "Gence'de 3 kültürel deneyim tamamlayın",
+    "ancient_art_seeker": "Gobustan petrogliflerini ziyaret edin",
+    "petroglyph_expert": "Gobustan'da 3 keşif tamamlayın",
+    "history_guardian": "Gobustan'ın antik tarihini öğrenin",
+    "first_steps": "İlk dağ maceranızı tamamlayın",
+    "rising_adventurer": "5. seviyeye ulaşın ve birden fazla bölge keşfedin",
+    "azerbaijan_explorer": "Azerbaycan'ın tüm 6 bölgesini ziyaret edin",
+    "grand_master_explorer": "Maksimum puanlarla efsanevi statüye ulaşın"
   }
 }
