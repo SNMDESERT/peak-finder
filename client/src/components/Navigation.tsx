@@ -84,7 +84,7 @@ export function Navigation() {
                     : "text-white"
                 }`}
               >
-                AzMountain
+                Peak Finder
               </span>
             </div>
           </Link>

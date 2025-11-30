@@ -1,8 +1,8 @@
-# AzMountain - Azerbaijan Mountain Tourism Platform
+# Peak Finder - Azerbaijan Mountain Tourism Platform
 
 ## Overview
 
-AzMountain is a mountain tourism platform for Azerbaijan that gamifies the climbing experience through regional achievement badges. The application allows users to discover mountain trips, earn cultural achievements representing Azerbaijan's regions (Karabakh, Nakhchivan, Shaki, Gabala, Ganja, Gobustan), track their climbing progress, and share reviews. It combines practical trip planning with cultural heritage celebration, creating an immersive experience that connects adventurers with Azerbaijan's rich mountain landscapes and traditions.
+Peak Finder is a mountain tourism platform for Azerbaijan that gamifies the climbing experience through regional achievement badges. The application allows users to discover mountain trips, earn cultural achievements representing Azerbaijan's regions (Karabakh, Nakhchivan, Shaki, Gabala, Ganja, Gobustan), track their climbing progress, and share reviews. It combines practical trip planning with cultural heritage celebration, creating an immersive experience that connects adventurers with Azerbaijan's rich mountain landscapes and traditions.
 
 ## User Preferences
 

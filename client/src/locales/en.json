@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "AzMountain",
+    "appName": "Peak Finder",
     "login": "Login",
     "logout": "Logout",
     "explore": "Explore",
@@ -265,7 +265,7 @@
     "earnedOn": "Earned",
     "levelRequired": "Lvl",
     "shareTitle": "I earned the \"{{name}}\" badge!",
-    "tierAchievement": "tier achievement on AzMountain",
+    "tierAchievement": "tier achievement on Peak Finder",
     "tiers": {
       "bronze": "Bronze",
       "silver": "Silver",
@@ -349,7 +349,7 @@
     "mission": {
       "badge": "Our Mission",
       "title": "Elevating Mountain Tourism in Azerbaijan",
-      "p1": "AzMountain was founded with a simple yet powerful vision: to transform how people experience Azerbaijan's magnificent mountain landscapes. We believe that every summit conquered and every trail explored should be celebrated.",
+      "p1": "Peak Finder was founded with a simple yet powerful vision: to transform how people experience Azerbaijan's magnificent mountain landscapes. We believe that every summit conquered and every trail explored should be celebrated.",
       "p2": "Our innovative achievement system rewards your adventures with authentic regional symbols, connecting you with the cultural heritage of each area you explore. From the legendary Karabakh horses to the ancient petroglyphs of Gobustan, every badge tells a story."
     },
     "stats": {
@@ -591,7 +591,7 @@
     "backToHome": "Back to Home",
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: November 2025",
-    "intro": "At AzMountain, we value your privacy. This policy explains how we collect, use, and protect your information when you use Azerbaijan's first mountain tourism app.",
+    "intro": "At Peak Finder, we value your privacy. This policy explains how we collect, use, and protect your information when you use Azerbaijan's first mountain tourism app.",
     "sections": {
       "collect": {
         "title": "Information We Collect",
@@ -658,10 +658,10 @@
     "backToHome": "Back to Home",
     "title": "Terms of Service",
     "lastUpdated": "Last updated: November 2025",
-    "intro": "Welcome to AzMountain! By using our platform, you agree to these simple terms that help us maintain a safe and enjoyable experience for all mountain adventurers.",
+    "intro": "Welcome to Peak Finder! By using our platform, you agree to these simple terms that help us maintain a safe and enjoyable experience for all mountain adventurers.",
     "sections": {
       "usage": {
-        "title": "Using AzMountain",
+        "title": "Using Peak Finder",
         "age": "You must be at least 18 years old to create an account",
         "accurate": "Provide accurate information when booking trips",
         "respect": "Respect other users and share honest, helpful reviews",
@@ -695,7 +695,7 @@
     "backToHome": "Back to Home",
     "badge": "Our Team",
     "title": "Meet the Team",
-    "description": "The passionate people behind AzMountain who are dedicated to bringing you the best mountain tourism experience in Azerbaijan.",
+    "description": "The passionate people behind Peak Finder who are dedicated to bringing you the best mountain tourism experience in Azerbaijan.",
     "hackathonNote": "Built with passion during the hackathon",
     "madeIn": "Made in Azerbaijan",
     "members": {

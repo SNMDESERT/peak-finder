@@ -91,7 +91,7 @@ export default function Team() {
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
               data-testid="text-team-description"
             >
-              {t("team.description", "The passionate people behind AzMountain who are dedicated to bringing you the best mountain tourism experience in Azerbaijan.")}
+              {t("team.description", "The passionate people behind Peak Finder who are dedicated to bringing you the best mountain tourism experience in Azerbaijan.")}
             </p>
           </div>
 

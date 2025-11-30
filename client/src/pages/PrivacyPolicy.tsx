@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
           <Card data-testid="card-privacy-intro">
             <CardContent className="p-6">
               <p className="text-muted-foreground leading-relaxed">
-                {t("privacy.intro", "At AzMountain, we value your privacy. This policy explains how we collect, use, and protect your information when you use Azerbaijan's first mountain tourism app.")}
+                {t("privacy.intro", "At Peak Finder, we value your privacy. This policy explains how we collect, use, and protect your information when you use Azerbaijan's first mountain tourism app.")}
               </p>
             </CardContent>
           </Card>

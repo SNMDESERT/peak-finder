@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "AzMountain",
+    "appName": "Peak Finder",
     "login": "Daxil ol",
     "logout": "Çıxış",
     "explore": "Kəşf et",
@@ -263,7 +263,7 @@
     "earnedOn": "Qazanıldığı tarix",
     "levelRequired": "Səviyyə tələb olunur",
     "shareTitle": "Mən \"{{name}}\" nişanını qazandım!",
-    "tierAchievement": "səviyyəli nailiyyət AzMountain-də",
+    "tierAchievement": "səviyyəli nailiyyət Peak Finder-də",
     "tiers": {
       "bronze": "Bürünc",
       "silver": "Gümüş",
@@ -347,7 +347,7 @@
     "mission": {
       "badge": "Missiyamız",
       "title": "Azərbaycanda dağ turizmini inkişaf etdiririk",
-      "p1": "AzMountain sadə, lakin güclü bir vizyonla yaradıldı: insanların Azərbaycanın möhtəşəm dağ mənzərələrini necə yaşadığını dəyişdirmək.",
+      "p1": "Peak Finder sadə, lakin güclü bir vizyonla yaradıldı: insanların Azərbaycanın möhtəşəm dağ mənzərələrini necə yaşadığını dəyişdirmək.",
       "p2": "İnnovativ nailiyyət sistemimiz macəralarınızı əsl regional simvollarla mükafatlandırır və sizi kəşf etdiyiniz hər bölgənin mədəni irsi ilə birləşdirir."
     },
     "stats": {
@@ -589,7 +589,7 @@
     "backToHome": "Ana səhifəyə qayıt",
     "title": "Məxfilik siyasəti",
     "lastUpdated": "Son yenilənmə: Noyabr 2025",
-    "intro": "AzMountain-da məxfiliyinizə dəyər veririk. Bu siyasət tətbiqdən istifadə edərkən məlumatlarınızı necə topladığımızı, istifadə etdiyimizi və qoruduğumuzu izah edir.",
+    "intro": "Peak Finder-də məxfiliyinizə dəyər veririk. Bu siyasət tətbiqdən istifadə edərkən məlumatlarınızı necə topladığımızı, istifadə etdiyimizi və qoruduğumuzu izah edir.",
     "sections": {
       "collect": {
         "title": "Topladığımız məlumatlar",
@@ -656,10 +656,10 @@
     "backToHome": "Ana səhifəyə qayıt",
     "title": "Xidmət şərtləri",
     "lastUpdated": "Son yenilənmə: Noyabr 2025",
-    "intro": "AzMountain-a xoş gəlmişsiniz! Platformamızdan istifadə etməklə, təhlükəsiz və xoş bir təcrübə təmin etmək məqsədi ilə bu şərtlərlə razılaşırsınız.",
+    "intro": "Peak Finder-ə xoş gəlmişsiniz! Platformamızdan istifadə etməklə, təhlükəsiz və xoş bir təcrübə təmin etmək məqsədi ilə bu şərtlərlə razılaşırsınız.",
     "sections": {
       "usage": {
-        "title": "AzMountain-dan istifadə",
+        "title": "Peak Finder-dən istifadə",
         "age": "Hesab yaratmaq üçün ən azı 18 yaşında olmalısınız",
         "accurate": "Səyahət sifariş edərkən düzgün məlumat verin",
         "respect": "Digər istifadəçilərə hörmət edin və dürüst, faydalı rəylər paylaşın",
@@ -693,7 +693,7 @@
     "backToHome": "Ana Səhifəyə",
     "badge": "Komandamız",
     "title": "Komanda ilə Tanış Olun",
-    "description": "Azərbaycanda ən yaxşı dağ turizmi təcrübəsini sizə təqdim etməyə həsr olunmuş AzMountain-in arxasındakı həvəsli insanlar.",
+    "description": "Azərbaycanda ən yaxşı dağ turizmi təcrübəsini sizə təqdim etməyə həsr olunmuş Peak Finder-in arxasındakı həvəsli insanlar.",
     "hackathonNote": "Hackathon zamanı həvəslə hazırlanıb",
     "madeIn": "Azərbaycanda hazırlanıb",
     "members": {

@@ -32,7 +32,7 @@ export function Footer() {
                     <Mountain className="h-8 w-8 text-primary" />
                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full" />
                   </div>
-                  <span className="text-xl font-bold">AzMountain</span>
+                  <span className="text-xl font-bold">Peak Finder</span>
                 </div>
               </Link>
               <p className="text-muted-foreground text-sm leading-relaxed">
@@ -128,7 +128,7 @@ export function Footer() {
                 </li>
                 <li className="flex items-center gap-3 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>info@azmountain.az</span>
+                  <span>info@peakfinder.az</span>
                 </li>
               </ul>
             </div>
@@ -171,7 +171,7 @@ export function Footer() {
         <div className="py-6 border-t border-border">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} AzMountain. {t("footer.rights", "All rights reserved.")}
+              &copy; {new Date().getFullYear()} Peak Finder. {t("footer.rights", "All rights reserved.")}
             </p>
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <Link href="/privacy" data-testid="link-privacy-policy">

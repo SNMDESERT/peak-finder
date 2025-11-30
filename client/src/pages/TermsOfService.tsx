@@ -40,7 +40,7 @@ export default function TermsOfService() {
           <Card data-testid="card-terms-intro">
             <CardContent className="p-6">
               <p className="text-muted-foreground leading-relaxed">
-                {t("terms.intro", "Welcome to AzMountain! By using our platform, you agree to these simple terms that help us maintain a safe and enjoyable experience for all mountain adventurers.")}
+                {t("terms.intro", "Welcome to Peak Finder! By using our platform, you agree to these simple terms that help us maintain a safe and enjoyable experience for all mountain adventurers.")}
               </p>
             </CardContent>
           </Card>
@@ -49,7 +49,7 @@ export default function TermsOfService() {
             <div className="flex items-center gap-3">
               <CheckCircle className="h-5 w-5 text-primary" />
               <h2 className="text-xl font-semibold" data-testid="text-section-usage">
-                {t("terms.sections.usage.title", "Using AzMountain")}
+                {t("terms.sections.usage.title", "Using Peak Finder")}
               </h2>
             </div>
             <Card>

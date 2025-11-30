@@ -95,7 +95,7 @@ export default function About() {
                 className="text-muted-foreground text-lg mb-6 leading-relaxed"
                 data-testid="text-mission-p1"
               >
-                {t("about.mission.p1", "AzMountain was founded with a simple yet powerful vision: to transform how people experience Azerbaijan's magnificent mountain landscapes. We believe that every summit conquered and every trail explored should be celebrated.")}
+                {t("about.mission.p1", "Peak Finder was founded with a simple yet powerful vision: to transform how people experience Azerbaijan's magnificent mountain landscapes. We believe that every summit conquered and every trail explored should be celebrated.")}
               </p>
               <p
                 className="text-muted-foreground text-lg mb-6 leading-relaxed"

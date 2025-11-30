@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "AzMountain",
+    "appName": "Peak Finder",
     "login": "Giriş yap",
     "logout": "Çıkış",
     "explore": "Keşfet",
@@ -265,7 +265,7 @@
     "earnedOn": "Kazanıldı",
     "levelRequired": "Sv",
     "shareTitle": "\"{{name}}\" rozetini kazandım!",
-    "tierAchievement": "seviye başarısı AzMountain'de",
+    "tierAchievement": "seviye başarısı Peak Finder'da",
     "tiers": {
       "bronze": "Bronz",
       "silver": "Gümüş",
@@ -349,7 +349,7 @@
     "mission": {
       "badge": "Misyonumuz",
       "title": "Azerbaycan'da Dağ Turizmini Yükseltiyoruz",
-      "p1": "AzMountain basit ama güçlü bir vizyonla kuruldu: insanların Azerbaycan'ın muhteşem dağ manzaralarını nasıl deneyimlediklerini dönüştürmek. Her fethedilen zirvenin ve keşfedilen her patikanın kutlanması gerektiğine inanıyoruz.",
+      "p1": "Peak Finder basit ama güçlü bir vizyonla kuruldu: insanların Azerbaycan'ın muhteşem dağ manzaralarını nasıl deneyimlediklerini dönüştürmek. Her fethedilen zirvenin ve keşfedilen her patikanın kutlanması gerektiğine inanıyoruz.",
       "p2": "Yenilikçi başarı sistemimiz maceralarınızı otantik bölgesel sembollerle ödüllendiriyor ve sizi keşfettiğiniz her bölgenin kültürel mirasıyla buluşturuyor. Efsanevi Karabağ atlarından Gobustan'ın antik petroglíflerine kadar her rozet bir hikaye anlatıyor."
     },
     "stats": {
@@ -591,7 +591,7 @@
     "backToHome": "Ana Sayfaya Dön",
     "title": "Gizlilik Politikası",
     "lastUpdated": "Son güncelleme: Kasım 2025",
-    "intro": "AzMountain'de gizliliğinize değer veriyoruz. Bu politika, Azerbaycan'ın ilk dağ turizmi uygulamasını kullanırken bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.",
+    "intro": "Peak Finder'da gizliliğinize değer veriyoruz. Bu politika, Azerbaycan'ın ilk dağ turizmi uygulamasını kullanırken bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.",
     "sections": {
       "collect": {
         "title": "Topladığımız Bilgiler",
@@ -658,10 +658,10 @@
     "backToHome": "Ana Sayfaya Dön",
     "title": "Hizmet Şartları",
     "lastUpdated": "Son güncelleme: Kasım 2025",
-    "intro": "AzMountain'e hoş geldiniz! Platformumuzu kullanarak, tüm dağ maceracıları için güvenli ve keyifli bir deneyim sürdürmemize yardımcı olan bu basit şartları kabul ediyorsunuz.",
+    "intro": "Peak Finder'a hoş geldiniz! Platformumuzu kullanarak, tüm dağ maceracıları için güvenli ve keyifli bir deneyim sürdürmemize yardımcı olan bu basit şartları kabul ediyorsunuz.",
     "sections": {
       "usage": {
-        "title": "AzMountain'i Kullanma",
+        "title": "Peak Finder'ı Kullanma",
         "age": "Hesap oluşturmak için en az 18 yaşında olmalısınız",
         "accurate": "Gezi rezervasyonu yaparken doğru bilgi verin",
         "respect": "Diğer kullanıcılara saygı gösterin ve dürüst, yararlı yorumlar paylaşın",
@@ -695,7 +695,7 @@
     "backToHome": "Ana Sayfaya Dön",
     "badge": "Ekibimiz",
     "title": "Ekiple Tanışın",
-    "description": "Azerbaycan'da size en iyi dağ turizmi deneyimini sunmaya adanmış AzMountain'in arkasındaki tutkulu insanlar.",
+    "description": "Azerbaycan'da size en iyi dağ turizmi deneyimini sunmaya adanmış Peak Finder'ın arkasındaki tutkulu insanlar.",
     "hackathonNote": "Hackathon sırasında tutkuyla geliştirildi",
     "madeIn": "Azerbaycan'da Yapıldı",
     "members": {

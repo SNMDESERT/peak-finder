@@ -143,7 +143,7 @@ export function AchievementBadge({
           <div className="mt-2">
             <ShareButton
               title={t("achievements.shareTitle", "I earned the \"{{name}}\" badge!", { name: achievement.name })}
-              description={`${achievement.description} - ${getTierLabel(tier)} ${t("achievements.tierAchievement", "tier achievement on AzMountain")}`}
+              description={`${achievement.description} - ${getTierLabel(tier)} ${t("achievements.tierAchievement", "tier achievement on Peak Finder")}`}
               type="achievement"
               size="sm"
               variant="ghost"
