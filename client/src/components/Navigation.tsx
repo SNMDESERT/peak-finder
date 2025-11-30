@@ -39,6 +39,7 @@ export function Navigation() {
     { href: "/achievements", label: t("nav.achievements", "Achievements") },
     { href: "/reviews", label: t("nav.reviews", "Reviews") },
     { href: "/about", label: t("nav.about", "About") },
+    { href: "/team", label: t("nav.team", "Team") },
   ];
 
   useEffect(() => {
